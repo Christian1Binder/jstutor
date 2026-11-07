@@ -15,3 +15,8 @@ vm.createContext(storageCtx);vm.runInContext(fs.readFileSync(new URL('storage.js
 const store=storageCtx.window.JSTStore;store.create('Ada');assert.equal(store.profile.name,'Ada');store.profile.drafts['m01-01']={html:'<h1>A</h1>',css:'',js:'',assisted:true};store.save();const backup=store.export();store.create('Lin');store.import(backup);assert.equal(store.profile.name,'Ada');assert.equal(store.profile.drafts['m01-01'].assisted,true);
 for(const bad of ['{}','null','{"version":2,"profiles":[]}','{"version":1,"profiles":[{"id":"x","name":"X","drafts":{"evil":{}}}]}'])assert.throws(()=>store.import(bad));
 console.log('PASS: 20 modules, 200 unique exercises, syntax, prerequisites, local profiles and import validation.');
+const html=fs.readFileSync(new URL('index.html',root),'utf8');
+for(const match of html.matchAll(/(?:src|href)="\.\/([^"#]+)"/g))assert.ok(fs.existsSync(new URL(match[1],root)),`Missing local asset: ${match[1]}`);
+assert.ok(!/(?:src|href)="https?:\/\//.test(html),'Runtime HTML must not require external resources');
+const sw=fs.readFileSync(new URL('sw.js',root),'utf8');assert.ok(sw.includes("'./storage.js'")&&sw.includes("'./runner.js'"));
+console.log('PASS: local asset references and dependency-free HTML.');

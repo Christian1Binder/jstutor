@@ -207,8 +207,12 @@ window.CURRICULUM.push({
       ],
       "tests": [
         {
-          "label": "Zähle #action-Klicks; #reset setzt Zähler und Ausgabe auf 0.",
-          "code": "(()=>{document.querySelector('#action').click();document.querySelector('#reset').click();return document.querySelector('#output').textContent==='0'})()"
+          "label": "Klicks erhöhen den Zähler",
+          "code": "(()=>{document.querySelector('#action').click();document.querySelector('#action').click();return document.querySelector('#output').textContent==='2'})()"
+        },
+        {
+          "label": "Reset setzt zurück",
+          "code": "(document.querySelector('#reset').click(),document.querySelector('#output').textContent==='0')"
         }
       ],
       "prerequisites": [

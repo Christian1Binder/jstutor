@@ -33,3 +33,7 @@ Lernprüfungen sind transparent und clientseitig, keine manipulationssicheren Pr
 ## Validierung
 
 Die Schema-/Syntax-/Speichertests laufen im Pages-Workflow. Musterlösungen werden zusätzlich im echten Browser mit den Prüfungen der Lernumgebung ausgeführt; das Ergebnis des Erstlaufs wird in `docs/VALIDIERUNG.md` festgehalten. Die Gestaltung wurde als eigenständige Werkstatt entwickelt; fsbwit.com diente als Referenz für klare fachliche Kapitelstruktur, Inhalte wurden nicht übernommen.
+
+## Vorschau
+
+![jstutor Lernreise](docs/screenshots/preview.jpg)
