@@ -40,3 +40,18 @@ store.create('Schrift-Test');assert.equal(store.profile.fontSize,'standard');sto
 store.import(fontBackup);assert.equal(store.profile.fontSize,'xlarge');
 const unknown=JSON.parse(fontBackup);unknown.profiles[0].fontSize='invalid';assert.equal(store.validate(unknown).profiles[0].fontSize,'standard');
 console.log('PASS: font-size defaults, profile switching, export/import and invalid preferences.');
+// Layout preferences and minimized editors survive backup, malformed values do not.
+const legacy=store.validate(oldProfile).profiles[0];
+assert.equal(legacy.workspace.sidebarHidden,false);assert.equal(legacy.workspace.editorLayout,'columns');
+store.profile.workspace={sidebarHidden:true,editorLayout:'rows'};
+store.profile.drafts['m01-01'].minimizedEditors=['css','js'];store.save();
+const workspaceBackup=store.export();store.create('Layout-Test');assert.equal(store.profile.workspace.editorLayout,'columns');
+store.import(workspaceBackup);assert.equal(store.profile.workspace.sidebarHidden,true);assert.equal(store.profile.workspace.editorLayout,'rows');
+assert.equal(JSON.stringify(store.profile.drafts['m01-01'].minimizedEditors),'["css","js"]');
+const malformed=JSON.parse(workspaceBackup),target=malformed.profiles.find(p=>p.id===malformed.activeProfile);
+target.workspace={sidebarHidden:'true',editorLayout:'diagonal'};target.drafts['m01-01'].minimizedEditors=['html','html','unknown',null];
+const cleaned=store.validate(malformed).profiles.find(p=>p.id===malformed.activeProfile);
+assert.equal(cleaned.workspace.sidebarHidden,false);assert.equal(cleaned.workspace.editorLayout,'columns');assert.equal(JSON.stringify(cleaned.drafts['m01-01'].minimizedEditors),'["html"]');
+new vm.Script(fs.readFileSync(new URL('vendor/editor.js',root),'utf8'));
+assert.ok(sw.includes("'./vendor/editor.js'"));assert.ok(fs.existsSync(new URL('vendor/editor-LICENSES.txt',root)));
+console.log('PASS: workspace defaults, minimized editors, backup round-trip, invalid preferences and bundled editor syntax.');

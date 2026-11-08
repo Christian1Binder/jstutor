@@ -8,7 +8,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt</a>
-<aside class="sidebar" aria-label="Hauptnavigation">
+<aside class="sidebar" id="sidebar" aria-label="Hauptnavigation">
   <a class="brand" href="#reise" aria-label="jstutor Startseite"><span class="brand-icon">&lt;/&gt;</span>js<span>tutor</span><i>●</i></a>
   <div class="nav-label">DEINE WERKSTATT</div>
   <nav>
@@ -21,7 +21,7 @@
   <div class="sidebar-bottom"><button id="themeButton" class="quiet wide"><span>◐</span><span id="themeLabel">Dunkler Modus</span><kbd>D</kbd></button><button id="profileButton" class="profile-chip"><span class="avatar" id="sideAvatar">A</span><span><b id="sideName">Entdecker</b><small>Lokales Lernprofil</small></span><span>↗</span></button></div>
 </aside>
 <div class="page">
-  <header class="topbar"><span id="breadcrumb">Deine Werkstatt <span>/</span> Meine Reise</span><div class="top-actions"><label class="font-picker" for="fontSize"><span>Schrift</span><select id="fontSize" aria-label="Schriftgröße"><option value="standard">Standard</option><option value="large">Groß</option><option value="xlarge">Sehr groß</option></select></label><span class="local-pill"><i></i><span id="offlineLabel">Lokal gespeichert</span></span><span class="xp-pill" id="topXp">✦ 0 XP</span><button id="accountButton" class="icon-button" aria-label="Lernprofil öffnen">☺</button></div></header>
+  <header class="topbar"><button id="sidebarToggle" class="icon-button sidebar-toggle" aria-label="Navigation ausblenden" title="Navigation ausblenden" aria-controls="sidebar" aria-expanded="true">☰</button><span id="breadcrumb">Deine Werkstatt <span>/</span> Meine Reise</span><div class="top-actions"><label class="font-picker" for="fontSize"><span>Schrift</span><select id="fontSize" aria-label="Schriftgröße"><option value="standard">Standard</option><option value="large">Groß</option><option value="xlarge">Sehr groß</option></select></label><span class="local-pill"><i></i><span id="offlineLabel">Lokal gespeichert</span></span><span class="xp-pill" id="topXp">✦ 0 XP</span><button id="accountButton" class="icon-button" aria-label="Lernprofil öffnen">☺</button></div></header>
   <main id="main" tabindex="-1"></main>
   <footer class="site-footer"><span>Mit Neugier gebaut. Für deinen nächsten Schritt.</span><span>HTML · CSS · JavaScript <b> &lt;/&gt;</b></span></footer>
 </div>
@@ -29,6 +29,6 @@
 <dialog id="confirmDialog"><h2 id="confirmTitle"></h2><p id="confirmText"></p><div class="button-row"><button id="confirmCancel" class="secondary">Abbrechen</button><button id="confirmAccept" class="primary">Weiter</button></div></dialog>
 <div id="toast" role="status" class="toast" hidden></div>
 <script src="./data/m01.js"></script><script src="./data/m02.js"></script><script src="./data/m03.js"></script><script src="./data/m04.js"></script><script src="./data/m05.js"></script><script src="./data/m06.js"></script><script src="./data/m07.js"></script><script src="./data/m08.js"></script><script src="./data/m09.js"></script><script src="./data/m10.js"></script><script src="./data/m11.js"></script><script src="./data/m12.js"></script><script src="./data/m13.js"></script><script src="./data/m14.js"></script><script src="./data/m15.js"></script><script src="./data/m16.js"></script><script src="./data/m17.js"></script><script src="./data/m18.js"></script><script src="./data/m19.js"></script><script src="./data/m20.js"></script>
-<script src="./storage.js"></script><script src="./runner.js"></script><script src="./app.js"></script>
+<script src="./storage.js"></script><script src="./runner.js"></script><script src="./vendor/editor.js"></script><script src="./app.js"></script>
 <noscript>Diese Werkstatt benötigt JavaScript. Alle Inhalte und Editoren laufen direkt in deinem Browser.</noscript>
 </body></html>

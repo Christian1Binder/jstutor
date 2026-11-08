@@ -34,3 +34,13 @@ Zusätzlich bei 1920px Außenbreite gemessen: 1905px Inhalt ohne horizontales Ü
 - Browserprüfung: Erklärungstext 12px bei Standard, 14,4px bei Groß und 16,8px bei Sehr groß. Groß blieb nach Neuladen ausgewählt; Rückkehr zu Standard funktioniert.
 - Speicherprüfungen: fehlende/ungültige Präferenz fällt auf Standard zurück; neue Profile beginnen bei Standard; Profilwechsel erhält die jeweilige Auswahl; Export/Import bewahrt die Auswahl.
 - Syntax-, Inhalts-, Speicher- und Assetprüfungen sowie statischer Build erfolgreich. Übungsinhalte und ihre Prüfungen wurden nicht verändert.
+
+## Version 1.2 – Flexible Editoren
+
+- Schema-, Syntax-, Profil- und Importtests für 200 Übungen erfolgreich; neue Prüfungen für Workspace-Defaults, ungültige Einstellungen, minimierte Editoren und Export/Import erfolgreich.
+- Statischer Build enthält lokal gebündelten CodeMirror samt Lizenztexten und Offline-Cache-Einträgen.
+- Echter Browser: Syntaxfarben und Zeilennummern für HTML/CSS/JS sichtbar; Ctrl+Enter führt aus, Ctrl+Shift+Enter prüft eine Lösung erfolgreich (45 XP).
+- Navigation aus-/einblendbar; ausgeblendete Navigation gibt die gesamte Seitenbreite frei. Nebeneinander/untereinander, einzelne Minimierung, Soloansicht und vollständig minimierter Zustand funktionieren.
+- Neuladen bewahrt Code, Anordnung, Navigation und minimierte Editoren. Zurücksetzen stellt Startcode in CodeMirror wieder her.
+- Responsive-Prüfung im 390px- und 768px-Frame: Dokumentbreite entspricht Scrollbreite, kein horizontales Überlaufen der Seite. Schmale Editoren werden gestapelt.
+- Screenshot: `docs/screenshots/editors-v1.2.jpg`.

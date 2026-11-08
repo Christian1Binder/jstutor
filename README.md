@@ -51,3 +51,15 @@ Für den manuellen Webspace-Upload ersetzen: `app.js`, `runner.js`, `styles.css`
 Die ursprüngliche kompakte Schrift ist wieder Standard. Oben in der Kopfzeile kann jeder Nutzer **Standard**, **Groß (+20 %)** oder **Sehr groß (+40 %)** auswählen. Die Einstellung gehört zum lokalen Profil, bleibt nach Neuladen erhalten und wird mit exportiert/importiert. Alte Profile beginnen mit Standard. Die Schrift der eigenen Vorschau wird durch diese UI-Einstellung nicht verändert.
 
 Für dieses Update auf dem Webspace ersetzen: `index.html`, `styles.css`, `app.js`, `storage.js` und `sw.js`. Die Übungsdateien sind unverändert.
+
+## Version 1.2 – Flexible Code-Werkstatt
+
+Die Navigation lässt sich über ☰ ausblenden und wieder einblenden. HTML, CSS und JavaScript sind einzeln minimierbar; die Schaltflächen über den Editoren stellen sie wieder her. ↗ zeigt nur den gewählten Editor, „Nur Aufgaben-Editor“ konzentriert auf die aktuelle Aufgabe. Minimieren entfernt keinen Code; ausgeblendeter Code wird weiterhin in der Vorschau ausgeführt. Neue Übungen öffnen zunächst nur den Aufgaben-Editor. Über „Anordnung“ lassen sich mehrere Editoren nebeneinander oder untereinander anzeigen; schmale Bildschirme brechen Spalten automatisch um. Editorhöhen sind am unteren Rand veränderbar.
+
+CodeMirror 6 liefert Syntax-Highlighting, Zeilennummern, Einrückung, Undo/Redo und Suche. **⌘/Ctrl+Enter** führt aus, **⌘/Ctrl+Shift+Enter** prüft. Navigationszustand und Anordnung gehören zum lokalen Profil; minimierte Editoren werden pro Übungsentwurf gespeichert und mit exportiert. Die Schriftgrößenauswahl bleibt erhalten.
+
+Alle Editor-Dateien liegen lokal in `vendor/`; es gibt keine CDN-Abhängigkeit. `src/editor.js` ist der bearbeitbare Quellcode. Nach Änderungen daran: `npm ci` und `npm run build:editor`. Der fertige Bundle und seine MIT-Lizenztexte werden eingecheckt; der normale statische Build kopiert diese ohne Installation.
+
+**Manueller Webspace-Upload:** `index.html`, `app.js`, `storage.js`, `styles.css`, `sw.js` ersetzen und den vollständigen neuen Ordner **`vendor/`** hochladen. Alternativ den gesamten Inhalt von `dist/` nach `npm run build` übertragen. Bestehende Lernstände bleiben erhalten.
+
+![Flexible Editoren mit Syntax-Highlighting](docs/screenshots/editors-v1.2.jpg)
