@@ -5,10 +5,11 @@
   const ids = new Set(window.CURRICULUM.flatMap(m => m.exercises.map(e => e.id)));
   let lastFailure = false;
   const uid = () => typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : `p-${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  const makeProfile = (name = 'Entdecker') => ({ id: uid(), name, drafts: {}, completion: {}, bookmarks: [], lastExercise: 'm01-01' });
+  const makeProfile = (name = 'Entdecker') => ({ id: uid(), name, fontSize: 'standard', drafts: {}, completion: {}, bookmarks: [], lastExercise: 'm01-01' });
   function cleanProfile(p) {
     if (!p || typeof p.id !== 'string' || !/^[\w-]{1,80}$/.test(p.id) || typeof p.name !== 'string' || !p.name.trim()) throw Error('Ungültiges Profil.');
     const out = makeProfile(p.name.trim().slice(0,30));out.id=p.id;
+    out.fontSize=['standard','large','xlarge'].includes(p.fontSize)?p.fontSize:'standard';
     for (const [id,d] of Object.entries(p.drafts || {})) {
       if (!ids.has(id) || !d || !['html','css','js'].every(k=>typeof d[k]==='string' && d[k].length<=150000)) throw Error('Ungültige Lösungsdaten.');
       out.drafts[id] = {html:d.html,css:d.css,js:d.js,assisted:d.assisted===true};

@@ -26,3 +26,11 @@ Keine behauptete Prüfung auf physischem iPad, Safari oder Arbeits-PC. Die Offli
 - Die Offline-Cacheversion wurde erhöht. Die neue Anwendung kann künftig verfügbare Updates mit einem bewussten Aktualisieren-Button aktivieren, nachdem der aktuelle Entwurf gespeichert wurde. Beim ersten Wechsel von 1.0 auf 1.1 müssen gegebenenfalls alle alten Website-Tabs einmal geschlossen werden; Websitedaten nicht löschen, da darin Lernstände liegen.
 
 Zusätzlich bei 1920px Außenbreite gemessen: 1905px Inhalt ohne horizontales Überlaufen, Erklärung 18px und Editor 16,875px. Sprungnavigation zwischen Verstehen, Aufgabe und Tipps im Browser geprüft.
+
+## Version 1.1.1 – ursprüngliche Standardgröße, persönliche Vergrößerung
+
+- Standardgrößen aus dem ursprünglichen Stylesheet wiederhergestellt; die neu hinzugekommenen Lernabschnitte verwenden dazu passende kompakte Größen.
+- Kopfzeilenauswahl Standard/Groß/Sehr groß skaliert UI-Texte um 1/1,2/1,4. Kein Browserzoom, keine Veränderung der eigenen Vorschau.
+- Browserprüfung: Erklärungstext 12px bei Standard, 14,4px bei Groß und 16,8px bei Sehr groß. Groß blieb nach Neuladen ausgewählt; Rückkehr zu Standard funktioniert.
+- Speicherprüfungen: fehlende/ungültige Präferenz fällt auf Standard zurück; neue Profile beginnen bei Standard; Profilwechsel erhält die jeweilige Auswahl; Export/Import bewahrt die Auswahl.
+- Syntax-, Inhalts-, Speicher- und Assetprüfungen sowie statischer Build erfolgreich. Übungsinhalte und ihre Prüfungen wurden nicht verändert.

@@ -1,5 +1,5 @@
 /* The first online visit downloads the complete workshop, including all exercises. */
-const CACHE='jstutor-v1.1.0';
+const CACHE='jstutor-v1.1.1';
 const FILES=['./','./index.html','./styles.css','./app.js','./storage.js','./runner.js','./icon.svg','./manifest.webmanifest',...Array.from({length:20},(_,i)=>`./data/m${String(i+1).padStart(2,'0')}.js`)];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('jstutor-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

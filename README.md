@@ -45,3 +45,9 @@ Ausführlichere Erklärungen und parallele Beispiele für alle 200 Übungen, sic
 Für den manuellen Webspace-Upload ersetzen: `app.js`, `runner.js`, `styles.css`, `sw.js` und den vollständigen Ordner `data/`. Alternativ den kompletten Inhalt eines frischen `dist/`-Builds hochladen. Die bisherigen Lernstände bleiben im Browser erhalten. Beim ersten Versionswechsel alte Website-Tabs schließen und neu öffnen; nicht die Websitedaten löschen.
 
 ![Erklärungen und größere Schrift ab 1.1](docs/screenshots/learning-v1.1.jpg)
+
+## Version 1.1.1 – Schrift selbst wählen
+
+Die ursprüngliche kompakte Schrift ist wieder Standard. Oben in der Kopfzeile kann jeder Nutzer **Standard**, **Groß (+20 %)** oder **Sehr groß (+40 %)** auswählen. Die Einstellung gehört zum lokalen Profil, bleibt nach Neuladen erhalten und wird mit exportiert/importiert. Alte Profile beginnen mit Standard. Die Schrift der eigenen Vorschau wird durch diese UI-Einstellung nicht verändert.
+
+Für dieses Update auf dem Webspace ersetzen: `index.html`, `styles.css`, `app.js`, `storage.js` und `sw.js`. Die Übungsdateien sind unverändert.

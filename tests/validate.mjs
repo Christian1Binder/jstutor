@@ -32,3 +32,11 @@ for(const e of exercises){
  }
 }
 console.log('PASS: 200 explanations, parallel examples, explicit contracts and hints without solution blocks.');
+// Old exports stay compatible; typography belongs to the selected profile.
+const oldProfile={version:1,activeProfile:'old',profiles:[{id:'old',name:'Alt'}]};
+assert.equal(store.validate(oldProfile).profiles[0].fontSize,'standard');
+store.profile.fontSize='xlarge';store.save();const fontBackup=store.export();const originalId=store.profile.id;
+store.create('Schrift-Test');assert.equal(store.profile.fontSize,'standard');store.select(originalId);assert.equal(store.profile.fontSize,'xlarge');
+store.import(fontBackup);assert.equal(store.profile.fontSize,'xlarge');
+const unknown=JSON.parse(fontBackup);unknown.profiles[0].fontSize='invalid';assert.equal(store.validate(unknown).profiles[0].fontSize,'standard');
+console.log('PASS: font-size defaults, profile switching, export/import and invalid preferences.');

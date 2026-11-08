@@ -13,6 +13,7 @@ const moduleOf=e=>modules.find(m=>m.exercises.some(x=>x.id===e.id));
 const level=n=>['','Erste Schritte','Grundlagen','Aufbau','Fortgeschritten','Profi'][n];
 function toast(text){const t=$('#toast');t.textContent=text;t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.hidden=true,4000);}
 function updateChrome(){
+ applyFontSize();
  $('#sideName').textContent=profile().name;$('#sideAvatar').textContent=profile().name[0].toUpperCase();$('#topXp').textContent=`✦ ${xp()} XP`;
  $('#offlineLabel').textContent=store.failed?'Speichern fehlgeschlagen':navigator.onLine?'Lokal gespeichert':'Offline bereit';
  document.querySelectorAll('[data-nav]').forEach(a=>{const yes=a.dataset.nav===activeView;a.classList.toggle('active',yes);if(yes)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
@@ -82,6 +83,11 @@ function run(check){
 }
 function route(){clearTimeout(saveTimer);if(current)saveDraft();window.JSTRunner.stop();current=null;draft=null;document.body.classList.remove('focus-mode');const hash=location.hash.slice(1)||'reise';activeView=hash.split('/')[0];const titles={reise:'Meine Reise',bibliothek:'Alle Übungen',sammlung:'Meine Tags',favoriten:'Merkliste',uebung:'Code-Werkstatt'};$('#breadcrumb').innerHTML=`Deine Werkstatt <span>/</span> ${titles[activeView]||'Meine Reise'}`;if(activeView==='uebung')studio(hash.split('/')[1]);else if(activeView==='bibliothek')library();else if(activeView==='favoriten')library(true);else if(activeView==='sammlung')badges();else{activeView='reise';journey();}updateChrome();window.scrollTo(0,0);}
 function openProfile(){if(current)saveDraft();$('#profiles').innerHTML=store.state.profiles.map(p=>`<button class="profile-option ${p.id===profile().id?'selected':''}" data-profile="${esc(p.id)}"><span class="avatar">${esc(p.name[0].toUpperCase())}</span><span>${esc(p.name)}</span><small>${p.id===profile().id?'Aktiv':'Wechseln'}</small></button>`).join('');$('#profiles').querySelectorAll('[data-profile]').forEach(b=>b.onclick=()=>{store.select(b.dataset.profile);current=null;$('#profileDialog').close();route();toast('Lernprofil gewechselt.');});$('#profileDialog').showModal();}
+function applyFontSize(){
+ const value=['standard','large','xlarge'].includes(profile().fontSize)?profile().fontSize:'standard';
+ document.documentElement.dataset.fontSize=value;$('#fontSize').value=value;
+}
+$('#fontSize').onchange=()=>{profile().fontSize=$('#fontSize').value;applyFontSize();store.save();};
 $('#profileButton').onclick=openProfile;$('#accountButton').onclick=openProfile;
 $('#profileForm').onsubmit=event=>{event.preventDefault();const name=$('#profileName').value.trim();if(!name)return;try{store.create(name);current=null;$('#profileName').value='';$('#profileDialog').close();route();toast(`Willkommen, ${name}!`);}catch(e){toast(e.message);}};
 $('#exportButton').onclick=()=>{if(current)saveDraft();const blob=new Blob([store.export()],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`jstutor-fortschritt-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
