@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "color setzt die Textfarbe. Ein benannter Farbwert ist ein guter Anfang.",
-        "Orientiere dich an diesem Baustein:\nh1 { color: seagreen; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nh1 { color: seagreen; }"
+        "Trifft dein Selektor die richtige Elementart und änderst du wirklich die Textfarbe?",
+        "Vor der geschweiften Klammer steht der Selektor: Er bestimmt, welche Elemente betroffen sind. In den Klammern folgen Eigenschaft, Doppelpunkt, Wert und Semikolon. Die Textfarbe ändert nicht den Hintergrund.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -40,7 +40,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m02-10"
       ],
-      "solutionNotes": "color setzt die Textfarbe. Ein benannter Farbwert ist ein guter Anfang. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "p { color: navy; }",
+        "explanation": "Vor der geschweiften Klammer steht der Selektor: Er bestimmt, welche Elemente betroffen sind. In den Klammern folgen Eigenschaft, Doppelpunkt, Wert und Semikolon. Die Textfarbe ändert nicht den Hintergrund.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Vor der geschweiften Klammer steht der Selektor: Er bestimmt, welche Elemente betroffen sind. In den Klammern folgen Eigenschaft, Doppelpunkt, Wert und Semikolon. Die Textfarbe ändert nicht den Hintergrund. color setzt die Textfarbe. Ein benannter Farbwert ist ein guter Anfang. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-02",
@@ -61,9 +77,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "background-color setzt die Hintergrundfarbe.",
-        "Orientiere dich an diesem Baustein:\n.card { background-color: white; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.card { background-color: white; }"
+        "Hast du die vorhandene Klasse mit einem Klassen-Selektor angesprochen?",
+        "Der Punkt im CSS bezeichnet eine Klasse aus dem HTML. Schreibe den Punkt nur im Selektor, nicht als Teil des Klassennamens im HTML. Der Hintergrund füllt die Box des Elements.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -74,7 +90,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-01"
       ],
-      "solutionNotes": "background-color setzt die Hintergrundfarbe. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".notice { background-color: beige; }",
+        "explanation": "Der Punkt im CSS bezeichnet eine Klasse aus dem HTML. Schreibe den Punkt nur im Selektor, nicht als Teil des Klassennamens im HTML. Der Hintergrund füllt die Box des Elements.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Der Punkt im CSS bezeichnet eine Klasse aus dem HTML. Schreibe den Punkt nur im Selektor, nicht als Teil des Klassennamens im HTML. Der Hintergrund füllt die Box des Elements. background-color setzt die Hintergrundfarbe. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-03",
@@ -95,9 +127,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "font-size legt die Schriftgröße fest. line-height kann ein Faktor ohne Einheit sein.",
-        "Orientiere dich an diesem Baustein:\nh1 { font-size: 32px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\np { line-height: 1.5; }"
+        "Hast du die beiden Eigenschaften den jeweils geforderten Elementen zugeordnet?",
+        "Eine Schriftgröße braucht eine Einheit. Eine einheitenlose Zeilenhöhe ist ein Faktor: Der Browser multipliziert ihn mit der jeweiligen Schriftgröße. Schriftgröße und Zeilenabstand lösen unterschiedliche Aufgaben.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -108,7 +140,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-02"
       ],
-      "solutionNotes": "font-size legt die Schriftgröße fest. line-height kann ein Faktor ohne Einheit sein. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "p { font-size: 18px; line-height: 1.6; }",
+        "explanation": "Eine Schriftgröße braucht eine Einheit. Eine einheitenlose Zeilenhöhe ist ein Faktor: Der Browser multipliziert ihn mit der jeweiligen Schriftgröße. Schriftgröße und Zeilenabstand lösen unterschiedliche Aufgaben.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Schriftgröße braucht eine Einheit. Eine einheitenlose Zeilenhöhe ist ein Faktor: Der Browser multipliziert ihn mit der jeweiligen Schriftgröße. Schriftgröße und Zeilenabstand lösen unterschiedliche Aufgaben. font-size legt die Schriftgröße fest. line-height kann ein Faktor ohne Einheit sein. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-04",
@@ -129,9 +177,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "padding schafft Raum innerhalb der Box. Die Kurzschreibweise mit einem Wert gilt für alle Seiten.",
-        "Orientiere dich an diesem Baustein:\n.card { padding: 24px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.card { padding: 24px; }"
+        "Brauchst du Abstand innerhalb der Box oder Abstand zwischen zwei Boxen?",
+        "Padding liegt zwischen Inhalt und Rand. Ein einzelner Wert wirkt an allen vier Seiten. Mehr Platz innerhalb eines Elements entsteht nicht durch zusätzliche Leerzeichen im HTML.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -142,7 +190,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-03"
       ],
-      "solutionNotes": "padding schafft Raum innerhalb der Box. Die Kurzschreibweise mit einem Wert gilt für alle Seiten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".notice { padding: 18px; }",
+        "explanation": "Padding liegt zwischen Inhalt und Rand. Ein einzelner Wert wirkt an allen vier Seiten. Mehr Platz innerhalb eines Elements entsteht nicht durch zusätzliche Leerzeichen im HTML.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Padding liegt zwischen Inhalt und Rand. Ein einzelner Wert wirkt an allen vier Seiten. Mehr Platz innerhalb eines Elements entsteht nicht durch zusätzliche Leerzeichen im HTML. padding schafft Raum innerhalb der Box. Die Kurzschreibweise mit einem Wert gilt für alle Seiten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-05",
@@ -163,9 +227,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "margin trennt eine Box von ihrer Umgebung. margin-bottom wirkt nach unten.",
-        "Orientiere dich an diesem Baustein:\np { margin-bottom: 24px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\np { margin-bottom: 24px; }"
+        "Ist der Abstand an der unteren Außenseite des richtigen Elements gesetzt?",
+        "Margin liegt außerhalb des Randes. Eine gerichtete Eigenschaft wie margin-bottom betrifft nur diese Seite. Der Absatzinhalt bleibt unverändert.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -176,7 +240,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-04"
       ],
-      "solutionNotes": "margin trennt eine Box von ihrer Umgebung. margin-bottom wirkt nach unten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "p { margin-bottom: 18px; }",
+        "explanation": "Margin liegt außerhalb des Randes. Eine gerichtete Eigenschaft wie margin-bottom betrifft nur diese Seite. Der Absatzinhalt bleibt unverändert.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Margin liegt außerhalb des Randes. Eine gerichtete Eigenschaft wie margin-bottom betrifft nur diese Seite. Der Absatzinhalt bleibt unverändert. margin trennt eine Box von ihrer Umgebung. margin-bottom wirkt nach unten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-06",
@@ -197,9 +277,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "border kombiniert Breite, Stil und Farbe. border-radius rundet Ecken.",
-        "Orientiere dich an diesem Baustein:\n.box { border: 2px solid seagreen; border-radius: 12px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.box { border: 2px solid seagreen; border-radius: 12px; }"
+        "Hast du Breite, Randstil und Rundung jeweils berücksichtigt?",
+        "Ein sichtbarer Rand benötigt neben seiner Breite auch einen Stil. Die Rundung ist eine separate Eigenschaft. Ein border-radius allein erzeugt noch keinen sichtbaren Rand.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -210,7 +290,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-05"
       ],
-      "solutionNotes": "border kombiniert Breite, Stil und Farbe. border-radius rundet Ecken. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".notice { border: 1px dashed gray; border-radius: 8px; }",
+        "explanation": "Ein sichtbarer Rand benötigt neben seiner Breite auch einen Stil. Die Rundung ist eine separate Eigenschaft. Ein border-radius allein erzeugt noch keinen sichtbaren Rand.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein sichtbarer Rand benötigt neben seiner Breite auch einen Stil. Die Rundung ist eine separate Eigenschaft. Ein border-radius allein erzeugt noch keinen sichtbaren Rand. border kombiniert Breite, Stil und Farbe. border-radius rundet Ecken. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-07",
@@ -231,9 +327,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "border-box schließt den Innenabstand in die Breite ein.",
-        "Orientiere dich an diesem Baustein:\n.box { box-sizing: border-box; width: 200px; padding: 20px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.box { box-sizing: border-box; width: 200px; padding: 20px; }"
+        "Welche Teile sollen in der angegebenen Gesamtbreite enthalten sein?",
+        "Im Standard-Boxmodell kommen Innenabstand und Rand zur Inhaltsbreite hinzu. Bei border-box werden sie von der festgelegten Gesamtbreite abgezogen. Das macht eine deklarierte Breite besser vorhersagbar.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -244,7 +340,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-06"
       ],
-      "solutionNotes": "border-box schließt den Innenabstand in die Breite ein. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".notice { width: 240px; padding: 12px; box-sizing: border-box; }",
+        "explanation": "Im Standard-Boxmodell kommen Innenabstand und Rand zur Inhaltsbreite hinzu. Bei border-box werden sie von der festgelegten Gesamtbreite abgezogen. Das macht eine deklarierte Breite besser vorhersagbar.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Im Standard-Boxmodell kommen Innenabstand und Rand zur Inhaltsbreite hinzu. Bei border-box werden sie von der festgelegten Gesamtbreite abgezogen. Das macht eine deklarierte Breite besser vorhersagbar. border-box schließt den Innenabstand in die Breite ein. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-08",
@@ -265,9 +377,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Custom Properties beginnen mit -- und werden über var() gelesen. :root ist das Wurzelelement.",
-        "Orientiere dich an diesem Baustein:\n:root { --accent: #245c45; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nbutton { background: var(--accent); color: white; }"
+        "Ist die Variable am passenden Geltungsbereich definiert und wird sie tatsächlich verwendet?",
+        "Eine Custom Property speichert einen CSS-Wert unter einem Namen. var liest diesen Wert dort, wo eine Eigenschaft ihn benötigt. Deklarieren und Benutzen sind zwei getrennte Schritte.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -278,7 +390,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-07"
       ],
-      "solutionNotes": "Custom Properties beginnen mit -- und werden über var() gelesen. :root ist das Wurzelelement. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ":root { --ink: navy; } p { color: var(--ink); }",
+        "explanation": "Eine Custom Property speichert einen CSS-Wert unter einem Namen. var liest diesen Wert dort, wo eine Eigenschaft ihn benötigt. Deklarieren und Benutzen sind zwei getrennte Schritte.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Custom Property speichert einen CSS-Wert unter einem Namen. var liest diesen Wert dort, wo eine Eigenschaft ihn benötigt. Deklarieren und Benutzen sind zwei getrennte Schritte. Custom Properties beginnen mit -- und werden über var() gelesen. :root ist das Wurzelelement. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-09",
@@ -299,9 +427,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        ":focus-visible trifft typischerweise Tastaturfokus. outline nimmt keinen Platz im Layout ein.",
-        "Orientiere dich an diesem Baustein:\nbutton:focus-visible { outline: 3px solid orange; outline-offset: 3px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nbutton:focus-visible { outline: 3px solid orange; outline-offset: 3px; }"
+        "Steht deine Regel am Fokuszustand des Buttons und besitzt die Kontur auch einen Stil?",
+        "Eine Pseudoklasse ergänzt den Selektor um einen Zustand. Der Fokus-Ring wird bei Tastaturbedienung sichtbar und darf nicht nur über eine Hintergrundfarbe angedeutet werden. Teste ihn selbst mit Tab.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -312,7 +440,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-08"
       ],
-      "solutionNotes": ":focus-visible trifft typischerweise Tastaturfokus. outline nimmt keinen Platz im Layout ein. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "a:focus-visible { outline: 2px solid blue; }",
+        "explanation": "Eine Pseudoklasse ergänzt den Selektor um einen Zustand. Der Fokus-Ring wird bei Tastaturbedienung sichtbar und darf nicht nur über eine Hintergrundfarbe angedeutet werden. Teste ihn selbst mit Tab.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Pseudoklasse ergänzt den Selektor um einen Zustand. Der Fokus-Ring wird bei Tastaturbedienung sichtbar und darf nicht nur über eine Hintergrundfarbe angedeutet werden. Teste ihn selbst mit Tab. :focus-visible trifft typischerweise Tastaturfokus. outline nimmt keinen Platz im Layout ein. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m03-10",
@@ -333,9 +477,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Kombiniere Hintergrund, Raum und Typografie zu einer wiederverwendbaren Karte.",
-        "Orientiere dich an diesem Baustein:\n.card { background: white; padding: 24px; border-radius: 16px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nh1 { font-size: 32px; }"
+        "Welche geforderten Werte werden eventuell von einer späteren Regel überschrieben?",
+        "Ein Kartenstil kombiniert mehrere unabhängige Eigenschaften. Prüfe jede einzeln und erst danach den Gesamteindruck. Mehrere Regeln für denselben Selektor sind möglich; spätere Werte können frühere überschreiben.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -346,7 +490,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-09"
       ],
-      "solutionNotes": "Kombiniere Hintergrund, Raum und Typografie zu einer wiederverwendbaren Karte. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".notice { background: white; padding: 18px; border-radius: 8px; }",
+        "explanation": "Ein Kartenstil kombiniert mehrere unabhängige Eigenschaften. Prüfe jede einzeln und erst danach den Gesamteindruck. Mehrere Regeln für denselben Selektor sind möglich; spätere Werte können frühere überschreiben.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Kartenstil kombiniert mehrere unabhängige Eigenschaften. Prüfe jede einzeln und erst danach den Gesamteindruck. Mehrere Regeln für denselben Selektor sind möglich; spätere Werte können frühere überschreiben. Kombiniere Hintergrund, Raum und Typografie zu einer wiederverwendbaren Karte. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

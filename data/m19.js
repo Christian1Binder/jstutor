@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": "/* Privater Zustand per Closure: Jeder Fabrikaufruf erhält seine eigene lokale Variable. Zurückgegebene Methoden behalten darauf Zugriff. */\nfunction zaehler(start=0) {\n  let wert=start;\n  return { next() { wert+=1;return wert; } };\n}"
       },
       "hints": [
-        "Jeder Fabrikaufruf erhält seine eigene lokale Variable. Zurückgegebene Methoden behalten darauf Zugriff.",
-        "Orientiere dich an diesem Baustein:\nfunction zaehler(start=0) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Teilen zwei Instanzen versehentlich dieselbe globale Variable?",
+        "Eine Closure behält ihren eigenen lokalen Bereich nach dem äußeren Aufruf. Zwei Fabrikaufrufe müssen voneinander unabhängige Zustände besitzen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -40,7 +40,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m18-10"
       ],
-      "solutionNotes": "Jeder Fabrikaufruf erhält seine eigene lokale Variable. Zurückgegebene Methoden behalten darauf Zugriff. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "function merken() { let wert = 3; return () => wert++; }",
+        "explanation": "Eine Closure behält ihren eigenen lokalen Bereich nach dem äußeren Aufruf. Zwei Fabrikaufrufe müssen voneinander unabhängige Zustände besitzen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "zaehler. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Closure behält ihren eigenen lokalen Bereich nach dem äußeren Aufruf. Zwei Fabrikaufrufe müssen voneinander unabhängige Zustände besitzen. Jeder Fabrikaufruf erhält seine eigene lokale Variable. Zurückgegebene Methoden behalten darauf Zugriff. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-02",
@@ -61,9 +81,9 @@ window.CURRICULUM.push({
         "js": "/* Eine Funktion als Abhängigkeit: Dependency Injection übergibt einen Dienst von außen. Das macht Fachlogik unabhängig vom konkreten Netzwerk. */\nfunction namenLader(lade) { return async () => (await lade()).map(x=>x.name); }"
       },
       "hints": [
-        "Dependency Injection übergibt einen Dienst von außen. Das macht Fachlogik unabhängig vom konkreten Netzwerk.",
-        "Orientiere dich an diesem Baustein:\nfunction namenLader(lade) { return async () => (await lade()).map(x=>x.name); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction namenLader(lade) { return async () => (await lade()).map(x=>x.name); }"
+        "Verwendest du die übergebene Funktion statt eine eigene feste Quelle?",
+        "Eine Abhängigkeit wird übergeben statt fest eingebaut. Damit kann derselbe Fachcode mit einer echten und einer simulierten Datenquelle arbeiten.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -74,7 +94,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-01"
       ],
-      "solutionNotes": "Dependency Injection übergibt einen Dienst von außen. Das macht Fachlogik unabhängig vom konkreten Netzwerk. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "function verwende(laden) { return async () => await laden(); }",
+        "explanation": "Eine Abhängigkeit wird übergeben statt fest eingebaut. Damit kann derselbe Fachcode mit einer echten und einer simulierten Datenquelle arbeiten.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "namenLader. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Abhängigkeit wird übergeben statt fest eingebaut. Damit kann derselbe Fachcode mit einer echten und einer simulierten Datenquelle arbeiten. Dependency Injection übergibt einen Dienst von außen. Das macht Fachlogik unabhängig vom konkreten Netzwerk. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-03",
@@ -95,9 +135,9 @@ window.CURRICULUM.push({
         "js": "/* Eine teure Berechnung merken: Map.has unterscheidet einen gespeicherten undefined-Wert von einem fehlenden Schlüssel. */\nfunction memo(fn) {\n  const cache=new Map();\n  return x=>{if(!cache.has(x))cache.set(x,fn(x));return cache.get(x);};\n}"
       },
       "hints": [
-        "Map.has unterscheidet einen gespeicherten undefined-Wert von einem fehlenden Schlüssel.",
-        "Orientiere dich an diesem Baustein:\nfunction memo(fn) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Prüfst du mit has auf Vorhandensein, statt nur den Wahrheitswert eines Ergebnisses zu prüfen?",
+        "Ein Cache unterscheidet vorhandene Schlüssel von noch nicht berechneten. Gleiches Argument soll keine erneute Berechnung auslösen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -108,7 +148,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-02"
       ],
-      "solutionNotes": "Map.has unterscheidet einen gespeicherten undefined-Wert von einem fehlenden Schlüssel. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const cache = new Map(); cache.set(\"a\", 4);",
+        "explanation": "Ein Cache unterscheidet vorhandene Schlüssel von noch nicht berechneten. Gleiches Argument soll keine erneute Berechnung auslösen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "memo. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Cache unterscheidet vorhandene Schlüssel von noch nicht berechneten. Gleiches Argument soll keine erneute Berechnung auslösen. Map.has unterscheidet einen gespeicherten undefined-Wert von einem fehlenden Schlüssel. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-04",
@@ -129,9 +189,9 @@ window.CURRICULUM.push({
         "js": "/* Ein kleiner Eventbus: Ein Set vermeidet doppelte Listener. Gib zur Anmeldung eine Abmeldefunktion zurück. */\nfunction bus() {\n  const listeners=new Set();\n  return {on(fn){listeners.add(fn);return ()=>listeners.delete(fn);},emit(wert){for(const fn of listeners)fn(wert);}};\n}"
       },
       "hints": [
-        "Ein Set vermeidet doppelte Listener. Gib zur Anmeldung eine Abmeldefunktion zurück.",
-        "Orientiere dich an diesem Baustein:\nfunction bus() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Kann ein abgemeldeter Listener noch Ereignisse empfangen?",
+        "Ein Eventbus speichert aktive Listener. Eine Abmeldung muss genau den registrierten Listener entfernen und andere erhalten.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -142,7 +202,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-03"
       ],
-      "solutionNotes": "Ein Set vermeidet doppelte Listener. Gib zur Anmeldung eine Abmeldefunktion zurück. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const empfaenger = new Set(); empfaenger.add(handler);",
+        "explanation": "Ein Eventbus speichert aktive Listener. Eine Abmeldung muss genau den registrierten Listener entfernen und andere erhalten.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "bus. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Eventbus speichert aktive Listener. Eine Abmeldung muss genau den registrierten Listener entfernen und andere erhalten. Ein Set vermeidet doppelte Listener. Gib zur Anmeldung eine Abmeldefunktion zurück. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-05",
@@ -163,9 +243,9 @@ window.CURRICULUM.push({
         "js": "/* Ein Store mit Abonnements: Der Store hält Zustand privat und informiert nach einem Update seine Abonnenten. */\nfunction store(initial) {\n  let state=initial;const listeners=new Set();\n  return {get:()=>state,set(wert){state=wert;for(const fn of listeners)fn(state);},subscribe(fn){listeners.add(fn);return ()=>listeners.delete(fn);}};\n}"
       },
       "hints": [
-        "Der Store hält Zustand privat und informiert nach einem Update seine Abonnenten.",
-        "Orientiere dich an diesem Baustein:\nfunction store(initial) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Werden Änderungen vor dem Benachrichtigen gespeichert?",
+        "Ein Store hält Daten und Abonnements privat. Nach einer Änderung erhalten die noch aktiven Abonnenten den neuen Wert.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -176,7 +256,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-04"
       ],
-      "solutionNotes": "Der Store hält Zustand privat und informiert nach einem Update seine Abonnenten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "let wert = 3; const lesen = () => wert;",
+        "explanation": "Ein Store hält Daten und Abonnements privat. Nach einer Änderung erhalten die noch aktiven Abonnenten den neuen Wert.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "store. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Store hält Daten und Abonnements privat. Nach einer Änderung erhalten die noch aktiven Abonnenten den neuen Wert. Der Store hält Zustand privat und informiert nach einem Update seine Abonnenten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-06",
@@ -197,9 +297,9 @@ window.CURRICULUM.push({
         "js": "/* Eingaben entprellen: Debounce startet bei jedem Aufruf den Timer neu. Erst der letzte Aufruf nach der Ruhezeit läuft. */\nfunction debounce(fn, ms) {\n  let timer;\n  return (...args)=>{clearTimeout(timer);timer=setTimeout(()=>fn(...args),ms);};\n}"
       },
       "hints": [
-        "Debounce startet bei jedem Aufruf den Timer neu. Erst der letzte Aufruf nach der Ruhezeit läuft.",
-        "Orientiere dich an diesem Baustein:\nfunction debounce(fn, ms) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Bleibt nach mehreren schnellen Aufrufen nur der letzte geplant?",
+        "Debounce verwirft die bisher geplante Ausführung zugunsten eines neuen Ruhefensters. Die Argumente des jüngsten Aufrufs müssen dabei erhalten bleiben.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -210,7 +310,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-05"
       ],
-      "solutionNotes": "Debounce startet bei jedem Aufruf den Timer neu. Erst der letzte Aufruf nach der Ruhezeit läuft. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "clearTimeout(timer); timer = setTimeout(aktion, 100);",
+        "explanation": "Debounce verwirft die bisher geplante Ausführung zugunsten eines neuen Ruhefensters. Die Argumente des jüngsten Aufrufs müssen dabei erhalten bleiben.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "debounce. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Debounce verwirft die bisher geplante Ausführung zugunsten eines neuen Ruhefensters. Die Argumente des jüngsten Aufrufs müssen dabei erhalten bleiben. Debounce startet bei jedem Aufruf den Timer neu. Erst der letzte Aufruf nach der Ruhezeit läuft. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-07",
@@ -231,9 +351,9 @@ window.CURRICULUM.push({
         "js": "/* Höchstens einmal pro Intervall: Ein führendes Throttle ruft sofort auf und ignoriert weitere Aufrufe bis zum nächsten Zeitfenster. Date.now liefert Millisekunden. */\nfunction throttle(fn, ms) {\n  let letztes=-Infinity;\n  return (...args)=>{const jetzt=Date.now();if(jetzt-letztes>=ms){letztes=jetzt;fn(...args);}};\n}"
       },
       "hints": [
-        "Ein führendes Throttle ruft sofort auf und ignoriert weitere Aufrufe bis zum nächsten Zeitfenster. Date.now liefert Millisekunden.",
-        "Orientiere dich an diesem Baustein:\nfunction throttle(fn, ms) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Ist der allererste Aufruf sofort möglich?",
+        "Throttle begrenzt die Häufigkeit innerhalb eines Zeitfensters. Ein führender Aufruf läuft sofort; weitere zu frühe Aufrufe werden ignoriert.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -244,7 +364,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-06"
       ],
-      "solutionNotes": "Ein führendes Throttle ruft sofort auf und ignoriert weitere Aufrufe bis zum nächsten Zeitfenster. Date.now liefert Millisekunden. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const zeitpunkt = Date.now();",
+        "explanation": "Throttle begrenzt die Häufigkeit innerhalb eines Zeitfensters. Ein führender Aufruf läuft sofort; weitere zu frühe Aufrufe werden ignoriert.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "throttle. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Throttle begrenzt die Häufigkeit innerhalb eines Zeitfensters. Ein führender Aufruf läuft sofort; weitere zu frühe Aufrufe werden ignoriert. Ein führendes Throttle ruft sofort auf und ignoriert weitere Aufrufe bis zum nächsten Zeitfenster. Date.now liefert Millisekunden. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-08",
@@ -265,9 +405,9 @@ window.CURRICULUM.push({
         "js": "/* Die neueste Antwort gewinnt: Eine fortlaufende Anfrage-ID verhindert, dass alte, langsamere Antworten neue Daten überschreiben. */\nfunction neueste(lade, zeige) {\n  let id=0;\n  return async (...args)=>{const aktuell=++id;const wert=await lade(...args);if(aktuell===id)zeige(wert);};\n}"
       },
       "hints": [
-        "Eine fortlaufende Anfrage-ID verhindert, dass alte, langsamere Antworten neue Daten überschreiben.",
-        "Orientiere dich an diesem Baustein:\nfunction neueste(lade, zeige) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Vergleichst du die Anfragekennung erst nach dem Warten mit dem neuesten Stand?",
+        "Eine laufende Nummer ordnet Ergebnisse ihrer Anfrage zu. Ein älteres Ergebnis darf einen neueren Stand nicht überholen, selbst wenn es später fertig wird.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -278,7 +418,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-07"
       ],
-      "solutionNotes": "Eine fortlaufende Anfrage-ID verhindert, dass alte, langsamere Antworten neue Daten überschreiben. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "let generation = 0; const diese = ++generation;",
+        "explanation": "Eine laufende Nummer ordnet Ergebnisse ihrer Anfrage zu. Ein älteres Ergebnis darf einen neueren Stand nicht überholen, selbst wenn es später fertig wird.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "neueste. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine laufende Nummer ordnet Ergebnisse ihrer Anfrage zu. Ein älteres Ergebnis darf einen neueren Stand nicht überholen, selbst wenn es später fertig wird. Eine fortlaufende Anfrage-ID verhindert, dass alte, langsamere Antworten neue Daten überschreiben. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-09",
@@ -299,9 +459,9 @@ window.CURRICULUM.push({
         "js": "/* Fehlgeschlagen? Begrenzt neu versuchen: Ein Retry braucht eine feste Obergrenze. Ein Fehler nach allen Versuchen wird weitergegeben. */\nasync function retry(fn, versuche) {\n  for(let i=0;i<versuche;i++){try{return await fn();}catch(error){if(i===versuche-1)throw error;}}\n}"
       },
       "hints": [
-        "Ein Retry braucht eine feste Obergrenze. Ein Fehler nach allen Versuchen wird weitergegeben.",
-        "Orientiere dich an diesem Baustein:\nasync function retry(fn, versuche) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Wird höchstens so oft aufgerufen wie erlaubt und nach Erfolg sofort beendet?",
+        "Ein Retry braucht eine feste Versuchsgrenze. Nach Erfolg muss sofort Schluss sein, nach dem letzten Fehler muss dieser weitergegeben werden.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -316,7 +476,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-08"
       ],
-      "solutionNotes": "Ein Retry braucht eine feste Obergrenze. Ein Fehler nach allen Versuchen wird weitergegeben. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "for (let versuch = 0; versuch < 2; versuch++) { console.log(versuch); }",
+        "explanation": "Ein Retry braucht eine feste Versuchsgrenze. Nach Erfolg muss sofort Schluss sein, nach dem letzten Fehler muss dieser weitergegeben werden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "retry. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Retry braucht eine feste Versuchsgrenze. Nach Erfolg muss sofort Schluss sein, nach dem letzten Fehler muss dieser weitergegeben werden. Ein Retry braucht eine feste Obergrenze. Ein Fehler nach allen Versuchen wird weitergegeben. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m19-10",
@@ -337,9 +517,9 @@ window.CURRICULUM.push({
         "js": "/* Projekt: Austauschbares Repository: Kapsle Datenzugriff in einem Objekt. Fachcode kennt nur list() und find(id), nicht fetch. */\nfunction repository(lade) {\n  return { async list(){return lade();}, async find(id){const items=await lade();return items.find(x=>x.id===id);} };\n}"
       },
       "hints": [
-        "Kapsle Datenzugriff in einem Objekt. Fachcode kennt nur list() und find(id), nicht fetch.",
-        "Orientiere dich an diesem Baustein:\nfunction repository(lade) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Bleibt die Datenquelle austauschbar und sind beide Repository-Methoden asynchron?",
+        "Ein Repository bietet fachliche Methoden, die ihre Daten intern beziehen. Der Nutzer des Repositorys braucht die konkrete Quelle nicht zu kennen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -350,7 +530,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m19-09"
       ],
-      "solutionNotes": "Kapsle Datenzugriff in einem Objekt. Fachcode kennt nur list() und find(id), nicht fetch. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "function quelle(laden) { return { async alle() { return laden(); } }; }",
+        "explanation": "Ein Repository bietet fachliche Methoden, die ihre Daten intern beziehen. Der Nutzer des Repositorys braucht die konkrete Quelle nicht zu kennen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "repository. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Repository bietet fachliche Methoden, die ihre Daten intern beziehen. Der Nutzer des Repositorys braucht die konkrete Quelle nicht zu kennen. Kapsle Datenzugriff in einem Objekt. Fachcode kennt nur list() und find(id), nicht fetch. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": "/* Die erste Fläche: fillRect(x,y,breite,hoehe) malt sofort. */\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");\nctx.fillStyle = \"red\";\nctx.fillRect(10, 10, 40, 30);"
       },
       "hints": [
-        "fillRect(x,y,breite,hoehe) malt sofort.",
-        "Orientiere dich an diesem Baustein:\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nctx.fillRect(10, 10, 40, 30);"
+        "Verwechselst du Position und Ausdehnung des Rechtecks?",
+        "Farbe ist Zustand des Zeichenkontexts; fillRect benutzt den aktuellen Zustand. Die ersten beiden Werte sind Position, danach folgen Breite und Höhe.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -40,7 +40,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-10"
       ],
-      "solutionNotes": "fillRect(x,y,breite,hoehe) malt sofort. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "ctx.fillStyle = \"orange\"; ctx.fillRect(30, 40, 15, 25);",
+        "explanation": "Farbe ist Zustand des Zeichenkontexts; fillRect benutzt den aktuellen Zustand. Die ersten beiden Werte sind Position, danach folgen Breite und Höhe.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Farbe ist Zustand des Zeichenkontexts; fillRect benutzt den aktuellen Zustand. Die ersten beiden Werte sind Position, danach folgen Breite und Höhe. fillRect(x,y,breite,hoehe) malt sofort. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-02",
@@ -61,9 +77,9 @@ window.CURRICULUM.push({
         "js": "/* Ein Kreis als Spielfigur: arc(x,y,radius,start,end) zeichnet einen Bogen in Radiant. Math.PI*2 ist ein Vollkreis. */\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");\nctx.fillStyle = \"blue\"; ctx.beginPath(); ctx.arc(80,60,20,0,Math.PI*2); ctx.fill();"
       },
       "hints": [
-        "arc(x,y,radius,start,end) zeichnet einen Bogen in Radiant. Math.PI*2 ist ein Vollkreis.",
-        "Orientiere dich an diesem Baustein:\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nctx.fillStyle = \"blue\"; ctx.beginPath(); ctx.arc(80,60,20,0,Math.PI*2); ctx.fill();"
+        "Wird dein Pfad nach dem Beschreiben auch gefüllt?",
+        "Ein Kreis benötigt einen neuen Pfad, einen Vollbogen und eine Fülloperation. Der Mittelpunkt ist nicht die linke obere Ecke.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -74,13 +90,29 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m17-01"
       ],
-      "solutionNotes": "arc(x,y,radius,start,end) zeichnet einen Bogen in Radiant. Math.PI*2 ist ein Vollkreis. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "ctx.beginPath(); ctx.arc(40, 50, 12, 0, Math.PI * 2); ctx.fill();",
+        "explanation": "Ein Kreis benötigt einen neuen Pfad, einen Vollbogen und eine Fülloperation. Der Mittelpunkt ist nicht die linke obere Ecke.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Kreis benötigt einen neuen Pfad, einen Vollbogen und eine Fülloperation. Der Mittelpunkt ist nicht die linke obere Ecke. arc(x,y,radius,start,end) zeichnet einen Bogen in Radiant. Math.PI*2 ist ein Vollkreis. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-03",
       "title": "Text auf der Leinwand",
       "explanation": "font nutzt CSS-Schriftangaben; fillText setzt Text an einen Punkt auf der Grundlinie.",
-      "task": "Zeichne WEB mit fillText und setze #output auf WEB.",
+      "task": "Zeichne mit fillText den Text „WEB“ sichtbar auf das vorgegebene canvas (innerhalb des Bereichs x=20 bis 100 und y=15 bis 50). Setze zusätzlich #output auf „WEB“. Farbe und Schriftgestaltung sind frei. Der Test prüft Zeichenaktivität im genannten Bereich und den Ausgabetext.",
       "minutes": 20,
       "xp": 100,
       "focus": "js",
@@ -95,20 +127,42 @@ window.CURRICULUM.push({
         "js": "/* Text auf der Leinwand: font nutzt CSS-Schriftangaben; fillText setzt Text an einen Punkt auf der Grundlinie. */\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");\nctx.font = \"24px sans-serif\"; ctx.fillText(\"WEB\",20,40);\ndocument.querySelector(\"#output\").textContent = \"WEB\";"
       },
       "hints": [
-        "font nutzt CSS-Schriftangaben; fillText setzt Text an einen Punkt auf der Grundlinie.",
-        "Orientiere dich an diesem Baustein:\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").textContent = \"WEB\";"
+        "Liegt die Schrift vollständig auf der Zeichenfläche?",
+        "Die y-Koordinate von fillText beschreibt die Grundlinie. Ein zu kleiner y-Wert kann Schrift oben abschneiden.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
-          "label": "Zeichne WEB mit fillText und setze #output auf WEB.",
-          "code": "document.querySelector('#output').textContent==='WEB' && document.querySelector('canvas').getContext('2d').getImageData(20,15,80,35).data.some(x=>x!==0)"
+          "label": "Zeichne mit fillText den Text „WEB“ sichtbar auf das vorgegebene canvas (innerhalb des Bereichs x=20 bis 100 und y=15 bis 50). Setze zusätzlich #output auf „WEB“. Farbe und Schriftgestaltung sind frei. Der Test prüft Zeichenaktivität im genannten Bereich und den Ausgabetext.",
+          "code": "__text('#output')==='WEB' && document.querySelector('canvas').getContext('2d').getImageData(20,15,80,35).data.some(x=>x!==0)"
         }
       ],
       "prerequisites": [
         "m17-02"
       ],
-      "solutionNotes": "font nutzt CSS-Schriftangaben; fillText setzt Text an einen Punkt auf der Grundlinie. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "ctx.font = \"18px sans-serif\"; ctx.fillText(\"Hallo\", 10, 30);",
+        "explanation": "Die y-Koordinate von fillText beschreibt die Grundlinie. Ein zu kleiner y-Wert kann Schrift oben abschneiden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#output'",
+          "expected": "'WEB'",
+          "context": "Zeichne mit fillText den Text „WEB“ sichtbar auf das vorgegebene canvas (innerhalb des Bereichs x=20 bis 100 und y=15 bis 50). Setze zusätzlich #output auf „WEB“. Farbe und Schriftgestaltung sind frei. Der Test prüft Zeichenaktivität im genannten Bereich und den Ausgabetext."
+        }
+      ],
+      "solutionNotes": "Die y-Koordinate von fillText beschreibt die Grundlinie. Ein zu kleiner y-Wert kann Schrift oben abschneiden. font nutzt CSS-Schriftangaben; fillText setzt Text an einen Punkt auf der Grundlinie. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-04",
@@ -129,9 +183,9 @@ window.CURRICULUM.push({
         "js": "/* Ein frischer Frame: clearRect löscht vor dem Neuzeichnen, sonst bleiben Spuren. */\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");\nfunction zeichne(x) { ctx.clearRect(0,0,320,180); ctx.fillStyle=\"green\"; ctx.fillRect(x,20,20,20); }\nzeichne(30);"
       },
       "hints": [
-        "clearRect löscht vor dem Neuzeichnen, sonst bleiben Spuren.",
-        "Orientiere dich an diesem Baustein:\nconst ctx = document.querySelector(\"#canvas\").getContext(\"2d\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nzeichne(30);"
+        "Bleiben beim erneuten Zeichnen Spuren der alten Position zurück?",
+        "Canvas speichert Pixel statt einzelner DOM-Objekte. Vor einem neuen Bild musst du den alten Inhalt ausdrücklich löschen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -142,7 +196,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m17-03"
       ],
-      "solutionNotes": "clearRect löscht vor dem Neuzeichnen, sonst bleiben Spuren. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "ctx.clearRect(0, 0, 200, 100);",
+        "explanation": "Canvas speichert Pixel statt einzelner DOM-Objekte. Vor einem neuen Bild musst du den alten Inhalt ausdrücklich löschen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "zeichne. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Canvas speichert Pixel statt einzelner DOM-Objekte. Vor einem neuen Bild musst du den alten Inhalt ausdrücklich löschen. clearRect löscht vor dem Neuzeichnen, sonst bleiben Spuren. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-05",
@@ -163,9 +237,9 @@ window.CURRICULUM.push({
         "js": "/* Entfernung messen: Der Satz des Pythagoras liefert sqrt(dx²+dy²); Math.hypot macht genau das. */\nfunction distanz(a, b) { return Math.hypot(a.x-b.x, a.y-b.y); }"
       },
       "hints": [
-        "Der Satz des Pythagoras liefert sqrt(dx²+dy²); Math.hypot macht genau das.",
-        "Orientiere dich an diesem Baustein:\nfunction distanz(a, b) { return Math.hypot(a.x-b.x, a.y-b.y); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction distanz(a, b) { return Math.hypot(a.x-b.x, a.y-b.y); }"
+        "Berechnest du die Differenzen in beiden Richtungen?",
+        "Die Differenzen der Koordinaten bilden die beiden Katheten. Ihre gemeinsame Länge ist der Abstand der Punkte.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -180,7 +254,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m17-04"
       ],
-      "solutionNotes": "Der Satz des Pythagoras liefert sqrt(dx²+dy²); Math.hypot macht genau das. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "console.log(Math.hypot(6, 8));",
+        "explanation": "Die Differenzen der Koordinaten bilden die beiden Katheten. Ihre gemeinsame Länge ist der Abstand der Punkte.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "distanz. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "distanz({x:0,y:0},{x:3,y:4})",
+          "expected": "5",
+          "context": "3-4-5"
+        },
+        {
+          "input": "distanz({x:2,y:3},{x:2,y:3})",
+          "expected": "0",
+          "context": "Gleicher Punkt"
+        }
+      ],
+      "solutionNotes": "Die Differenzen der Koordinaten bilden die beiden Katheten. Ihre gemeinsame Länge ist der Abstand der Punkte. Der Satz des Pythagoras liefert sqrt(dx²+dy²); Math.hypot macht genau das. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-06",
@@ -201,9 +306,9 @@ window.CURRICULUM.push({
         "js": "/* Kollision zweier Kreise: Zwei Kreise berühren sich, wenn ihr Mittelpunktabstand höchstens die Radiensumme beträgt. */\nfunction kollidiert(a, b) { return Math.hypot(a.x-b.x,a.y-b.y) <= a.r+b.r; }"
       },
       "hints": [
-        "Zwei Kreise berühren sich, wenn ihr Mittelpunktabstand höchstens die Radiensumme beträgt.",
-        "Orientiere dich an diesem Baustein:\nfunction kollidiert(a, b) { return Math.hypot(a.x-b.x,a.y-b.y) <= a.r+b.r; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction kollidiert(a, b) { return Math.hypot(a.x-b.x,a.y-b.y) <= a.r+b.r; }"
+        "Zählt die exakte Berührung laut Aufgabe als Kollision?",
+        "Eine Kreisberührung hängt von Abstand und Radiensumme ab. Der Gleichheitsfall entscheidet, ob bloße Berührung schon zählt.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -218,7 +323,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m17-05"
       ],
-      "solutionNotes": "Zwei Kreise berühren sich, wenn ihr Mittelpunktabstand höchstens die Radiensumme beträgt. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const beruehrung = abstand <= radiusA + radiusB;",
+        "explanation": "Eine Kreisberührung hängt von Abstand und Radiensumme ab. Der Gleichheitsfall entscheidet, ob bloße Berührung schon zählt.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "kollidiert. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "kollidiert({x:0,y:0,r:2},{x:4,y:0,r:2})",
+          "expected": "true",
+          "context": "Berührung"
+        },
+        {
+          "input": "kollidiert({x:0,y:0,r:1},{x:5,y:0,r:1})",
+          "expected": "false",
+          "context": "Getrennt"
+        }
+      ],
+      "solutionNotes": "Eine Kreisberührung hängt von Abstand und Radiensumme ab. Der Gleichheitsfall entscheidet, ob bloße Berührung schon zählt. Zwei Kreise berühren sich, wenn ihr Mittelpunktabstand höchstens die Radiensumme beträgt. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-07",
@@ -239,9 +375,9 @@ window.CURRICULUM.push({
         "js": "/* Bewegung nach Zeit: Geschwindigkeit in Pixeln pro Sekunde mal Sekunden ergibt Weg. Zeitintervalle in ms teilst du durch 1000. */\nfunction bewege(x, tempo, deltaMs) { return x + tempo * deltaMs / 1000; }"
       },
       "hints": [
-        "Geschwindigkeit in Pixeln pro Sekunde mal Sekunden ergibt Weg. Zeitintervalle in ms teilst du durch 1000.",
-        "Orientiere dich an diesem Baustein:\nfunction bewege(x, tempo, deltaMs) { return x + tempo * deltaMs / 1000; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction bewege(x, tempo, deltaMs) { return x + tempo * deltaMs / 1000; }"
+        "Sind Geschwindigkeit und Zeit in zueinander passenden Einheiten?",
+        "Geschwindigkeit pro Sekunde muss mit Sekunden multipliziert werden. Millisekunden sind dazu zuerst umzurechnen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -256,7 +392,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m17-06"
       ],
-      "solutionNotes": "Geschwindigkeit in Pixeln pro Sekunde mal Sekunden ergibt Weg. Zeitintervalle in ms teilst du durch 1000. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const weg = 12 * (250 / 1000);",
+        "explanation": "Geschwindigkeit pro Sekunde muss mit Sekunden multipliziert werden. Millisekunden sind dazu zuerst umzurechnen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "bewege. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "bewege(10,20,500)",
+          "expected": "20",
+          "context": "Halbe Sekunde"
+        },
+        {
+          "input": "bewege(5,20,0)",
+          "expected": "5",
+          "context": "Stillstand"
+        }
+      ],
+      "solutionNotes": "Geschwindigkeit pro Sekunde muss mit Sekunden multipliziert werden. Millisekunden sind dazu zuerst umzurechnen. Geschwindigkeit in Pixeln pro Sekunde mal Sekunden ergibt Weg. Zeitintervalle in ms teilst du durch 1000. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-08",
@@ -277,9 +444,9 @@ window.CURRICULUM.push({
         "js": "/* Ein Animationsschritt: requestAnimationFrame führt den Callback vor einem Bildaufbau aus. Warte per Promise auf einen Schritt. */\nasync function frame() {\n  await new Promise(resolve => requestAnimationFrame(resolve));\n  return \"fertig\";\n}"
       },
       "hints": [
-        "requestAnimationFrame führt den Callback vor einem Bildaufbau aus. Warte per Promise auf einen Schritt.",
-        "Orientiere dich an diesem Baustein:\nasync function frame() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Wartet dein Promise wirklich auf den Animationscallback?",
+        "requestAnimationFrame plant einen späteren Callback. Eine asynchrone Funktion muss auf dessen tatsächliche Ausführung warten.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -290,7 +457,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m17-07"
       ],
-      "solutionNotes": "requestAnimationFrame führt den Callback vor einem Bildaufbau aus. Warte per Promise auf einen Schritt. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "await new Promise(resolve => requestAnimationFrame(resolve));",
+        "explanation": "requestAnimationFrame plant einen späteren Callback. Eine asynchrone Funktion muss auf dessen tatsächliche Ausführung warten.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "frame. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "frame()",
+          "expected": "'fertig'",
+          "context": "Schreibe async frame(), das nach einem Animationsframe fertig liefert."
+        }
+      ],
+      "solutionNotes": "requestAnimationFrame plant einen späteren Callback. Eine asynchrone Funktion muss auf dessen tatsächliche Ausführung warten. requestAnimationFrame führt den Callback vor einem Bildaufbau aus. Warte per Promise auf einen Schritt. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-09",
@@ -311,9 +504,9 @@ window.CURRICULUM.push({
         "js": "/* Am Rand umkehren: Begrenze den Ort und ändere das Vorzeichen der Geschwindigkeit am Rand. */\nfunction schritt(x, v, max) {\n  let next = x + v;\n  if (next > max || next < 0) v = -v;\n  return { x: Math.min(max,Math.max(0,next)), v };\n}"
       },
       "hints": [
-        "Begrenze den Ort und ändere das Vorzeichen der Geschwindigkeit am Rand.",
-        "Orientiere dich an diesem Baustein:\nfunction schritt(x, v, max) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Ändern sich am Rand sowohl Position als auch Richtung passend?",
+        "Randbehandlung besteht aus zwei Aufgaben: Position im erlaubten Bereich halten und Bewegungsrichtung ändern. Prüfe beide unabhängig.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -328,13 +521,54 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m17-08"
       ],
-      "solutionNotes": "Begrenze den Ort und ändere das Vorzeichen der Geschwindigkeit am Rand. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const innen = Math.max(0, Math.min(100, position));",
+        "explanation": "Randbehandlung besteht aus zwei Aufgaben: Position im erlaubten Bereich halten und Bewegungsrichtung ändern. Prüfe beide unabhängig.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "schritt. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "schritt(9,3,10).x",
+          "expected": "10",
+          "context": "Rand"
+        },
+        {
+          "input": "schritt(9,3,10).v",
+          "expected": "-3",
+          "context": "Rand"
+        },
+        {
+          "input": "schritt(5,1,10).x",
+          "expected": "6",
+          "context": "Innen"
+        },
+        {
+          "input": "schritt(5,1,10).v",
+          "expected": "1",
+          "context": "Innen"
+        }
+      ],
+      "solutionNotes": "Randbehandlung besteht aus zwei Aufgaben: Position im erlaubten Bereich halten und Bewegungsrichtung ändern. Prüfe beide unabhängig. Begrenze den Ort und ändere das Vorzeichen der Geschwindigkeit am Rand. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m17-10",
       "title": "Projekt: Eine animierte Figur",
       "explanation": "Ein Loop zeichnet, plant den nächsten Frame und gibt eine Stoppfunktion zurück.",
-      "task": "Schreibe start(): animiere ein grünes 20×20 Quadrat horizontal und gib stop() zurück, das cancelAnimationFrame aufruft.",
+      "task": "Schreibe start(): Zeichne fortlaufend ein grünes 20×20-Quadrat auf dem Canvas und bewege es horizontal mit requestAnimationFrame. Gib eine Funktion stop() zurück, die weitere Frames verhindert. Starte eine Demo. Automatisch geprüft wird der Vertrag von start/stop; Bewegung, Farbe und Form vergleichst du selbst in der Vorschau.",
       "minutes": 20,
       "xp": 100,
       "focus": "js",
@@ -349,20 +583,40 @@ window.CURRICULUM.push({
         "js": "/* Projekt: Eine animierte Figur: Ein Loop zeichnet, plant den nächsten Frame und gibt eine Stoppfunktion zurück. */\nfunction start() {\n  const ctx = document.querySelector(\"#canvas\").getContext(\"2d\");\n  let id; let anfang; let aktiv = true;\n  function frame(zeit) {\n    if (!aktiv) return;\n    anfang ??= zeit;\n    const x = ((zeit - anfang) / 10) % 300;\n    ctx.clearRect(0,0,320,180); ctx.fillStyle=\"green\"; ctx.fillRect(x,60,20,20);\n    id = requestAnimationFrame(frame);\n  }\n  id = requestAnimationFrame(frame);\n  return () => { aktiv = false; cancelAnimationFrame(id); };\n}\nconst stopDemo = start();"
       },
       "hints": [
-        "Ein Loop zeichnet, plant den nächsten Frame und gibt eine Stoppfunktion zurück.",
-        "Orientiere dich an diesem Baustein:\nfunction start() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconst stopDemo = start();"
+        "Kann dein Aufräumcode den zuletzt geplanten Frame erreichen?",
+        "Jeder geplante Frame besitzt eine Kennung. Die Stoppfunktion braucht die jeweils aktuelle Kennung, nicht nur die des ersten Frames.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
-          "label": "Schreibe start(): animiere ein grünes 20×20 Quadrat horizontal und gib stop() zurück, das cancelAnimationFrame aufruft.",
+          "label": "Schreibe start(): Zeichne fortlaufend ein grünes 20×20-Quadrat auf dem Canvas und bewege es horizontal mit requestAnimationFrame. Gib eine Funktion stop() zurück, die weitere Frames verhindert. Starte eine Demo. Automatisch geprüft wird der Vertrag von start/stop; Bewegung, Farbe und Form vergleichst du selbst in der Vorschau.",
           "code": "typeof start==='function' && (()=>{const stop=start();const ok=typeof stop==='function';if(ok)stop();return ok})()"
         }
       ],
       "prerequisites": [
         "m17-09"
       ],
-      "solutionNotes": "Ein Loop zeichnet, plant den nächsten Frame und gibt eine Stoppfunktion zurück. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "let id = requestAnimationFrame(frame); cancelAnimationFrame(id);",
+        "explanation": "Jeder geplante Frame besitzt eine Kennung. Die Stoppfunktion braucht die jeweils aktuelle Kennung, nicht nur die des ersten Frames.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "start, stop. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Jeder geplante Frame besitzt eine Kennung. Die Stoppfunktion braucht die jeweils aktuelle Kennung, nicht nur die des ersten Frames. Ein Loop zeichnet, plant den nächsten Frame und gibt eine Stoppfunktion zurück. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

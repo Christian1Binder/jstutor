@@ -27,20 +27,51 @@ window.CURRICULUM.push({
         "js": "/* Ein versprochener Wert: Promise.resolve(wert) erzeugt ein bereits erfülltes Promise; await liest seinen Wert. */\nasync function antwort() { return 42; }\ndocument.querySelector(\"#output\").textContent = await antwort();"
       },
       "hints": [
-        "Promise.resolve(wert) erzeugt ein bereits erfülltes Promise; await liest seinen Wert.",
-        "Orientiere dich an diesem Baustein:\nasync function antwort() { return 42; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").textContent = await antwort();"
+        "Wartest du auf das Ergebnis statt das Promise selbst anzuzeigen?",
+        "async macht aus dem Rückgabewert ein Promise. await entpackt dessen späteres Ergebnis innerhalb eines async-Kontexts.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Schreibe async antwort(), die 42 liefert; zeige await antwort() in #output.",
-          "code": "typeof antwort==='function' && await antwort()===42 && document.querySelector('#output').textContent==='42'"
+          "code": "typeof antwort==='function' && await antwort()===42 && __text('#output')==='42'"
         }
       ],
       "prerequisites": [
         "m13-10"
       ],
-      "solutionNotes": "Promise.resolve(wert) erzeugt ein bereits erfülltes Promise; await liest seinen Wert. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "async function zahl() { return 8; } console.log(await zahl());",
+        "explanation": "async macht aus dem Rückgabewert ein Promise. await entpackt dessen späteres Ergebnis innerhalb eines async-Kontexts.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "antwort. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "antwort()",
+          "expected": "42",
+          "context": "Schreibe async antwort(), die 42 liefert; zeige await antwort() in #output."
+        },
+        {
+          "input": "Text in '#output'",
+          "expected": "'42'",
+          "context": "Schreibe async antwort(), die 42 liefert; zeige await antwort() in #output."
+        }
+      ],
+      "solutionNotes": "async macht aus dem Rückgabewert ein Promise. await entpackt dessen späteres Ergebnis innerhalb eines async-Kontexts. Promise.resolve(wert) erzeugt ein bereits erfülltes Promise; await liest seinen Wert. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-02",
@@ -61,9 +92,9 @@ window.CURRICULUM.push({
         "js": "/* Ein kurzer Moment: new Promise(resolve => setTimeout(...)) verbindet einen Timer mit await. */\nfunction warte(ms) { return new Promise(resolve => setTimeout(() => resolve(\"fertig\"), ms)); }\nconsole.log(await warte(30));"
       },
       "hints": [
-        "new Promise(resolve => setTimeout(...)) verbindet einen Timer mit await.",
-        "Orientiere dich an diesem Baustein:\nfunction warte(ms) { return new Promise(resolve => setTimeout(() => resolve(\"fertig\"), ms)); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconsole.log(await warte(30));"
+        "Wird dein Promise innerhalb des Timer-Callbacks erfüllt?",
+        "Der Timer ruft den Callback später auf. Erst resolve erfüllt das Promise. Ohne resolve bleibt der wartende Aufruf unvollendet.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -74,7 +105,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m14-01"
       ],
-      "solutionNotes": "new Promise(resolve => setTimeout(...)) verbindet einen Timer mit await. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "await new Promise(resolve => setTimeout(() => resolve(\"bereit\"), 50));",
+        "explanation": "Der Timer ruft den Callback später auf. Erst resolve erfüllt das Promise. Ohne resolve bleibt der wartende Aufruf unvollendet.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "warte. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "warte(1)",
+          "expected": "'fertig'",
+          "context": "Schreibe warte(ms), das nach ms Millisekunden mit fertig erfüllt wird."
+        }
+      ],
+      "solutionNotes": "Der Timer ruft den Callback später auf. Erst resolve erfüllt das Promise. Ohne resolve bleibt der wartende Aufruf unvollendet. new Promise(resolve => setTimeout(...)) verbindet einen Timer mit await. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-03",
@@ -95,20 +152,46 @@ window.CURRICULUM.push({
         "js": "/* Die erste Datenabfrage: fetch liefert zunächst die Response. json() ist ebenfalls asynchron. */\nconst response = await fetch(\"/api/cities\");\nconst staedte = await response.json();\ndocument.querySelector(\"#output\").textContent = staedte[0].name;"
       },
       "hints": [
-        "fetch liefert zunächst die Response. json() ist ebenfalls asynchron.",
-        "Orientiere dich an diesem Baustein:\nconst response = await fetch(\"/api/cities\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").textContent = staedte[0].name;"
+        "Hast du sowohl die Antwort als auch das Lesen ihrer Daten abgewartet?",
+        "Netzwerkantwort und gelesene JSON-Daten sind zwei verschiedene asynchrone Ergebnisse. Beide Schritte benötigen eine bewusste Reihenfolge.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Lade /api/cities in const staedte und zeige die erste Stadt in #output.",
-          "code": "typeof staedte!=='undefined' && staedte.length===2 && document.querySelector('#output').textContent==='Köln'"
+          "code": "typeof staedte!=='undefined' && staedte.length===2 && __text('#output')==='Köln'"
         }
       ],
       "prerequisites": [
         "m14-02"
       ],
-      "solutionNotes": "fetch liefert zunächst die Response. json() ist ebenfalls asynchron. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const antwort = await fetch(\"/api/weather\"); const daten = await antwort.json();",
+        "explanation": "Netzwerkantwort und gelesene JSON-Daten sind zwei verschiedene asynchrone Ergebnisse. Beide Schritte benötigen eine bewusste Reihenfolge.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "staedte. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#output'",
+          "expected": "'Köln'",
+          "context": "Lade /api/cities in const staedte und zeige die erste Stadt in #output."
+        }
+      ],
+      "solutionNotes": "Netzwerkantwort und gelesene JSON-Daten sind zwei verschiedene asynchrone Ergebnisse. Beide Schritte benötigen eine bewusste Reihenfolge. fetch liefert zunächst die Response. json() ist ebenfalls asynchron. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-04",
@@ -129,9 +212,9 @@ window.CURRICULUM.push({
         "js": "/* Status ist Teil des Vertrags: fetch wirft bei 404 nicht automatisch. response.ok ist bei 200–299 wahr. */\nasync function lade(url) {\n  const response = await fetch(url);\n  if (!response.ok) throw new Error(`HTTP ${response.status}`);\n  return response.json();\n}"
       },
       "hints": [
-        "fetch wirft bei 404 nicht automatisch. response.ok ist bei 200–299 wahr.",
-        "Orientiere dich an diesem Baustein:\nasync function lade(url) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Prüfst du den Status vor dem Lesen der Erfolgsdaten?",
+        "Ein HTTP-Fehler ist zunächst eine gewöhnliche Response. Erst deine Statusprüfung entscheidet, ihn als JavaScript-Fehler weiterzugeben.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -146,7 +229,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m14-03"
       ],
-      "solutionNotes": "fetch wirft bei 404 nicht automatisch. response.ok ist bei 200–299 wahr. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "if (!antwort.ok) throw new Error(\"Nicht verfügbar\");",
+        "explanation": "Ein HTTP-Fehler ist zunächst eine gewöhnliche Response. Erst deine Statusprüfung entscheidet, ihn als JavaScript-Fehler weiterzugeben.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "lade. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein HTTP-Fehler ist zunächst eine gewöhnliche Response. Erst deine Statusprüfung entscheidet, ihn als JavaScript-Fehler weiterzugeben. fetch wirft bei 404 nicht automatisch. response.ok ist bei 200–299 wahr. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-05",
@@ -167,20 +270,42 @@ window.CURRICULUM.push({
         "js": "/* Ein Fehler wird sichtbar: catch erhält das Fehlerobjekt. message enthält den erklärenden Text. */\ntry {\n  const response = await fetch(\"/api/missing\");\n  if (!response.ok) throw new Error(\"Daten fehlen\");\n} catch (error) { document.querySelector(\"#output\").textContent = error.message; }"
       },
       "hints": [
-        "catch erhält das Fehlerobjekt. message enthält den erklärenden Text.",
-        "Orientiere dich an diesem Baustein:\ntry {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n} catch (error) { document.querySelector(\"#output\").textContent = error.message; }"
+        "Wird der Fehler abgefangen und als verständlicher Text dargestellt?",
+        "catch verarbeitet den geworfenen Fehler. Die Meldung ist eine Eigenschaft des Fehlerobjekts; das Objekt selbst ist nicht der gewünschte Anzeigetext.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Fange die 404 von /api/missing ab und zeige Daten fehlen in #output.",
-          "code": "document.querySelector('#output').textContent==='Daten fehlen'"
+          "code": "__text('#output')==='Daten fehlen'"
         }
       ],
       "prerequisites": [
         "m14-04"
       ],
-      "solutionNotes": "catch erhält das Fehlerobjekt. message enthält den erklärenden Text. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "try { throw new Error(\"Abgebrochen\"); } catch (fehler) { console.log(fehler.message); }",
+        "explanation": "catch verarbeitet den geworfenen Fehler. Die Meldung ist eine Eigenschaft des Fehlerobjekts; das Objekt selbst ist nicht der gewünschte Anzeigetext.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#output'",
+          "expected": "'Daten fehlen'",
+          "context": "Fange die 404 von /api/missing ab und zeige Daten fehlen in #output."
+        }
+      ],
+      "solutionNotes": "catch verarbeitet den geworfenen Fehler. Die Meldung ist eine Eigenschaft des Fehlerobjekts; das Objekt selbst ist nicht der gewünschte Anzeigetext. catch erhält das Fehlerobjekt. message enthält den erklärenden Text. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-06",
@@ -201,9 +326,9 @@ window.CURRICULUM.push({
         "js": "/* Zwei Abfragen parallel: Promise.all startet übergebene Promises gemeinsam und liefert Ergebnisse in Eingabereihenfolge. */\nasync function ladeBeides() {\n  const [a, b] = await Promise.all([fetch(\"/api/cities\"), fetch(\"/api/weather\")]);\n  const [staedte, wetter] = await Promise.all([a.json(), b.json()]);\n  return { staedte, wetter };\n}"
       },
       "hints": [
-        "Promise.all startet übergebene Promises gemeinsam und liefert Ergebnisse in Eingabereihenfolge.",
-        "Orientiere dich an diesem Baustein:\nasync function ladeBeides() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Startest du beide Arbeiten, bevor du auf ihre Ergebnisse wartest?",
+        "Promise.all bündelt unabhängige Arbeiten. Die Ergebnisreihenfolge entspricht den Eingaben, nicht der Reihenfolge ihres Abschlusses.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -214,13 +339,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m14-05"
       ],
-      "solutionNotes": "Promise.all startet übergebene Promises gemeinsam und liefert Ergebnisse in Eingabereihenfolge. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const werte = await Promise.all([Promise.resolve(\"A\"), Promise.resolve(\"B\")]);",
+        "explanation": "Promise.all bündelt unabhängige Arbeiten. Die Ergebnisreihenfolge entspricht den Eingaben, nicht der Reihenfolge ihres Abschlusses.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "ladeBeides. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Promise.all bündelt unabhängige Arbeiten. Die Ergebnisreihenfolge entspricht den Eingaben, nicht der Reihenfolge ihres Abschlusses. Promise.all startet übergebene Promises gemeinsam und liefert Ergebnisse in Eingabereihenfolge. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-07",
       "title": "Ein Ladezustand",
       "explanation": "finally wird bei Erfolg und Fehler ausgeführt. Nutze es für Aufräumarbeiten.",
-      "task": "Schreibe async laden(), das loading erst true setzt und in finally auf false; gib Wetter zurück.",
+      "task": "Deklariere die gemeinsame Variable loading mit Anfangswert false. Schreibe async laden(): während der Arbeit loading=true setzen, /api/weather laden und dessen JSON-Daten zurückgeben. In finally wird loading wieder false. Eine DOM-Ausgabe ist hier nicht nötig.",
       "minutes": 15,
       "xp": 85,
       "focus": "js",
@@ -235,20 +380,40 @@ window.CURRICULUM.push({
         "js": "/* Ein Ladezustand: finally wird bei Erfolg und Fehler ausgeführt. Nutze es für Aufräumarbeiten. */\nlet loading = false;\nasync function laden() {\n  loading = true;\n  try { const r = await fetch(\"/api/weather\"); return await r.json(); }\n  finally { loading = false; }\n}"
       },
       "hints": [
-        "finally wird bei Erfolg und Fehler ausgeführt. Nutze es für Aufräumarbeiten.",
-        "Orientiere dich an diesem Baustein:\nlet loading = false;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Wird dein Ladezustand auch im Fehlerfall zurückgesetzt?",
+        "finally läuft auch nach Fehlern und Rückgaben. Ein Ladezustand wird dort beendet, damit die Oberfläche nicht dauerhaft beschäftigt bleibt.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
-          "label": "Schreibe async laden(), das loading erst true setzt und in finally auf false; gib Wetter zurück.",
+          "label": "Deklariere die gemeinsame Variable loading mit Anfangswert false. Schreibe async laden(): während der Arbeit loading=true setzen, /api/weather laden und dessen JSON-Daten zurückgeben. In finally wird loading wieder false. Eine DOM-Ausgabe ist hier nicht nötig.",
           "code": "typeof laden==='function' && (await laden()).temperature===18 && loading===false"
         }
       ],
       "prerequisites": [
         "m14-06"
       ],
-      "solutionNotes": "finally wird bei Erfolg und Fehler ausgeführt. Nutze es für Aufräumarbeiten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "try { console.log(\"Arbeit\"); } finally { console.log(\"Aufräumen\"); }",
+        "explanation": "finally läuft auch nach Fehlern und Rückgaben. Ein Ladezustand wird dort beendet, damit die Oberfläche nicht dauerhaft beschäftigt bleibt.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "laden. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "finally läuft auch nach Fehlern und Rückgaben. Ein Ladezustand wird dort beendet, damit die Oberfläche nicht dauerhaft beschäftigt bleibt. finally wird bei Erfolg und Fehler ausgeführt. Nutze es für Aufräumarbeiten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-08",
@@ -269,9 +434,9 @@ window.CURRICULUM.push({
         "js": "/* Abbrechen ist erlaubt: AbortController besitzt ein signal. abort() markiert das Signal als abgebrochen. Eine kooperative API beachtet es. */\nasync function abgebrochen() {\n  const controller = new AbortController();\n  controller.abort();\n  try { await fetch(\"/api/cities\", { signal: controller.signal }); return false; }\n  catch (error) { return error.name === \"AbortError\"; }\n}"
       },
       "hints": [
-        "AbortController besitzt ein signal. abort() markiert das Signal als abgebrochen. Eine kooperative API beachtet es.",
-        "Orientiere dich an diesem Baustein:\nasync function abgebrochen() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Erkennst du den Abbruch über den Fehlernamen?",
+        "Das Signal beschreibt einen Abbruch. Eine API muss es beachten und einen passenden Fehler liefern. Ein Abbruch ist von einem HTTP-Fehler zu unterscheiden.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -282,7 +447,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m14-07"
       ],
-      "solutionNotes": "AbortController besitzt ein signal. abort() markiert das Signal als abgebrochen. Eine kooperative API beachtet es. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const controller = new AbortController(); controller.abort();",
+        "explanation": "Das Signal beschreibt einen Abbruch. Eine API muss es beachten und einen passenden Fehler liefern. Ein Abbruch ist von einem HTTP-Fehler zu unterscheiden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "abgebrochen. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "abgebrochen()",
+          "expected": "true",
+          "context": "Schreibe abgebrochen(), das eine Anfrage mit bereits abgebrochenem Signal startet und bei AbortError true liefert."
+        }
+      ],
+      "solutionNotes": "Das Signal beschreibt einen Abbruch. Eine API muss es beachten und einen passenden Fehler liefern. Ein Abbruch ist von einem HTTP-Fehler zu unterscheiden. AbortController besitzt ein signal. abort() markiert das Signal als abgebrochen. Eine kooperative API beachtet es. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-09",
@@ -303,9 +494,9 @@ window.CURRICULUM.push({
         "js": "/* Teilweise Ergebnisse: Promise.allSettled liefert je Promise {status,value} oder {status,reason}, ohne beim ersten Fehler abzubrechen. */\nasync function erfolge() {\n  const resultate = await Promise.allSettled([Promise.resolve(1), Promise.reject(new Error(\"Fehler\")), Promise.resolve(3)]);\n  return resultate.filter(x => x.status === \"fulfilled\").map(x => x.value);\n}"
       },
       "hints": [
-        "Promise.allSettled liefert je Promise {status,value} oder {status,reason}, ohne beim ersten Fehler abzubrechen.",
-        "Orientiere dich an diesem Baustein:\nasync function erfolge() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Filterst du zuerst nach dem Erfüllungsstatus, bevor du Werte liest?",
+        "allSettled liefert Zustandsobjekte. Erfolgreiche Werte liegen in value; fehlgeschlagene Einträge haben stattdessen reason.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -316,7 +507,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m14-08"
       ],
-      "solutionNotes": "Promise.allSettled liefert je Promise {status,value} oder {status,reason}, ohne beim ersten Fehler abzubrechen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const zustand = await Promise.allSettled([Promise.resolve(8)]);",
+        "explanation": "allSettled liefert Zustandsobjekte. Erfolgreiche Werte liegen in value; fehlgeschlagene Einträge haben stattdessen reason.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "erfolge. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "allSettled liefert Zustandsobjekte. Erfolgreiche Werte liegen in value; fehlgeschlagene Einträge haben stattdessen reason. Promise.allSettled liefert je Promise {status,value} oder {status,reason}, ohne beim ersten Fehler abzubrechen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m14-10",
@@ -337,20 +548,46 @@ window.CURRICULUM.push({
         "js": "/* Projekt: Ein Wetterwidget: Trenne Beschaffung und Darstellung. Ersetze den Ladehinweis durch Ergebnis oder Fehlertext. */\nasync function wetterWidget() {\n  const output = document.querySelector(\"#output\");\n  output.textContent = \"Lädt …\";\n  try {\n    const response = await fetch(\"/api/weather\");\n    if (!response.ok) throw new Error(\"Wetter nicht verfügbar\");\n    const wetter = await response.json();\n    output.textContent = `${wetter.city}: ${wetter.temperature} °C`;\n  } catch (error) { output.textContent = error.message; }\n}\nawait wetterWidget();"
       },
       "hints": [
-        "Trenne Beschaffung und Darstellung. Ersetze den Ladehinweis durch Ergebnis oder Fehlertext.",
-        "Orientiere dich an diesem Baustein:\nasync function wetterWidget() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nawait wetterWidget();"
+        "Ersetzt dein Ergebnis den Ladehinweis an derselben Stelle?",
+        "Ein Widget verbindet Ladehinweis, Beschaffung, Statusprüfung und Darstellung. Der sichtbare Endzustand muss nach dem Warten gesetzt werden.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Schreibe async wetterWidget(): lade /api/weather und zeige Köln: 18 °C; rufe sie auf.",
-          "code": "typeof wetterWidget==='function' && document.querySelector('#output').textContent==='Köln: 18 °C'"
+          "code": "typeof wetterWidget==='function' && __text('#output')==='Köln: 18 °C'"
         }
       ],
       "prerequisites": [
         "m14-09"
       ],
-      "solutionNotes": "Trenne Beschaffung und Darstellung. Ersetze den Ladehinweis durch Ergebnis oder Fehlertext. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const daten = { temperatur: 21 }; console.log(`Heute: ${daten.temperatur}`);",
+        "explanation": "Ein Widget verbindet Ladehinweis, Beschaffung, Statusprüfung und Darstellung. Der sichtbare Endzustand muss nach dem Warten gesetzt werden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "wetterWidget. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#output'",
+          "expected": "'Köln: 18 °C'",
+          "context": "Schreibe async wetterWidget(): lade /api/weather und zeige Köln: 18 °C; rufe sie auf."
+        }
+      ],
+      "solutionNotes": "Ein Widget verbindet Ladehinweis, Beschaffung, Statusprüfung und Darstellung. Der sichtbare Endzustand muss nach dem Warten gesetzt werden. Trenne Beschaffung und Darstellung. Ersetze den Ladehinweis durch Ergebnis oder Fehlertext. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

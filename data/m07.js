@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": "/* Streng gleich: === unterscheidet Zahl und Zahlentext. */\nconst gleich = 5 === \"5\";\nconsole.log(gleich);"
       },
       "hints": [
-        "=== unterscheidet Zahl und Zahlentext.",
-        "Orientiere dich an diesem Baustein:\nconst gleich = 5 === \"5\";",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconsole.log(gleich);"
+        "Vergleichst du mit dem strengen Vergleichsoperator und speicherst einen echten Wahrheitswert?",
+        "Ein strenger Vergleich berücksichtigt auch den Datentyp. Sein Ergebnis ist ein Wahrheitswert ohne Anführungszeichen. Eine Zuweisung mit einem einzelnen Gleichheitszeichen wäre eine andere Operation.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -40,13 +40,39 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m06-10"
       ],
-      "solutionNotes": "=== unterscheidet Zahl und Zahlentext. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "console.log(9 === \"9\");",
+        "explanation": "Ein strenger Vergleich berücksichtigt auch den Datentyp. Sein Ergebnis ist ein Wahrheitswert ohne Anführungszeichen. Eine Zuweisung mit einem einzelnen Gleichheitszeichen wäre eine andere Operation.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "gleich. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "gleich",
+          "expected": "false",
+          "context": "Speichere den Vergleich 5 === \"5\" in const gleich."
+        }
+      ],
+      "solutionNotes": "Ein strenger Vergleich berücksichtigt auch den Datentyp. Sein Ergebnis ist ein Wahrheitswert ohne Anführungszeichen. Eine Zuweisung mit einem einzelnen Gleichheitszeichen wäre eine andere Operation. === unterscheidet Zahl und Zahlentext. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-02",
       "title": "Darf ich mitfahren?",
       "explanation": ">= bedeutet größer oder gleich. if führt seinen Block nur bei wahrer Bedingung aus.",
-      "task": "Setze alter=16. Setze status auf frei, falls alter>=16, sonst gesperrt.",
+      "task": "Deklariere alter mit dem Zahlenwert 16. Schreibe eine if-else-Entscheidung: ab einschließlich 16 lautet der Wert der Variablen status „frei“, sonst „gesperrt“. Eine Ausgabe auf der Seite ist nicht nötig.",
       "minutes": 10,
       "xp": 50,
       "focus": "js",
@@ -61,20 +87,46 @@ window.CURRICULUM.push({
         "js": "/* Darf ich mitfahren?: >= bedeutet größer oder gleich. if führt seinen Block nur bei wahrer Bedingung aus. */\nconst alter = 16;\nlet status;\nif (alter >= 16) { status = \"frei\"; } else { status = \"gesperrt\"; }\nconsole.log(status);"
       },
       "hints": [
-        ">= bedeutet größer oder gleich. if führt seinen Block nur bei wahrer Bedingung aus.",
-        "Orientiere dich an diesem Baustein:\nconst alter = 16;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconsole.log(status);"
+        "Ist der Grenzwert selbst noch erlaubt oder schon ausgeschlossen?",
+        "Die Bedingung in runden Klammern wird zu wahr oder falsch ausgewertet. Genau einer der beiden Zweige einer if-else-Anweisung wird ausgeführt. Achte auf eingeschlossene Grenzwerte.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
-          "label": "Setze alter=16. Setze status auf frei, falls alter>=16, sonst gesperrt.",
+          "label": "Deklariere alter mit dem Zahlenwert 16. Schreibe eine if-else-Entscheidung: ab einschließlich 16 lautet der Wert der Variablen status „frei“, sonst „gesperrt“. Eine Ausgabe auf der Seite ist nicht nötig.",
           "code": "typeof status !== 'undefined' && status==='frei'"
         }
       ],
       "prerequisites": [
         "m07-01"
       ],
-      "solutionNotes": ">= bedeutet größer oder gleich. if führt seinen Block nur bei wahrer Bedingung aus. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "if (hoehe >= 120) { console.log(\"groß genug\"); }",
+        "explanation": "Die Bedingung in runden Klammern wird zu wahr oder falsch ausgewertet. Genau einer der beiden Zweige einer if-else-Anweisung wird ausgeführt. Achte auf eingeschlossene Grenzwerte.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "status. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "status",
+          "expected": "'frei'",
+          "context": "Deklariere alter mit dem Zahlenwert 16. Schreibe eine if-else-Entscheidung: ab einschließlich 16 lautet der Wert der Variablen status „frei“, sonst „gesperrt“. Eine Ausgabe auf der Seite ist nicht nötig."
+        }
+      ],
+      "solutionNotes": "Die Bedingung in runden Klammern wird zu wahr oder falsch ausgewertet. Genau einer der beiden Zweige einer if-else-Anweisung wird ausgeführt. Achte auf eingeschlossene Grenzwerte. >= bedeutet größer oder gleich. if führt seinen Block nur bei wahrer Bedingung aus. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-03",
@@ -95,9 +147,9 @@ window.CURRICULUM.push({
         "js": "/* Zwei Bedingungen: && ist nur wahr, wenn beide Seiten wahr sind. */\nconst alter = 18;\nconst ticket = true;\nconst zugang = alter >= 16 && ticket === true;"
       },
       "hints": [
-        "&& ist nur wahr, wenn beide Seiten wahr sind.",
-        "Orientiere dich an diesem Baustein:\nconst alter = 18;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconst zugang = alter >= 16 && ticket === true;"
+        "Müssen beide Voraussetzungen erfüllt sein oder genügt bereits eine?",
+        "Eine Und-Verknüpfung verlangt, dass beide Teilbedingungen zutreffen. Klammern können längere Ausdrücke übersichtlich gruppieren. Teste auch einen Fall, in dem nur eine Seite zutrifft.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -108,7 +160,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m07-02"
       ],
-      "solutionNotes": "&& ist nur wahr, wenn beide Seiten wahr sind. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const bereit = wasser && erde;",
+        "explanation": "Eine Und-Verknüpfung verlangt, dass beide Teilbedingungen zutreffen. Klammern können längere Ausdrücke übersichtlich gruppieren. Teste auch einen Fall, in dem nur eine Seite zutrifft.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "zugang. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "zugang",
+          "expected": "true",
+          "context": "Setze zugang auf das Ergebnis von alter>=16 und ticket===true bei alter=18 und ticket=true."
+        }
+      ],
+      "solutionNotes": "Eine Und-Verknüpfung verlangt, dass beide Teilbedingungen zutreffen. Klammern können längere Ausdrücke übersichtlich gruppieren. Teste auch einen Fall, in dem nur eine Seite zutrifft. && ist nur wahr, wenn beide Seiten wahr sind. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-04",
@@ -129,9 +207,9 @@ window.CURRICULUM.push({
         "js": "/* Eine Möglichkeit reicht: || ist wahr, wenn mindestens eine Seite wahr ist. */\nconst schueler = false;\nconst student = true;\nconst rabatt = schueler || student;"
       },
       "hints": [
-        "|| ist wahr, wenn mindestens eine Seite wahr ist.",
-        "Orientiere dich an diesem Baustein:\nconst schueler = false;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconst rabatt = schueler || student;"
+        "Was passiert in deinem Ausdruck, wenn genau eine der beiden Bedingungen wahr ist?",
+        "Eine Oder-Verknüpfung ist schon erfüllt, wenn eine Seite zutrifft. Sie bleibt auch dann wahr, wenn beide Seiten zutreffen. Das unterscheidet sie von einem exklusiven Oder.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -142,7 +220,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m07-03"
       ],
-      "solutionNotes": "|| ist wahr, wenn mindestens eine Seite wahr ist. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const frei = ferien || wochenende;",
+        "explanation": "Eine Oder-Verknüpfung ist schon erfüllt, wenn eine Seite zutrifft. Sie bleibt auch dann wahr, wenn beide Seiten zutreffen. Das unterscheidet sie von einem exklusiven Oder.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "rabatt. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "rabatt",
+          "expected": "true",
+          "context": "Setze rabatt auf schueler || student bei schueler=false und student=true."
+        }
+      ],
+      "solutionNotes": "Eine Oder-Verknüpfung ist schon erfüllt, wenn eine Seite zutrifft. Sie bleibt auch dann wahr, wenn beide Seiten zutreffen. Das unterscheidet sie von einem exklusiven Oder. || ist wahr, wenn mindestens eine Seite wahr ist. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-05",
@@ -163,9 +267,9 @@ window.CURRICULUM.push({
         "js": "/* Das Gegenteil: ! kehrt einen Wahrheitswert um. */\nconst offline = true;\nconst online = !offline;"
       },
       "hints": [
-        "! kehrt einen Wahrheitswert um.",
-        "Orientiere dich an diesem Baustein:\nconst offline = true;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconst online = !offline;"
+        "Leitest du einen neuen gegenteiligen Wert ab, ohne den Ausgangswert zu überschreiben?",
+        "Das Ausrufezeichen kehrt einen Wahrheitswert um. Der ursprüngliche Wert muss dabei nicht verändert werden. Verwechsle die Negation nicht mit einer Ungleichheitsprüfung.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -176,7 +280,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m07-04"
       ],
-      "solutionNotes": "! kehrt einen Wahrheitswert um. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const unsichtbar = !sichtbar;",
+        "explanation": "Das Ausrufezeichen kehrt einen Wahrheitswert um. Der ursprüngliche Wert muss dabei nicht verändert werden. Verwechsle die Negation nicht mit einer Ungleichheitsprüfung.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "offline, online. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "offline",
+          "expected": "true",
+          "context": "Setze offline=true und online auf das Gegenteil von offline."
+        },
+        {
+          "input": "online",
+          "expected": "false",
+          "context": "Setze offline=true und online auf das Gegenteil von offline."
+        }
+      ],
+      "solutionNotes": "Das Ausrufezeichen kehrt einen Wahrheitswert um. Der ursprüngliche Wert muss dabei nicht verändert werden. Verwechsle die Negation nicht mit einer Ungleichheitsprüfung. ! kehrt einen Wahrheitswert um. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-06",
@@ -197,9 +332,9 @@ window.CURRICULUM.push({
         "js": "/* Drei Wege: else if prüft eine weitere Bedingung, wenn die erste falsch war. */\nconst temperatur = 8;\nlet kleidung;\nif (temperatur < 0) { kleidung = \"Mantel\"; }\nelse if (temperatur < 15) { kleidung = \"Jacke\"; }\nelse { kleidung = \"T-Shirt\"; }"
       },
       "hints": [
-        "else if prüft eine weitere Bedingung, wenn die erste falsch war.",
-        "Orientiere dich an diesem Baustein:\nconst temperatur = 8;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nelse { kleidung = \"T-Shirt\"; }"
+        "Ist die speziellere Bedingung vor der allgemeineren angeordnet?",
+        "Bei mehreren Zweigen entscheidet deren Reihenfolge. Sobald eine Bedingung zutrifft, werden spätere Zweige nicht mehr ausgewertet. Prüfe benachbarte Werte an jeder Grenze.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -210,7 +345,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m07-05"
       ],
-      "solutionNotes": "else if prüft eine weitere Bedingung, wenn die erste falsch war. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "if (wert < 10) { console.log(\"klein\"); } else if (wert < 30) { console.log(\"mittel\"); }",
+        "explanation": "Bei mehreren Zweigen entscheidet deren Reihenfolge. Sobald eine Bedingung zutrifft, werden spätere Zweige nicht mehr ausgewertet. Prüfe benachbarte Werte an jeder Grenze.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "kleidung. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "kleidung",
+          "expected": "'Jacke'",
+          "context": "Bei temperatur=8 soll kleidung Jacke sein; unter 0 Mantel, ab 15 T-Shirt."
+        }
+      ],
+      "solutionNotes": "Bei mehreren Zweigen entscheidet deren Reihenfolge. Sobald eine Bedingung zutrifft, werden spätere Zweige nicht mehr ausgewertet. Prüfe benachbarte Werte an jeder Grenze. else if prüft eine weitere Bedingung, wenn die erste falsch war. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-07",
@@ -231,9 +392,9 @@ window.CURRICULUM.push({
         "js": "/* Eine kurze Entscheidung: Der ternäre Operator eignet sich für zwei kurze Ergebniswerte. */\nconst punkte = 80;\nconst text = punkte >= 50 ? \"Bestanden\" : \"Weiter üben\";"
       },
       "hints": [
-        "Der ternäre Operator eignet sich für zwei kurze Ergebniswerte.",
-        "Orientiere dich an diesem Baustein:\nconst punkte = 80;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconst text = punkte >= 50 ? \"Bestanden\" : \"Weiter üben\";"
+        "Sind die beiden Ergebniswerte dem richtigen Wahrheitsfall zugeordnet?",
+        "Der ternäre Operator ist ein Ausdruck mit einem Ergebniswert. Vor dem Fragezeichen steht die Bedingung, zwischen Fragezeichen und Doppelpunkt der wahre Fall, danach der falsche Fall.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -244,7 +405,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m07-06"
       ],
-      "solutionNotes": "Der ternäre Operator eignet sich für zwei kurze Ergebniswerte. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const symbol = aktiv ? \"an\" : \"aus\";",
+        "explanation": "Der ternäre Operator ist ein Ausdruck mit einem Ergebniswert. Vor dem Fragezeichen steht die Bedingung, zwischen Fragezeichen und Doppelpunkt der wahre Fall, danach der falsche Fall.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "text. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "text",
+          "expected": "'Bestanden'",
+          "context": "Setze text bei punkte=80 auf Bestanden, wenn punkte>=50, sonst Weiter üben."
+        }
+      ],
+      "solutionNotes": "Der ternäre Operator ist ein Ausdruck mit einem Ergebniswert. Vor dem Fragezeichen steht die Bedingung, zwischen Fragezeichen und Doppelpunkt der wahre Fall, danach der falsche Fall. Der ternäre Operator eignet sich für zwei kurze Ergebniswerte. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-08",
@@ -265,9 +452,9 @@ window.CURRICULUM.push({
         "js": "/* Null ist nicht null Punkte: ?? ersetzt null oder undefined, erhält aber 0. || würde auch 0 ersetzen. */\nconst wert = 0;\nconst anzeige = wert ?? 100;"
       },
       "hints": [
-        "?? ersetzt null oder undefined, erhält aber 0. || würde auch 0 ersetzen.",
-        "Orientiere dich an diesem Baustein:\nconst wert = 0;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconst anzeige = wert ?? 100;"
+        "Soll dein Ersatzwert auch bei 0 greifen oder nur bei einem fehlenden Wert?",
+        "Der Nullish-Operator prüft ausschließlich null oder undefined. Andere Werte wie 0, false und ein leerer Text bleiben erhalten. Das ist bei gespeicherten Einstellungen oft entscheidend.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -278,7 +465,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m07-07"
       ],
-      "solutionNotes": "?? ersetzt null oder undefined, erhält aber 0. || würde auch 0 ersetzen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const titel = eingabe ?? \"Ohne Titel\";",
+        "explanation": "Der Nullish-Operator prüft ausschließlich null oder undefined. Andere Werte wie 0, false und ein leerer Text bleiben erhalten. Das ist bei gespeicherten Einstellungen oft entscheidend.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "anzeige. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "anzeige",
+          "expected": "0",
+          "context": "Setze wert=0 und anzeige auf wert ?? 100."
+        }
+      ],
+      "solutionNotes": "Der Nullish-Operator prüft ausschließlich null oder undefined. Andere Werte wie 0, false und ein leerer Text bleiben erhalten. Das ist bei gespeicherten Einstellungen oft entscheidend. ?? ersetzt null oder undefined, erhält aber 0. || würde auch 0 ersetzen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-09",
@@ -299,9 +512,9 @@ window.CURRICULUM.push({
         "js": "/* Mehrere feste Fälle: switch nutzt case und break; default deckt unbekannte Werte ab. */\nconst code = \"HH\";\nlet ort;\nswitch (code) {\n  case \"HH\": ort = \"Hamburg\"; break;\n  case \"B\": ort = \"Berlin\"; break;\n  default: ort = \"Unbekannt\";\n}"
       },
       "hints": [
-        "switch nutzt case und break; default deckt unbekannte Werte ab.",
-        "Orientiere dich an diesem Baustein:\nconst code = \"HH\";",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Beendet dein passender Fall die Auswahl, und gibt es einen Standardfall?",
+        "Ein case vergleicht den untersuchten Wert mit einem festen Fall. Ohne break würde die Ausführung in den folgenden Fall weiterlaufen. default beschreibt den Rückfall.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -312,7 +525,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m07-08"
       ],
-      "solutionNotes": "switch nutzt case und break; default deckt unbekannte Werte ab. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "switch (farbe) { case \"rot\": console.log(\"Stopp\"); break; default: console.log(\"Weiter\"); }",
+        "explanation": "Ein case vergleicht den untersuchten Wert mit einem festen Fall. Ohne break würde die Ausführung in den folgenden Fall weiterlaufen. default beschreibt den Rückfall.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "ort. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "ort",
+          "expected": "'Hamburg'",
+          "context": "Ordne code=\"HH\" mit switch dem const/let ort=\"Hamburg\" zu; Standard Unbekannt."
+        }
+      ],
+      "solutionNotes": "Ein case vergleicht den untersuchten Wert mit einem festen Fall. Ohne break würde die Ausführung in den folgenden Fall weiterlaufen. default beschreibt den Rückfall. switch nutzt case und break; default deckt unbekannte Werte ab. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m07-10",
@@ -333,20 +572,42 @@ window.CURRICULUM.push({
         "js": "/* Projekt: Ein Lernhinweis: Kombiniere Bedingungen mit einer sichtbaren Ausgabe. */\nconst minuten = 10;\nconst energie = true;\nconst text = minuten >= 5 && energie ? \"Kurz üben\" : \"Pause\";\ndocument.querySelector(\"#output\").textContent = text;"
       },
       "hints": [
-        "Kombiniere Bedingungen mit einer sichtbaren Ausgabe.",
-        "Orientiere dich an diesem Baustein:\nconst minuten = 10;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").textContent = text;"
+        "Ist jede geforderte Voraussetzung in deiner Entscheidung enthalten?",
+        "Schreibe die Voraussetzungen zuerst als Wahrheitsausdruck auf. Leite erst daraus den Ausgabetext ab. So vermischst du Fachentscheidung und Darstellung nicht unnötig.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Bei minuten=10 und energie=true zeige Kurz üben, wenn mindestens 5 Minuten und Energie vorhanden sind; sonst Pause.",
-          "code": "document.querySelector('#output').textContent==='Kurz üben'"
+          "code": "__text('#output')==='Kurz üben'"
         }
       ],
       "prerequisites": [
         "m07-09"
       ],
-      "solutionNotes": "Kombiniere Bedingungen mit einer sichtbaren Ausgabe. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const hinweis = zeit >= 15 && lust ? \"Start\" : \"Später\";",
+        "explanation": "Schreibe die Voraussetzungen zuerst als Wahrheitsausdruck auf. Leite erst daraus den Ausgabetext ab. So vermischst du Fachentscheidung und Darstellung nicht unnötig.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#output'",
+          "expected": "'Kurz üben'",
+          "context": "Bei minuten=10 und energie=true zeige Kurz üben, wenn mindestens 5 Minuten und Energie vorhanden sind; sonst Pause."
+        }
+      ],
+      "solutionNotes": "Schreibe die Voraussetzungen zuerst als Wahrheitsausdruck auf. Leite erst daraus den Ausgabetext ab. So vermischst du Fachentscheidung und Darstellung nicht unnötig. Kombiniere Bedingungen mit einer sichtbaren Ausgabe. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

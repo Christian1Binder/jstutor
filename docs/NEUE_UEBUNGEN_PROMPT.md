@@ -28,3 +28,14 @@ Arbeite direkt in diesem Repository. Keine externe Laufzeitbibliothek, kein CDN,
 ## Wo die Inhalte liegen
 
 `data/mXX.js` ist das Browserformat. `scripts/build_curriculum.py` ist die reproduzierbare Autorenquelle der ersten 200 Übungen. `python scripts/build_curriculum.py` schreibt diese Module neu. Zum normalen Hosten ist kein Python nötig.
+
+## Verbindlicher didaktischer Standard ab Version 1.1
+
+Lies zusätzlich `scripts/pedagogy.py`. Die dortigen redaktionellen Inhalte ergänzen die Autorenquelle dauerhaft. Jede Übung besitzt jetzt `concept` (`example`, `explanation`, `note`), `requirements` (Liste aus `label`, `text`) und `examples` (Liste aus `input`, `expected`, `context`).
+
+- Erkläre zuerst die Funktionsweise und die einzelnen Syntaxbestandteile. Zeige ein bewusst anderes Beispiel; es darf keine ungelernte Voraussetzung einschmuggeln.
+- Benenne Arbeitsbereich, verbindliche IDs/Funktions-/Variablennamen, Eingaben und Rückgaben. Trenne genaue Textvorgaben von frei gewählter Gestaltung. Jeder Test muss aus dem sichtbaren Vertrag ableitbar sein.
+- Schreibe drei Hinweise als Denkfrage, Erklärung und Diagnosehilfe. Keine vollständigen HTML-/CSS-/JS-Lösungen in den Hinweisen; auch keine erste/letzte Zeile aus der Musterlösung extrahieren.
+- Erwartete Ergebnisse beschreiben Ein-/Ausgaben, keine Implementierung. Mehrere ereignisabhängige Ergebnisse benötigen einen Kontext, damit sie nicht widersprüchlich erscheinen.
+- In Tests stehen `__text(selector)` und `__normalize(text)` für den Vergleich von sichtbarem DOM-Text bereit. Sie vereinheitlichen Whitespace und gerade/typografische Apostrophe. Inhaltlich falsche Texte bleiben falsch. Vergleiche Quelltext nur, wenn die konkrete Technik selbst das erklärte Lernziel ist.
+- Führe neben Musterlösungen auch gültige Alternativen und bewusst falsche Gegenbeispiele aus. Ergänze `tests/variants.html` bei geänderten Prüfregeln.

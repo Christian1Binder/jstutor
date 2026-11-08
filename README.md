@@ -37,3 +37,11 @@ Die Schema-/Syntax-/Speichertests laufen im Pages-Workflow. Musterlösungen werd
 ## Vorschau
 
 ![jstutor Lernreise](docs/screenshots/preview.jpg)
+
+## Version 1.1
+
+Ausführlichere Erklärungen und parallele Beispiele für alle 200 Übungen, sichtbare Eingabe-/Ausgabeverträge, Tipps ohne Lösungsblöcke, tolerante DOM-Textprüfung und größere, mit dem Bildschirm skalierende Schrift.
+
+Für den manuellen Webspace-Upload ersetzen: `app.js`, `runner.js`, `styles.css`, `sw.js` und den vollständigen Ordner `data/`. Alternativ den kompletten Inhalt eines frischen `dist/`-Builds hochladen. Die bisherigen Lernstände bleiben im Browser erhalten. Beim ersten Versionswechsel alte Website-Tabs schließen und neu öffnen; nicht die Websitedaten löschen.
+
+![Erklärungen und größere Schrift ab 1.1](docs/screenshots/learning-v1.1.jpg)

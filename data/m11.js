@@ -27,20 +27,42 @@ window.CURRICULUM.push({
         "js": "/* Eine Überschrift ändern: querySelector nutzt bekannte CSS-Selektoren. textContent ersetzt den Text. */\ndocument.querySelector(\"#title\").textContent = \"Willkommen in Erfurt\";"
       },
       "hints": [
-        "querySelector nutzt bekannte CSS-Selektoren. textContent ersetzt den Text.",
-        "Orientiere dich an diesem Baustein:\ndocument.querySelector(\"#title\").textContent = \"Willkommen in Erfurt\";",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#title\").textContent = \"Willkommen in Erfurt\";"
+        "Existiert das gewählte Zielelement im HTML?",
+        "Ein Selektor sucht ein Element im aktuellen Dokument. Erst am gefundenen Element wird der Text geändert. Fehlende Treffer sind null.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Setze #title auf Willkommen in Erfurt.",
-          "code": "document.querySelector('#title').textContent==='Willkommen in Erfurt'"
+          "code": "__text('#title')==='Willkommen in Erfurt'"
         }
       ],
       "prerequisites": [
         "m10-10"
       ],
-      "solutionNotes": "querySelector nutzt bekannte CSS-Selektoren. textContent ersetzt den Text. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "document.querySelector(\"h2\").textContent = \"Neuigkeiten\";",
+        "explanation": "Ein Selektor sucht ein Element im aktuellen Dokument. Erst am gefundenen Element wird der Text geändert. Fehlende Treffer sind null.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#title'",
+          "expected": "'Willkommen in Erfurt'",
+          "context": "Setze #title auf Willkommen in Erfurt."
+        }
+      ],
+      "solutionNotes": "Ein Selektor sucht ein Element im aktuellen Dokument. Erst am gefundenen Element wird der Text geändert. Fehlende Treffer sind null. querySelector nutzt bekannte CSS-Selektoren. textContent ersetzt den Text. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-02",
@@ -61,9 +83,9 @@ window.CURRICULUM.push({
         "js": "/* Eine Klasse hinzufügen: classList.add erhält vorhandene Klassen. */\ndocument.querySelector(\"#action\").classList.add(\"active\");"
       },
       "hints": [
-        "classList.add erhält vorhandene Klassen.",
-        "Orientiere dich an diesem Baustein:\ndocument.querySelector(\"#action\").classList.add(\"active\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#action\").classList.add(\"active\");"
+        "Fügst du einen Klassennamen hinzu, ohne die übrigen Klassen zu überschreiben?",
+        "classList verwaltet einzelne Klassennamen, ohne andere Klassen zu löschen. Der Methodenparameter enthält keinen CSS-Punkt.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -74,7 +96,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m11-01"
       ],
-      "solutionNotes": "classList.add erhält vorhandene Klassen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "document.querySelector(\"h2\").classList.add(\"hervorheben\");",
+        "explanation": "classList verwaltet einzelne Klassennamen, ohne andere Klassen zu löschen. Der Methodenparameter enthält keinen CSS-Punkt.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "classList verwaltet einzelne Klassennamen, ohne andere Klassen zu löschen. Der Methodenparameter enthält keinen CSS-Punkt. classList.add erhält vorhandene Klassen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-03",
@@ -95,9 +133,9 @@ window.CURRICULUM.push({
         "js": "/* Alle Karten markieren: querySelectorAll liefert eine durchlaufbare Liste. */\nfor (const card of document.querySelectorAll(\".card\")) { card.classList.add(\"visited\"); }"
       },
       "hints": [
-        "querySelectorAll liefert eine durchlaufbare Liste.",
-        "Orientiere dich an diesem Baustein:\nfor (const card of document.querySelectorAll(\".card\")) { card.classList.add(\"visited\"); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfor (const card of document.querySelectorAll(\".card\")) { card.classList.add(\"visited\"); }"
+        "Durchläufst du alle passenden Elemente statt nur den ersten Treffer?",
+        "querySelectorAll liefert eine Sammlung. Jede Änderung muss an ihren Elementen erfolgen, nicht an der Sammlung selbst.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -108,13 +146,29 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m11-02"
       ],
-      "solutionNotes": "querySelectorAll liefert eine durchlaufbare Liste. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "for (const element of document.querySelectorAll(\"p\")) { element.classList.add(\"lesbar\"); }",
+        "explanation": "querySelectorAll liefert eine Sammlung. Jede Änderung muss an ihren Elementen erfolgen, nicht an der Sammlung selbst.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "querySelectorAll liefert eine Sammlung. Jede Änderung muss an ihren Elementen erfolgen, nicht an der Sammlung selbst. querySelectorAll liefert eine durchlaufbare Liste. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-04",
       "title": "Ein neues Ziel",
       "explanation": "createElement erzeugt ein noch nicht eingefügtes Element. append fügt es in den Baum ein.",
-      "task": "Hänge ein li mit Text Weimar an #list an.",
+      "task": "Erzeuge per JavaScript ein neues li mit dem Text „Weimar“. Hänge es als letztes Kind an die vorhandene Liste #list an. Der vorhandene Eintrag bleibt erhalten.",
       "minutes": 12,
       "xp": 70,
       "focus": "js",
@@ -129,20 +183,42 @@ window.CURRICULUM.push({
         "js": "/* Ein neues Ziel: createElement erzeugt ein noch nicht eingefügtes Element. append fügt es in den Baum ein. */\nconst li = document.createElement(\"li\");\nli.textContent = \"Weimar\";\ndocument.querySelector(\"#list\").append(li);"
       },
       "hints": [
-        "createElement erzeugt ein noch nicht eingefügtes Element. append fügt es in den Baum ein.",
-        "Orientiere dich an diesem Baustein:\nconst li = document.createElement(\"li\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#list\").append(li);"
+        "Hast du das neue Element nach dem Befüllen auch angehängt?",
+        "Erzeugen und Einfügen sind zwei getrennte Schritte. Ein neu erzeugtes Element erscheint erst nach dem Anhängen im sichtbaren Baum.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
-          "label": "Hänge ein li mit Text Weimar an #list an.",
-          "code": "document.querySelector('#list li:last-child')?.textContent==='Weimar'"
+          "label": "Erzeuge per JavaScript ein neues li mit dem Text „Weimar“. Hänge es als letztes Kind an die vorhandene Liste #list an. Der vorhandene Eintrag bleibt erhalten.",
+          "code": "__text('#list li:last-child')==='Weimar'"
         }
       ],
       "prerequisites": [
         "m11-03"
       ],
-      "solutionNotes": "createElement erzeugt ein noch nicht eingefügtes Element. append fügt es in den Baum ein. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const p = document.createElement(\"p\"); p.textContent = \"Neu\"; document.body.append(p);",
+        "explanation": "Erzeugen und Einfügen sind zwei getrennte Schritte. Ein neu erzeugtes Element erscheint erst nach dem Anhängen im sichtbaren Baum.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#list li:last-child'",
+          "expected": "'Weimar'",
+          "context": "Erzeuge per JavaScript ein neues li mit dem Text „Weimar“. Hänge es als letztes Kind an die vorhandene Liste #list an. Der vorhandene Eintrag bleibt erhalten."
+        }
+      ],
+      "solutionNotes": "Erzeugen und Einfügen sind zwei getrennte Schritte. Ein neu erzeugtes Element erscheint erst nach dem Anhängen im sichtbaren Baum. createElement erzeugt ein noch nicht eingefügtes Element. append fügt es in den Baum ein. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-05",
@@ -163,20 +239,42 @@ window.CURRICULUM.push({
         "js": "/* Alles neu zeichnen: replaceChildren leert oder ersetzt den Inhalt, ohne HTML-Text zu parsen. */\nconst li = document.createElement(\"li\");\nli.textContent = \"Neustart\";\ndocument.querySelector(\"#list\").replaceChildren(li);"
       },
       "hints": [
-        "replaceChildren leert oder ersetzt den Inhalt, ohne HTML-Text zu parsen.",
-        "Orientiere dich an diesem Baustein:\nconst li = document.createElement(\"li\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#list\").replaceChildren(li);"
+        "Bleiben nach dem erneuten Zeichnen noch alte Einträge übrig?",
+        "replaceChildren ersetzt den gesamten bisherigen Inhalt des Zielelements. Ohne diese Bereinigung können bei wiederholtem Rendern doppelte Einträge entstehen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Ersetze #list durch genau ein li mit Text Neustart.",
-          "code": "document.querySelectorAll('#list li').length===1 && document.querySelector('#list li').textContent==='Neustart'"
+          "code": "document.querySelectorAll('#list li').length===1 && __text('#list li')==='Neustart'"
         }
       ],
       "prerequisites": [
         "m11-04"
       ],
-      "solutionNotes": "replaceChildren leert oder ersetzt den Inhalt, ohne HTML-Text zu parsen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const p = document.createElement(\"p\"); document.body.replaceChildren(p);",
+        "explanation": "replaceChildren ersetzt den gesamten bisherigen Inhalt des Zielelements. Ohne diese Bereinigung können bei wiederholtem Rendern doppelte Einträge entstehen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#list li'",
+          "expected": "'Neustart'",
+          "context": "Ersetze #list durch genau ein li mit Text Neustart."
+        }
+      ],
+      "solutionNotes": "replaceChildren ersetzt den gesamten bisherigen Inhalt des Zielelements. Ohne diese Bereinigung können bei wiederholtem Rendern doppelte Einträge entstehen. replaceChildren leert oder ersetzt den Inhalt, ohne HTML-Text zu parsen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-06",
@@ -197,9 +295,9 @@ window.CURRICULUM.push({
         "js": "/* Ein Attribut setzen: setAttribute(name,wert) setzt ein HTML-Attribut. */\ndocument.querySelector(\"#action\").setAttribute(\"aria-label\", \"Nächste Station\");"
       },
       "hints": [
-        "setAttribute(name,wert) setzt ein HTML-Attribut.",
-        "Orientiere dich an diesem Baustein:\ndocument.querySelector(\"#action\").setAttribute(\"aria-label\", \"Nächste Station\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#action\").setAttribute(\"aria-label\", \"Nächste Station\");"
+        "Setzt du das Attribut am richtigen Element und mit genau dem vereinbarten Namen?",
+        "Attributnamen und Attributwerte sind Texte. Ein Attribut ist nicht automatisch eine gleichnamige JavaScript-Variable.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -210,7 +308,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m11-05"
       ],
-      "solutionNotes": "setAttribute(name,wert) setzt ein HTML-Attribut. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "document.querySelector(\"button\").setAttribute(\"title\", \"Mehr erfahren\");",
+        "explanation": "Attributnamen und Attributwerte sind Texte. Ein Attribut ist nicht automatisch eine gleichnamige JavaScript-Variable.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Attributnamen und Attributwerte sind Texte. Ein Attribut ist nicht automatisch eine gleichnamige JavaScript-Variable. setAttribute(name,wert) setzt ein HTML-Attribut. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-07",
@@ -231,26 +345,48 @@ window.CURRICULUM.push({
         "js": "/* Daten am Element: data-city wird über element.dataset.city als Text lesbar. */\nconst city = document.querySelector(\"li\").dataset.city;\ndocument.querySelector(\"#output\").textContent = city;"
       },
       "hints": [
-        "data-city wird über element.dataset.city als Text lesbar.",
-        "Orientiere dich an diesem Baustein:\nconst city = document.querySelector(\"li\").dataset.city;",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").textContent = city;"
+        "Liest du den Attributwert statt den sichtbaren Elementtext?",
+        "dataset bildet data-Attribute auf Eigenschaften ab. Die Werte bleiben Texte, auch wenn sie wie Zahlen aussehen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Lies data-city des li und zeige es in #output.",
-          "code": "document.querySelector('#output').textContent==='Erfurt'"
+          "code": "__text('#output')==='Erfurt'"
         }
       ],
       "prerequisites": [
         "m11-06"
       ],
-      "solutionNotes": "data-city wird über element.dataset.city als Text lesbar. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "console.log(document.querySelector(\"[data-kind]\").dataset.kind);",
+        "explanation": "dataset bildet data-Attribute auf Eigenschaften ab. Die Werte bleiben Texte, auch wenn sie wie Zahlen aussehen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#output'",
+          "expected": "'Erfurt'",
+          "context": "Lies data-city des li und zeige es in #output."
+        }
+      ],
+      "solutionNotes": "dataset bildet data-Attribute auf Eigenschaften ab. Die Werte bleiben Texte, auch wenn sie wie Zahlen aussehen. data-city wird über element.dataset.city als Text lesbar. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-08",
       "title": "Gezielt entfernen",
       "explanation": "remove entfernt das gewählte Element aus seinem Elternteil.",
-      "task": "Entferne den ersten .card-Eintrag, sodass eine Karte bleibt.",
+      "task": "Entferne per JavaScript nur das erste Element mit Klasse card aus dem DOM. Danach bleibt genau eine .card im Dokument.",
       "minutes": 12,
       "xp": 70,
       "focus": "js",
@@ -265,20 +401,36 @@ window.CURRICULUM.push({
         "js": "/* Gezielt entfernen: remove entfernt das gewählte Element aus seinem Elternteil. */\ndocument.querySelector(\".card\").remove();"
       },
       "hints": [
-        "remove entfernt das gewählte Element aus seinem Elternteil.",
-        "Orientiere dich an diesem Baustein:\ndocument.querySelector(\".card\").remove();",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\".card\").remove();"
+        "Wird genau ein Element tatsächlich aus dem DOM entfernt?",
+        "remove trennt das Element vom Baum. Ein nur verstecktes Element wäre weiterhin im DOM vorhanden.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
-          "label": "Entferne den ersten .card-Eintrag, sodass eine Karte bleibt.",
+          "label": "Entferne per JavaScript nur das erste Element mit Klasse card aus dem DOM. Danach bleibt genau eine .card im Dokument.",
           "code": "document.querySelectorAll('.card').length===1"
         }
       ],
       "prerequisites": [
         "m11-07"
       ],
-      "solutionNotes": "remove entfernt das gewählte Element aus seinem Elternteil. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "document.querySelector(\"aside\").remove();",
+        "explanation": "remove trennt das Element vom Baum. Ein nur verstecktes Element wäre weiterhin im DOM vorhanden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "remove trennt das Element vom Baum. Ein nur verstecktes Element wäre weiterhin im DOM vorhanden. remove entfernt das gewählte Element aus seinem Elternteil. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-09",
@@ -299,9 +451,9 @@ window.CURRICULUM.push({
         "js": "/* Eine sichere Liste: Übernimm Text mit textContent, auch wenn er spitze Klammern enthält. */\nfunction renderListe(werte) {\n  const list = document.querySelector(\"#list\");\n  list.replaceChildren();\n  for (const wert of werte) { const li = document.createElement(\"li\"); li.textContent = wert; list.append(li); }\n}\nrenderListe([\"Erfurt\", \"Weimar\"]);"
       },
       "hints": [
-        "Übernimm Text mit textContent, auch wenn er spitze Klammern enthält.",
-        "Orientiere dich an diesem Baustein:\nfunction renderListe(werte) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nrenderListe([\"Erfurt\", \"Weimar\"]);"
+        "Bleiben eingegebene Tags Text, oder erzeugst du ungewollt HTML-Elemente?",
+        "Nutzereingaben gehören in textContent. Dadurch bleiben spitze Klammern gewöhnlicher Text. Dieselbe Darstellung über innerHTML würde HTML interpretieren.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -310,13 +462,39 @@ window.CURRICULUM.push({
         },
         {
           "label": "Sicherer Text",
-          "code": "(renderListe(['<b>Text</b>']),document.querySelector('#list li').textContent==='<b>Text</b>' && !document.querySelector('#list b'))"
+          "code": "(renderListe(['<b>Text</b>']),__text('#list li')==='<b>Text</b>' && !document.querySelector('#list b'))"
         }
       ],
       "prerequisites": [
         "m11-08"
       ],
-      "solutionNotes": "Übernimm Text mit textContent, auch wenn er spitze Klammern enthält. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const li = document.createElement(\"li\"); li.textContent = \"<em>Text</em>\";",
+        "explanation": "Nutzereingaben gehören in textContent. Dadurch bleiben spitze Klammern gewöhnlicher Text. Dieselbe Darstellung über innerHTML würde HTML interpretieren.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "renderListe. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#list li'",
+          "expected": "'<b>Text</b>'",
+          "context": "Sicherer Text"
+        }
+      ],
+      "solutionNotes": "Nutzereingaben gehören in textContent. Dadurch bleiben spitze Klammern gewöhnlicher Text. Dieselbe Darstellung über innerHTML würde HTML interpretieren. Übernimm Text mit textContent, auch wenn er spitze Klammern enthält. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m11-10",
@@ -337,24 +515,55 @@ window.CURRICULUM.push({
         "js": "/* Projekt: Stationen anzeigen: Eine Renderfunktion übersetzt ein Datenmodell in DOM-Elemente. */\nfunction renderRoute(staedte) {\n  const list = document.querySelector(\"#list\");\n  list.replaceChildren();\n  for (const stadt of staedte) { const li = document.createElement(\"li\"); li.textContent = stadt; list.append(li); }\n  document.querySelector(\"#output\").textContent = `${staedte.length} Stationen`;\n}\nrenderRoute([\"Erfurt\", \"Weimar\", \"Jena\"]);"
       },
       "hints": [
-        "Eine Renderfunktion übersetzt ein Datenmodell in DOM-Elemente.",
-        "Orientiere dich an diesem Baustein:\nfunction renderRoute(staedte) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nrenderRoute([\"Erfurt\", \"Weimar\", \"Jena\"]);"
+        "Stimmen Liste und Zähltext nach einem zweiten Aufruf noch überein?",
+        "Eine Renderfunktion baut die Ansicht aus ihren aktuellen Eingaben neu auf. Die Zählanzeige muss aus derselben Liste entstehen wie die Listenelemente.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
           "label": "Daten zeichnen",
-          "code": "typeof renderRoute==='function' && (renderRoute(['A','B']),document.querySelectorAll('#list li').length===2 && document.querySelector('#output').textContent==='2 Stationen')"
+          "code": "typeof renderRoute==='function' && (renderRoute(['A','B']),document.querySelectorAll('#list li').length===2 && __text('#output')==='2 Stationen')"
         },
         {
           "label": "Leere Route",
-          "code": "(renderRoute([]),document.querySelectorAll('#list li').length===0 && document.querySelector('#output').textContent==='0 Stationen')"
+          "code": "(renderRoute([]),document.querySelectorAll('#list li').length===0 && __text('#output')==='0 Stationen')"
         }
       ],
       "prerequisites": [
         "m11-09"
       ],
-      "solutionNotes": "Eine Renderfunktion übersetzt ein Datenmodell in DOM-Elemente. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const anzahl = 4; document.querySelector(\"h2\").textContent = `${anzahl} Ziele`;",
+        "explanation": "Eine Renderfunktion baut die Ansicht aus ihren aktuellen Eingaben neu auf. Die Zählanzeige muss aus derselben Liste entstehen wie die Listenelemente.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "renderRoute. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in '#output'",
+          "expected": "'2 Stationen'",
+          "context": "Daten zeichnen"
+        },
+        {
+          "input": "Text in '#output'",
+          "expected": "'0 Stationen'",
+          "context": "Leere Route"
+        }
+      ],
+      "solutionNotes": "Eine Renderfunktion baut die Ansicht aus ihren aktuellen Eingaben neu auf. Die Zählanzeige muss aus derselben Liste entstehen wie die Listenelemente. Eine Renderfunktion übersetzt ein Datenmodell in DOM-Elemente. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

@@ -2,6 +2,9 @@
 (function(){
   'use strict';
   const serialize=value=>JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
+  const textHelpers = String.raw`const __normalize = value => String(value).replace(/\s+/g, ' ').trim().replace(/[’‘]/g, "'");
+const __text = selector => {const el=document.querySelector(selector);return el ? __normalize(el.textContent) : undefined;};
+`;
   function buildDocument(code,tests,runId){
     const safeCss=code.css.replace(/<\/style/gi,'<\\/style');
     const runtime=`
@@ -24,7 +27,7 @@
       const execute = async () => {
         try {
           const AsyncFunction=Object.getPrototypeOf(async function(){}).constructor;
-          const run=new AsyncFunction('console','fetch','localStorage','logs','send',${serialize(code.js+'\n;\nconst __checks = [];\n'+tests.map((t,i)=>`try { __checks.push({label:${JSON.stringify(t.label)},pass:Boolean(await (${t.code}))}); } catch (__error) { __checks.push({label:${JSON.stringify(t.label)},pass:false,detail:String(__error.message)}); }`).join('\n')+'\nsend("result",__checks);')});
+          const run=new AsyncFunction('console','fetch','localStorage','logs','send',${serialize(textHelpers+code.js+'\n;\nconst __checks = [];\n'+tests.map((t,i)=>`try { __checks.push({label:${JSON.stringify(t.label)},pass:Boolean(await (${t.code}))}); } catch (__error) { __checks.push({label:${JSON.stringify(t.label)},pass:false,detail:String(__error.message)}); }`).join('\n')+'\nsend("result",__checks);')});
           await run(console,fetch,localStorage,logs,send);
         } catch(error) {send('error',{text:error.name+': '+error.message});send('result',null);}
       };

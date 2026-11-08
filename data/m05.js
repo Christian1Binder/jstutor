@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "max-width verhindert überlange Textzeilen; width:100% nutzt auf kleinen Geräten den vorhandenen Raum.",
-        "Orientiere dich an diesem Baustein:\n.card { width: 100%; max-width: 640px; box-sizing: border-box; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.card { width: 100%; max-width: 640px; box-sizing: border-box; }"
+        "Begrenzt du nur die Maximalbreite, ohne eine unnötige starre Mindestbreite einzubauen?",
+        "width beschreibt den gewünschten Platz, max-width begrenzt ihn nach oben. Auf schmalen Flächen kann das Element kleiner bleiben. Eine maximale Lesebreite verhindert sehr lange Zeilen.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -40,7 +40,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-10"
       ],
-      "solutionNotes": "max-width verhindert überlange Textzeilen; width:100% nutzt auf kleinen Geräten den vorhandenen Raum. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".text { width: 100%; max-width: 720px; }",
+        "explanation": "width beschreibt den gewünschten Platz, max-width begrenzt ihn nach oben. Auf schmalen Flächen kann das Element kleiner bleiben. Eine maximale Lesebreite verhindert sehr lange Zeilen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "width beschreibt den gewünschten Platz, max-width begrenzt ihn nach oben. Auf schmalen Flächen kann das Element kleiner bleiben. Eine maximale Lesebreite verhindert sehr lange Zeilen. max-width verhindert überlange Textzeilen; width:100% nutzt auf kleinen Geräten den vorhandenen Raum. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-02",
@@ -61,9 +77,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "clamp(24px,5vw,48px) wächst mit dem Fenster, bleibt aber in sinnvollen Grenzen.",
-        "Orientiere dich an diesem Baustein:\nh1 { font-size: clamp(24px, 5vw, 48px); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nh1 { font-size: clamp(24px, 5vw, 48px); }"
+        "Sind Minimum, Wunschwert und Maximum in der richtigen Reihenfolge angegeben?",
+        "clamp erhält eine Untergrenze, einen fließenden Wunschwert und eine Obergrenze. Die Reihenfolge dieser drei Werte ist entscheidend. vw reagiert auf die Breite der Vorschau, nicht auf die Textlänge.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -74,7 +90,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-01"
       ],
-      "solutionNotes": "clamp(24px,5vw,48px) wächst mit dem Fenster, bleibt aber in sinnvollen Grenzen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "h2 { font-size: clamp(20px, 4vw, 40px); }",
+        "explanation": "clamp erhält eine Untergrenze, einen fließenden Wunschwert und eine Obergrenze. Die Reihenfolge dieser drei Werte ist entscheidend. vw reagiert auf die Breite der Vorschau, nicht auf die Textlänge.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "clamp erhält eine Untergrenze, einen fließenden Wunschwert und eine Obergrenze. Die Reihenfolge dieser drei Werte ist entscheidend. vw reagiert auf die Breite der Vorschau, nicht auf die Textlänge. clamp(24px,5vw,48px) wächst mit dem Fenster, bleibt aber in sinnvollen Grenzen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-03",
@@ -95,9 +127,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "aspect-ratio:1 hält eine Box quadratisch, wenn nur eine Dimension feststeht.",
-        "Orientiere dich an diesem Baustein:\n.visual { width: 160px; aspect-ratio: 1; background: #c9e9d4; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.visual { width: 160px; aspect-ratio: 1; background: #c9e9d4; }"
+        "Ist die Höhe noch automatisch, damit das Seitenverhältnis wirken kann?",
+        "Ein Seitenverhältnis braucht eine freie Dimension. Bei festgelegter Breite und automatischer Höhe kann der Browser die passende Höhe berechnen. Eine zweite feste Dimension könnte das Verhältnis überstimmen.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -108,7 +140,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-02"
       ],
-      "solutionNotes": "aspect-ratio:1 hält eine Box quadratisch, wenn nur eine Dimension feststeht. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".portrait { width: 96px; aspect-ratio: 1; }",
+        "explanation": "Ein Seitenverhältnis braucht eine freie Dimension. Bei festgelegter Breite und automatischer Höhe kann der Browser die passende Höhe berechnen. Eine zweite feste Dimension könnte das Verhältnis überstimmen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Seitenverhältnis braucht eine freie Dimension. Bei festgelegter Breite und automatischer Höhe kann der Browser die passende Höhe berechnen. Eine zweite feste Dimension könnte das Verhältnis überstimmen. aspect-ratio:1 hält eine Box quadratisch, wenn nur eine Dimension feststeht. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-04",
@@ -129,9 +177,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Grundstile gelten überall; @media(min-width:600px) erweitert sie auf größeren Fenstern.",
-        "Orientiere dich an diesem Baustein:\n.card { padding: 16px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n@media (min-width: 600px) { .card { padding: 32px; } }"
+        "Hast du einen Grundwert und eine davon getrennte Regel für breitere Vorschauen?",
+        "Die Grundregel gilt zuerst überall. Eine Media Query überschreibt sie nur bei erfüllter Bedingung. min-width bedeutet ab einschließlich der angegebenen Breite.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -142,7 +190,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-03"
       ],
-      "solutionNotes": "Grundstile gelten überall; @media(min-width:600px) erweitert sie auf größeren Fenstern. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".panel { padding: 12px; } @media (min-width: 800px) { .panel { padding: 28px; } }",
+        "explanation": "Die Grundregel gilt zuerst überall. Eine Media Query überschreibt sie nur bei erfüllter Bedingung. min-width bedeutet ab einschließlich der angegebenen Breite.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Die Grundregel gilt zuerst überall. Eine Media Query überschreibt sie nur bei erfüllter Bedingung. min-width bedeutet ab einschließlich der angegebenen Breite. Grundstile gelten überall; @media(min-width:600px) erweitert sie auf größeren Fenstern. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-05",
@@ -163,9 +227,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "padding-inline wirkt in Schreibrichtung links/rechts, padding-block oben/unten.",
-        "Orientiere dich an diesem Baustein:\n.card { padding-inline: 24px; padding-block: 16px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.card { padding-inline: 24px; padding-block: 16px; }"
+        "Welche Abstandsrichtung entspricht inline und welche block?",
+        "Logische Eigenschaften orientieren sich an der Schreibrichtung. Bei deutschem Text ist inline normalerweise horizontal und block vertikal. Dadurch bleiben Layouts auch bei anderen Schreibrichtungen verständlich.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -176,7 +240,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-04"
       ],
-      "solutionNotes": "padding-inline wirkt in Schreibrichtung links/rechts, padding-block oben/unten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".panel { padding-inline: 20px; padding-block: 10px; }",
+        "explanation": "Logische Eigenschaften orientieren sich an der Schreibrichtung. Bei deutschem Text ist inline normalerweise horizontal und block vertikal. Dadurch bleiben Layouts auch bei anderen Schreibrichtungen verständlich.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Logische Eigenschaften orientieren sich an der Schreibrichtung. Bei deutschem Text ist inline normalerweise horizontal und block vertikal. Dadurch bleiben Layouts auch bei anderen Schreibrichtungen verständlich. padding-inline wirkt in Schreibrichtung links/rechts, padding-block oben/unten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-06",
@@ -197,9 +277,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "container-type:inline-size macht .shell für Größenabfragen ihrer Kinder verfügbar.",
-        "Orientiere dich an diesem Baustein:\n.shell { container-type: inline-size; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n@container (min-width: 400px) { .card { background: white; } }"
+        "Ist der abgefragte Container ein Elternteil des Elements, das die Query verändert?",
+        "Der Container erklärt zuerst, dass seine Inline-Größe abgefragt werden darf. Die Query gestaltet einen Nachfahren dieses Containers. Sie fragt nicht einfach die Fensterbreite ab.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -210,7 +290,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-05"
       ],
-      "solutionNotes": "container-type:inline-size macht .shell für Größenabfragen ihrer Kinder verfügbar. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".host { container-type: inline-size; } @container (min-width: 500px) { .child { color: navy; } }",
+        "explanation": "Der Container erklärt zuerst, dass seine Inline-Größe abgefragt werden darf. Die Query gestaltet einen Nachfahren dieses Containers. Sie fragt nicht einfach die Fensterbreite ab.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Der Container erklärt zuerst, dass seine Inline-Größe abgefragt werden darf. Die Query gestaltet einen Nachfahren dieses Containers. Sie fragt nicht einfach die Fensterbreite ab. container-type:inline-size macht .shell für Größenabfragen ihrer Kinder verfügbar. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-07",
@@ -231,9 +327,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "transition beschreibt Eigenschaft, Dauer und Timing. :hover gilt beim Darüberfahren.",
-        "Orientiere dich an diesem Baustein:\nbutton { background-color: white; transition: background-color .2s ease; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nbutton:hover { background-color: #c9e9d4; }"
+        "Übergang und Zustandsregel beziehen sich auf dieselbe Eigenschaft?",
+        "Der Grundzustand nennt die Transition. Ein zweiter Zustand ändert die passende Eigenschaft. Die Dauer wird üblicherweise in Sekunden geschrieben; .3s entspricht 300 Millisekunden.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -244,7 +340,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-06"
       ],
-      "solutionNotes": "transition beschreibt Eigenschaft, Dauer und Timing. :hover gilt beim Darüberfahren. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "a { transition: color .3s ease; } a:hover { color: navy; }",
+        "explanation": "Der Grundzustand nennt die Transition. Ein zweiter Zustand ändert die passende Eigenschaft. Die Dauer wird üblicherweise in Sekunden geschrieben; .3s entspricht 300 Millisekunden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Der Grundzustand nennt die Transition. Ein zweiter Zustand ändert die passende Eigenschaft. Die Dauer wird üblicherweise in Sekunden geschrieben; .3s entspricht 300 Millisekunden. transition beschreibt Eigenschaft, Dauer und Timing. :hover gilt beim Darüberfahren. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-08",
@@ -265,9 +377,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Eine Media Query für prefers-reduced-motion:reduce kann Transitionen abschalten.",
-        "Orientiere dich an diesem Baustein:\nbutton { transition: transform .2s; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n@media (prefers-reduced-motion: reduce) { button { transition: none; } }"
+        "Überschreibt die Regel innerhalb der passenden Media Query die normale Transition?",
+        "Die Abfrage beschreibt eine Benutzereinstellung. Eine darin gesetzte Regel überschreibt die normale Bewegung. Ohne aktivierte Einstellung muss die normale Darstellung weiterhin funktionieren.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -278,7 +390,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-07"
       ],
-      "solutionNotes": "Eine Media Query für prefers-reduced-motion:reduce kann Transitionen abschalten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "@media (prefers-reduced-motion: reduce) { a { transition: none; } }",
+        "explanation": "Die Abfrage beschreibt eine Benutzereinstellung. Eine darin gesetzte Regel überschreibt die normale Bewegung. Ohne aktivierte Einstellung muss die normale Darstellung weiterhin funktionieren.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Die Abfrage beschreibt eine Benutzereinstellung. Eine darin gesetzte Regel überschreibt die normale Bewegung. Ohne aktivierte Einstellung muss die normale Darstellung weiterhin funktionieren. Eine Media Query für prefers-reduced-motion:reduce kann Transitionen abschalten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-09",
@@ -299,9 +427,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "color-scheme informiert native Steuerelemente. Eigene Farben setzt du über Variablen und eine passende Media Query.",
-        "Orientiere dich an diesem Baustein:\n:root { color-scheme: light dark; --surface: #f6f8f5; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nbody { background: var(--surface); }"
+        "Sind Farbvariable, Verwendung und unterstützte Farbschemata getrennt berücksichtigt?",
+        "Farbvariablen trennen Designwerte von ihrer Verwendung. color-scheme informiert zusätzlich native Steuerelemente über unterstützte Darstellungen. Eine dunkle Hintergrundfarbe allein ersetzt diese Information nicht.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -312,7 +440,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-08"
       ],
-      "solutionNotes": "color-scheme informiert native Steuerelemente. Eigene Farben setzt du über Variablen und eine passende Media Query. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ":root { --paper: white; } @media (prefers-color-scheme: dark) { :root { --paper: #202020; } }",
+        "explanation": "Farbvariablen trennen Designwerte von ihrer Verwendung. color-scheme informiert zusätzlich native Steuerelemente über unterstützte Darstellungen. Eine dunkle Hintergrundfarbe allein ersetzt diese Information nicht.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Farbvariablen trennen Designwerte von ihrer Verwendung. color-scheme informiert zusätzlich native Steuerelemente über unterstützte Darstellungen. Eine dunkle Hintergrundfarbe allein ersetzt diese Information nicht. color-scheme informiert native Steuerelemente. Eigene Farben setzt du über Variablen und eine passende Media Query. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m05-10",
@@ -333,9 +477,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Eine robuste Karte verbindet Lesebreite, fließende Schrift und ein proportionales Motiv.",
-        "Orientiere dich an diesem Baustein:\n.card { max-width: 640px; padding: 24px; background: white; border-radius: 24px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.visual { width: 120px; aspect-ratio: 1; background: #c9e9d4; border-radius: 50%; }"
+        "Bleiben Text und Motiv bei schmaler und breiter Vorschau sinnvoll proportioniert?",
+        "Responsive Gestaltung ist eine Kombination aus Grenzen, Wachstum und Proportionen. Teste die Karte in mehreren Vorschaubreiten. Ein guter Desktopstil darf auf einer schmalen Fläche nicht unbenutzbar werden.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -346,7 +490,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m05-09"
       ],
-      "solutionNotes": "Eine robuste Karte verbindet Lesebreite, fließende Schrift und ein proportionales Motiv. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".card { max-width: 720px; } h2 { font-size: clamp(20px, 4vw, 40px); }",
+        "explanation": "Responsive Gestaltung ist eine Kombination aus Grenzen, Wachstum und Proportionen. Teste die Karte in mehreren Vorschaubreiten. Ein guter Desktopstil darf auf einer schmalen Fläche nicht unbenutzbar werden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Responsive Gestaltung ist eine Kombination aus Grenzen, Wachstum und Proportionen. Teste die Karte in mehreren Vorschaubreiten. Ein guter Desktopstil darf auf einer schmalen Fläche nicht unbenutzbar werden. Eine robuste Karte verbindet Lesebreite, fließende Schrift und ein proportionales Motiv. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

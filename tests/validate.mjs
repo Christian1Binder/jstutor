@@ -20,3 +20,15 @@ for(const match of html.matchAll(/(?:src|href)="\.\/([^"#]+)"/g))assert.ok(fs.ex
 assert.ok(!/(?:src|href)="https?:\/\//.test(html),'Runtime HTML must not require external resources');
 const sw=fs.readFileSync(new URL('sw.js',root),'utf8');assert.ok(sw.includes("'./storage.js'")&&sw.includes("'./runner.js'"));
 console.log('PASS: local asset references and dependency-free HTML.');
+for(const e of exercises){
+ assert.ok(e.concept?.explanation.length>40,`Missing explanation: ${e.id}`);
+ assert.ok(e.concept.example.length>10,`Missing parallel example: ${e.id}`);
+ assert.ok(e.requirements?.length>=2,`Missing explicit contract: ${e.id}`);
+ assert.ok(Array.isArray(e.examples));
+ for(const hint of e.hints){
+  assert.ok(!hint.includes('\n'),`Code-like multiline hint: ${e.id}`);
+  assert.ok(!/<\/?\w+[^>]*>/.test(hint),`HTML solution in hint: ${e.id}`);
+  assert.ok(!/\b(?:function|const|let)\s+\w+\s*(?:[=(])/.test(hint),`JS solution in hint: ${e.id}`);
+ }
+}
+console.log('PASS: 200 explanations, parallel examples, explicit contracts and hints without solution blocks.');

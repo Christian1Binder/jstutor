@@ -13,3 +13,16 @@
 ## Grenzen dieser Prüfung
 
 Keine behauptete Prüfung auf physischem iPad, Safari oder Arbeits-PC. Die Offline-Dateiliste wurde geprüft; ein tatsächlicher Flugmodus-Test auf einem Endgerät wurde nicht durchgeführt. Live-APIs und produktive Anmeldung sind nicht Bestandteil dieser statischen Version. Die Musterlösungsprüfungen decken die formulierten Lernziele ab, beweisen keine vollständige Fehlerfreiheit für beliebigen eigenen Code.
+
+## Überarbeitung 1.1 – verständlichere Aufgaben und lesbare Proportionen
+
+- Alle 200 Übungen erhalten eine zusätzliche Mechanikerklärung und ein fachlich verwandtes Beispiel mit anderen Inhalten. Verbindliche Namen, Arbeitsbereich und Freiheiten werden sichtbar; aus den Tests abgeleitete Ein-/Ausgabebeispiele zeigen den Vertrag ohne Implementierung. Bei mehreren Prüffällen wird ihr Kontext mit angezeigt.
+- Konkrete bisher versteckte Anforderungen wurden in 21 Aufgaben ausdrücklich beschrieben (u. a. Formular-IDs, Feldnamen, Ausgabetexte, globale Ladevariable und Verhalten des Zählers). Die Aufgaben-IDs und das Speicherformat bleiben erhalten.
+- Die drei Tipps jeder Übung sind jetzt Denkfrage, Konzepterklärung und Diagnosehilfe. Die frühere Ableitung aus der ersten/letzten Musterlösungszeile ist entfernt. Ein automatischer Test weist mehrzeilige Codeblöcke, HTML-Tags und Funktions-/Variablendeklarationen in Tipps zurück.
+- Sichtbare DOM-Texte werden bei den betroffenen Prüfungen über `__text`/`__normalize` verglichen: Einrückung, mehrfacher Whitespace und gerade/typografische Apostrophe sind gleichwertig. Falsche Texte und falsche Daten bleiben falsch.
+- Chrome-Browserlauf: **200/200 Musterlösungen bestanden**. Sieben zusätzliche Varianten/Gegenproben sind korrekt bewertet: eingerückte Überschrift, falscher Text, gerades Apostroph, mehrzeilige Liste, Arrow Function, hartcodierte Ausgabe ohne Funktion sowie falsche Formular-ID.
+- Node-Prüfungen für Schema, Syntax, Speicherlogik, Assets sowie den neuen didaktischen Vertrag bestanden; statischer Build erfolgreich.
+- Schriftgrößen verwenden relative Einheiten. Erklärungstext 16px, ab 1600px Fensterbreite 18px; Editorcode 15px bzw. 16,875px. Bedienelemente und Abstände wachsen entsprechend. Mobil-/Tabletprüfung ohne horizontales Überlaufen der Lernkarte.
+- Die Offline-Cacheversion wurde erhöht. Die neue Anwendung kann künftig verfügbare Updates mit einem bewussten Aktualisieren-Button aktivieren, nachdem der aktuelle Entwurf gespeichert wurde. Beim ersten Wechsel von 1.0 auf 1.1 müssen gegebenenfalls alle alten Website-Tabs einmal geschlossen werden; Websitedaten nicht löschen, da darin Lernstände liegen.
+
+Zusätzlich bei 1920px Außenbreite gemessen: 1905px Inhalt ohne horizontales Überlaufen, Erklärung 18px und Editor 16,875px. Sprungnavigation zwischen Verstehen, Aufgabe und Tipps im Browser geprüft.

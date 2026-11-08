@@ -1,0 +1,12 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><title>jstutor Variantenprüfung</title><style>body{font:16px system-ui;padding:25px}iframe{width:700px;height:250px}li{margin:10px}.pass{color:seagreen}.fail{color:crimson}</style><h1>Alternative Lösungen und Gegenproben</h1><button id="start">Varianten prüfen</button><p id="status">Bereit</p><div id="preview"></div><ol id="results"></ol><script>for(let i=1;i<=20;i++)document.write('<script src="./data/m'+String(i).padStart(2,'0')+'.js"><\/script>');</script><script src="./runner.js"></script><script>
+const cases=[
+ ['m01-01','Einrückung und Zeilenumbrüche','html','<h1>\n  Hallo,    Web!\n</h1>',true],
+ ['m01-01','Falscher Überschriftentext','html','<h1>Anderer Text</h1>',false],
+ ['m01-09','Gerades Apostroph statt typografischem Zeichen','html',`<button type="button"> Los geht's </button>`,true],
+ ['m01-05','Mehrzeilig geschriebene Listeneinträge','html','<ul><li>\n HTML \n</li><li> CSS </li><li> JavaScript\n</li></ul>',true],
+ ['m08-02','Arrow statt Funktionsdeklaration','js','const addiere = (links, rechts) => links + rechts;',true],
+ ['m08-02','Hartcodierte Ausgabe ohne vereinbarte Funktion','js','console.log(7);',false],
+ ['m02-06','Nicht vereinbarte Feld-ID trotz gültiger Verknüpfung','html','<label for="kontakt">E-Mail</label><input id="kontakt" type="email" required>',false]
+];
+document.querySelector('#start').onclick=async()=>{const results=document.querySelector('#results');results.replaceChildren();let ok=0;for(const [id,label,lang,code,expected] of cases){const e=window.CURRICULUM.flatMap(m=>m.exercises).find(x=>x.id===id);const solution={...e.solution,[lang]:code};const actual=await new Promise(resolve=>JSTRunner.run(document.querySelector('#preview'),solution,e.tests,(kind,payload)=>{if(kind==='result')resolve(Array.isArray(payload)&&payload.every(x=>x.pass));if(kind==='timeout')resolve(null);}));const passed=actual===expected;ok+=passed?1:0;const li=document.createElement('li');li.className=passed?'pass':'fail';li.textContent=`${passed?'✓':'✗'} ${label}: erwartet ${expected?'angenommen':'abgelehnt'}, tatsächlich ${actual===null?'Timeout':actual?'angenommen':'abgelehnt'}`;results.append(li);}JSTRunner.stop();document.querySelector('#status').textContent=`FERTIG: ${ok}/${cases.length} Varianten korrekt bewertet`;};
+</script></html>

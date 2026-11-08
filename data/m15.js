@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": "/* Ein Zustand als Modell: Eine zentrale Datenstruktur verhindert widersprüchliche Einzelwerte im DOM. */\nconst state = { name: \"Ada\", punkte: 0, theme: \"light\" };"
       },
       "hints": [
-        "Eine zentrale Datenstruktur verhindert widersprüchliche Einzelwerte im DOM.",
-        "Orientiere dich an diesem Baustein:\nconst state = { name: \"Ada\", punkte: 0, theme: \"light\" };",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nconst state = { name: \"Ada\", punkte: 0, theme: \"light\" };"
+        "Sind alle verlangten Zustandseigenschaften vorhanden?",
+        "Zustand beschreibt Daten, aus denen eine Oberfläche abgeleitet werden kann. Vereinbarte Eigenschaftsnamen bilden die Schnittstelle.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -40,7 +40,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m14-10"
       ],
-      "solutionNotes": "Eine zentrale Datenstruktur verhindert widersprüchliche Einzelwerte im DOM. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const state = { offen: true, anzahl: 3 };",
+        "explanation": "Zustand beschreibt Daten, aus denen eine Oberfläche abgeleitet werden kann. Vereinbarte Eigenschaftsnamen bilden die Schnittstelle.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "state. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Zustand beschreibt Daten, aus denen eine Oberfläche abgeleitet werden kann. Vereinbarte Eigenschaftsnamen bilden die Schnittstelle. Eine zentrale Datenstruktur verhindert widersprüchliche Einzelwerte im DOM. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-02",
@@ -61,9 +81,9 @@ window.CURRICULUM.push({
         "js": "/* Ein neuer Zustand: Ein unveränderlicher Übergang liefert ein neues Objekt statt das alte zu ändern. */\nfunction punkteDazu(state, n) { return { ...state, punkte: state.punkte + n }; }"
       },
       "hints": [
-        "Ein unveränderlicher Übergang liefert ein neues Objekt statt das alte zu ändern.",
-        "Orientiere dich an diesem Baustein:\nfunction punkteDazu(state, n) { return { ...state, punkte: state.punkte + n }; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction punkteDazu(state, n) { return { ...state, punkte: state.punkte + n }; }"
+        "Bleiben andere Eigenschaften und das ursprüngliche Objekt erhalten?",
+        "Ein Zustandsübergang liefert eine neue Identität und erhält nicht geänderte Felder. Das Original bleibt für Vergleiche nutzbar.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -78,7 +98,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-01"
       ],
-      "solutionNotes": "Ein unveränderlicher Übergang liefert ein neues Objekt statt das alte zu ändern. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const neuerStand = { ...stand, anzahl: stand.anzahl + 2 };",
+        "explanation": "Ein Zustandsübergang liefert eine neue Identität und erhält nicht geänderte Felder. Das Original bleibt für Vergleiche nutzbar.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "punkteDazu. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "punkteDazu({punkte:2},3).punkte",
+          "expected": "5",
+          "context": "Neuer Punktestand"
+        }
+      ],
+      "solutionNotes": "Ein Zustandsübergang liefert eine neue Identität und erhält nicht geänderte Felder. Das Original bleibt für Vergleiche nutzbar. Ein unveränderlicher Übergang liefert ein neues Objekt statt das alte zu ändern. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-03",
@@ -99,9 +145,9 @@ window.CURRICULUM.push({
         "js": "/* Ableiten statt doppelt halten: Berechnete Werte brauchen oft keinen eigenen Speicher. */\nfunction fortschritt(erledigt, gesamt) { return gesamt === 0 ? 0 : Math.round(erledigt / gesamt * 100); }"
       },
       "hints": [
-        "Berechnete Werte brauchen oft keinen eigenen Speicher.",
-        "Orientiere dich an diesem Baustein:\nfunction fortschritt(erledigt, gesamt) { return gesamt === 0 ? 0 : Math.round(erledigt / gesamt * 100); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction fortschritt(erledigt, gesamt) { return gesamt === 0 ? 0 : Math.round(erledigt / gesamt * 100); }"
+        "Prüfst du den leeren Fall vor dem Rechnen?",
+        "Ein Verhältnis wird erst berechnet und danach gerundet. Fehlende Gesamtmenge braucht eine eigene Regel vor der Division.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -116,7 +162,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-02"
       ],
-      "solutionNotes": "Berechnete Werte brauchen oft keinen eigenen Speicher. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "console.log(Math.round(2 / 7 * 100));",
+        "explanation": "Ein Verhältnis wird erst berechnet und danach gerundet. Fehlende Gesamtmenge braucht eine eigene Regel vor der Division.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "fortschritt. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "fortschritt(1,3)",
+          "expected": "33",
+          "context": "Runden"
+        },
+        {
+          "input": "fortschritt(0,0)",
+          "expected": "0",
+          "context": "Keine Aufgaben"
+        }
+      ],
+      "solutionNotes": "Ein Verhältnis wird erst berechnet und danach gerundet. Fehlende Gesamtmenge braucht eine eigene Regel vor der Division. Berechnete Werte brauchen oft keinen eigenen Speicher. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-04",
@@ -137,9 +214,9 @@ window.CURRICULUM.push({
         "js": "/* Text speichern: setItem wandelt Werte in Text; explizite Textwerte sind am klarsten. */\nlocalStorage.setItem(\"theme\", \"dark\");"
       },
       "hints": [
-        "setItem wandelt Werte in Text; explizite Textwerte sind am klarsten.",
-        "Orientiere dich an diesem Baustein:\nlocalStorage.setItem(\"theme\", \"dark\");",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nlocalStorage.setItem(\"theme\", \"dark\");"
+        "Speicherst du unter dem exakt vereinbarten Schlüssel?",
+        "Webspeicher besitzt Textschlüssel und Textwerte. In dieser Vorschau ist er pro Ausführung flüchtig; die Lernplattform speichert separat.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -150,7 +227,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-03"
       ],
-      "solutionNotes": "setItem wandelt Werte in Text; explizite Textwerte sind am klarsten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "localStorage.setItem(\"sprache\", \"de\");",
+        "explanation": "Webspeicher besitzt Textschlüssel und Textwerte. In dieser Vorschau ist er pro Ausführung flüchtig; die Lernplattform speichert separat.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Webspeicher besitzt Textschlüssel und Textwerte. In dieser Vorschau ist er pro Ausführung flüchtig; die Lernplattform speichert separat. setItem wandelt Werte in Text; explizite Textwerte sind am klarsten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-05",
@@ -171,9 +264,9 @@ window.CURRICULUM.push({
         "js": "/* Ein sicherer Standard: getItem liefert null, wenn ein Schlüssel fehlt. ?? ergänzt den Default. */\nfunction leseTheme() { return localStorage.getItem(\"theme\") ?? \"light\"; }"
       },
       "hints": [
-        "getItem liefert null, wenn ein Schlüssel fehlt. ?? ergänzt den Default.",
-        "Orientiere dich an diesem Baustein:\nfunction leseTheme() { return localStorage.getItem(\"theme\") ?? \"light\"; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction leseTheme() { return localStorage.getItem(\"theme\") ?? \"light\"; }"
+        "Funktioniert das Lesen auch ohne vorheriges Speichern?",
+        "Ein fehlender Speichereintrag liefert null. Ein Standardwert gehört zum Lesen, nicht nur zur erstmaligen Einrichtung.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -188,7 +281,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-04"
       ],
-      "solutionNotes": "getItem liefert null, wenn ein Schlüssel fehlt. ?? ergänzt den Default. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const sprache = localStorage.getItem(\"sprache\") ?? \"en\";",
+        "explanation": "Ein fehlender Speichereintrag liefert null. Ein Standardwert gehört zum Lesen, nicht nur zur erstmaligen Einrichtung.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "leseTheme. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "leseTheme()",
+          "expected": "'light'",
+          "context": "Standard"
+        },
+        {
+          "input": "leseTheme()",
+          "expected": "'dark'",
+          "context": "Gespeichert"
+        }
+      ],
+      "solutionNotes": "Ein fehlender Speichereintrag liefert null. Ein Standardwert gehört zum Lesen, nicht nur zur erstmaligen Einrichtung. getItem liefert null, wenn ein Schlüssel fehlt. ?? ergänzt den Default. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-06",
@@ -209,9 +333,9 @@ window.CURRICULUM.push({
         "js": "/* Ein Objekt ablegen: Serialisiere Daten vor dem Speichern und parse sie beim Lesen. */\nfunction speichern(profil) { localStorage.setItem(\"profil\", JSON.stringify(profil)); }"
       },
       "hints": [
-        "Serialisiere Daten vor dem Speichern und parse sie beim Lesen.",
-        "Orientiere dich an diesem Baustein:\nfunction speichern(profil) { localStorage.setItem(\"profil\", JSON.stringify(profil)); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction speichern(profil) { localStorage.setItem(\"profil\", JSON.stringify(profil)); }"
+        "Wird dein Objekt tatsächlich als JSON abgelegt?",
+        "Ein Objekt muss vor dem Speichern serialisiert werden. Sonst entsteht nicht automatisch wieder lesbares JSON.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -222,7 +346,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-05"
       ],
-      "solutionNotes": "Serialisiere Daten vor dem Speichern und parse sie beim Lesen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "localStorage.setItem(\"einstellung\", JSON.stringify({ ton: false }));",
+        "explanation": "Ein Objekt muss vor dem Speichern serialisiert werden. Sonst entsteht nicht automatisch wieder lesbares JSON.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "speichern. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Objekt muss vor dem Speichern serialisiert werden. Sonst entsteht nicht automatisch wieder lesbares JSON. Serialisiere Daten vor dem Speichern und parse sie beim Lesen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-07",
@@ -243,9 +387,9 @@ window.CURRICULUM.push({
         "js": "/* Beschädigte Daten überleben: Fremde oder ältere Speicherstände können ungültig sein. try/catch deckt Syntaxfehler ab. */\nfunction laden() {\n  try { return JSON.parse(localStorage.getItem(\"profil\") ?? \"null\"); }\n  catch { return null; }\n}"
       },
       "hints": [
-        "Fremde oder ältere Speicherstände können ungültig sein. try/catch deckt Syntaxfehler ab.",
-        "Orientiere dich an diesem Baustein:\nfunction laden() {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Hast du fehlende und beschädigte Einträge berücksichtigt?",
+        "Syntaktisch ungültiger Speicherinhalt kann eine Ausnahme auslösen. Der definierte Rückfall hält die Anwendung benutzbar.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -260,7 +404,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-06"
       ],
-      "solutionNotes": "Fremde oder ältere Speicherstände können ungültig sein. try/catch deckt Syntaxfehler ab. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "try { JSON.parse(\"kein JSON\"); } catch { console.log(\"Rückfall\"); }",
+        "explanation": "Syntaktisch ungültiger Speicherinhalt kann eine Ausnahme auslösen. Der definierte Rückfall hält die Anwendung benutzbar.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "laden. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "laden()",
+          "expected": "null",
+          "context": "Kaputt"
+        },
+        {
+          "input": "laden().name",
+          "expected": "'Ada'",
+          "context": "Gültig"
+        }
+      ],
+      "solutionNotes": "Syntaktisch ungültiger Speicherinhalt kann eine Ausnahme auslösen. Der definierte Rückfall hält die Anwendung benutzbar. Fremde oder ältere Speicherstände können ungültig sein. try/catch deckt Syntaxfehler ab. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-08",
@@ -281,9 +456,9 @@ window.CURRICULUM.push({
         "js": "/* Ein Reducer für Punkte: Actions sind beschreibende Objekte. Unbekannte Typen lassen den Zustand unverändert. */\nfunction reducer(state, action) {\n  if (action.type === \"add\") return { ...state, punkte: state.punkte + action.wert };\n  return state;\n}"
       },
       "hints": [
-        "Actions sind beschreibende Objekte. Unbekannte Typen lassen den Zustand unverändert.",
-        "Orientiere dich an diesem Baustein:\nfunction reducer(state, action) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Was liefert dein Reducer bei einem unbekannten Aktionstyp?",
+        "Ein Reducer entscheidet anhand einer beschreibenden Action. Unbekannte Actions sollen den bisherigen Zustand unverändert lassen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -298,7 +473,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-07"
       ],
-      "solutionNotes": "Actions sind beschreibende Objekte. Unbekannte Typen lassen den Zustand unverändert. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "function wechseln(state, action) { return action.type === \"reset\" ? 0 : state; }",
+        "explanation": "Ein Reducer entscheidet anhand einer beschreibenden Action. Unbekannte Actions sollen den bisherigen Zustand unverändert lassen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "reducer. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "reducer({punkte:5},{type:'add',wert:3}).punkte",
+          "expected": "8",
+          "context": "Add"
+        }
+      ],
+      "solutionNotes": "Ein Reducer entscheidet anhand einer beschreibenden Action. Unbekannte Actions sollen den bisherigen Zustand unverändert lassen. Actions sind beschreibende Objekte. Unbekannte Typen lassen den Zustand unverändert. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-09",
@@ -319,9 +520,9 @@ window.CURRICULUM.push({
         "js": "/* Eine Version für morgen: Eine Versionsnummer erlaubt später gezielte Migration statt blindem Übernehmen alter Daten. */\nfunction exportiere(state) { return JSON.stringify({ version: 1, state }); }"
       },
       "hints": [
-        "Eine Versionsnummer erlaubt später gezielte Migration statt blindem Übernehmen alter Daten.",
-        "Orientiere dich an diesem Baustein:\nfunction exportiere(state) { return JSON.stringify({ version: 1, state }); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction exportiere(state) { return JSON.stringify({ version: 1, state }); }"
+        "Liegen Version und Zustandsobjekt auf der richtigen Ebene?",
+        "Eine Versionsnummer beschreibt die Form der exportierten Daten. Sie gehört auf eine feste Ebene im Paket, damit spätere Migrationen sie lesen können.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -332,7 +533,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-08"
       ],
-      "solutionNotes": "Eine Versionsnummer erlaubt später gezielte Migration statt blindem Übernehmen alter Daten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const paket = JSON.stringify({ version: 3, inhalt: { ton: false } });",
+        "explanation": "Eine Versionsnummer beschreibt die Form der exportierten Daten. Sie gehört auf eine feste Ebene im Paket, damit spätere Migrationen sie lesen können.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "exportiere. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Versionsnummer beschreibt die Form der exportierten Daten. Sie gehört auf eine feste Ebene im Paket, damit spätere Migrationen sie lesen können. Eine Versionsnummer erlaubt später gezielte Migration statt blindem Übernehmen alter Daten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m15-10",
@@ -353,9 +574,9 @@ window.CURRICULUM.push({
         "js": "/* Projekt: Eine sichere Migration: Prüfe nicht nur JSON-Syntax, sondern die Struktur. typeof null ist object; prüfe null zuerst. */\nfunction importiere(text) {\n  try {\n    const data = JSON.parse(text);\n    if (!data || data.version !== 1 || !data.state || typeof data.state.punkte !== \"number\") return null;\n    return data.state;\n  } catch { return null; }\n}"
       },
       "hints": [
-        "Prüfe nicht nur JSON-Syntax, sondern die Struktur. typeof null ist object; prüfe null zuerst.",
-        "Orientiere dich an diesem Baustein:\nfunction importiere(text) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Validierst du Datenform und Version zusätzlich zur JSON-Syntax?",
+        "Erfolgreiches JSON-Parsen sagt noch nichts über die Datenstruktur aus. Prüfe danach Version, Pflichtfelder und Datentypen. Auch null ist gültiger JSON-Text.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -378,7 +599,53 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-09"
       ],
-      "solutionNotes": "Prüfe nicht nur JSON-Syntax, sondern die Struktur. typeof null ist object; prüfe null zuerst. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const istZahl = typeof wert === \"number\";",
+        "explanation": "Erfolgreiches JSON-Parsen sagt noch nichts über die Datenstruktur aus. Prüfe danach Version, Pflichtfelder und Datentypen. Auch null ist gültiger JSON-Text.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "importiere. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "importiere('{\"version\":1,\"state\":{\"punkte\":2}}').punkte",
+          "expected": "2",
+          "context": "Gültig"
+        },
+        {
+          "input": "importiere('{\"version\":2,\"state\":{\"punkte\":2}}')",
+          "expected": "null",
+          "context": "Falsche Version"
+        },
+        {
+          "input": "importiere('{')",
+          "expected": "null",
+          "context": "Defekt und null"
+        },
+        {
+          "input": "importiere('null')",
+          "expected": "null",
+          "context": "Defekt und null"
+        },
+        {
+          "input": "importiere('{\"version\":1,\"state\":{\"punkte\":\"2\"}}')",
+          "expected": "null",
+          "context": "Falscher Typ"
+        }
+      ],
+      "solutionNotes": "Erfolgreiches JSON-Parsen sagt noch nichts über die Datenstruktur aus. Prüfe danach Version, Pflichtfelder und Datentypen. Auch null ist gültiger JSON-Text. Prüfe nicht nur JSON-Syntax, sondern die Struktur. typeof null ist object; prüfe null zuerst. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

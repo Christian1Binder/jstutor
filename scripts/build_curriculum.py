@@ -286,12 +286,10 @@ for title,ex,task,code,test in [
 
 assert len(modules)==20
 assert all(len(m['exercises'])==10 for m in modules)
+from pedagogy import enrich
+enrich(modules)
 for m in modules:
  for e in m['exercises']:
-  e['hints'][2]='Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n'+e['solution'][e['focus']].split('\n')[-1]
- # Detailed code rationale accompanies every solution, not merely a raw answer.
- for e in m['exercises']:
-  e['solutionNotes']=e['explanation']+' Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben.'
   e['solution'][e['focus']]=('<!-- '+e['title']+': '+e['explanation'].replace('--','—')+' -->\n' if e['focus']=='html' else '/* '+e['title']+': '+e['explanation'].replace('*/','')+' */\n')+e['solution'][e['focus']]
  (ROOT/'data'/f"{m['id']}.js").write_text('window.CURRICULUM = window.CURRICULUM || [];\nwindow.CURRICULUM.push('+json.dumps(m,ensure_ascii=False,indent=2)+');\n')
 print(f"Built {len(modules)} modules / {sum(len(m['exercises']) for m in modules)} exercises")

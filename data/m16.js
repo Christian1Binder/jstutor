@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": "/* Eine Kartenfabrik: Eine DOM-Fabrik erzeugt bei jedem Aufruf ein frisches Element. */\nfunction karte(titel) {\n  const article = document.createElement(\"article\");\n  const h2 = document.createElement(\"h2\");\n  h2.textContent = titel; article.append(h2); return article;\n}\ndocument.querySelector(\"#output\").append(karte(\"Frankfurt\"));"
       },
       "hints": [
-        "Eine DOM-Fabrik erzeugt bei jedem Aufruf ein frisches Element.",
-        "Orientiere dich an diesem Baustein:\nfunction karte(titel) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").append(karte(\"Frankfurt\"));"
+        "Gibt jeder Aufruf ein neues Element mit dem richtigen inneren Aufbau zurück?",
+        "Eine DOM-Fabrik erzeugt pro Aufruf ein neues Element. Der Aufrufer entscheidet selbst, wo es eingefügt wird.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -40,7 +40,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m15-10"
       ],
-      "solutionNotes": "Eine DOM-Fabrik erzeugt bei jedem Aufruf ein frisches Element. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "function absatz(text) { const p = document.createElement(\"p\"); p.textContent = text; return p; }",
+        "explanation": "Eine DOM-Fabrik erzeugt pro Aufruf ein neues Element. Der Aufrufer entscheidet selbst, wo es eingefügt wird.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "karte. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine DOM-Fabrik erzeugt pro Aufruf ein neues Element. Der Aufrufer entscheidet selbst, wo es eingefügt wird. Eine DOM-Fabrik erzeugt bei jedem Aufruf ein frisches Element. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-02",
@@ -61,9 +81,9 @@ window.CURRICULUM.push({
         "js": "/* Eine eigene Elementklasse: extends HTMLElement erweitert ein natives Element. Registrieren erfolgt einmal pro Dokument. */\nclass ReiseGruss extends HTMLElement {\n  connectedCallback() { this.textContent = \"Hallo\"; }\n}\ncustomElements.define(\"reise-gruss\", ReiseGruss);\ndocument.querySelector(\"#output\").append(document.createElement(\"reise-gruss\"));"
       },
       "hints": [
-        "extends HTMLElement erweitert ein natives Element. Registrieren erfolgt einmal pro Dokument.",
-        "Orientiere dich an diesem Baustein:\nclass ReiseGruss extends HTMLElement {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").append(document.createElement(\"reise-gruss\"));"
+        "Sind Klasse, Registrierung und Verhalten beim Einfügen getrennt vorhanden?",
+        "Eine Custom-Element-Klasse beschreibt das Verhalten. Erst ihre Registrierung unter einem Namen mit Bindestrich macht sie im Dokument benutzbar.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -74,7 +94,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-01"
       ],
-      "solutionNotes": "extends HTMLElement erweitert ein natives Element. Registrieren erfolgt einmal pro Dokument. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "class EigenerText extends HTMLElement { connectedCallback() { this.textContent = \"Bereit\"; } }",
+        "explanation": "Eine Custom-Element-Klasse beschreibt das Verhalten. Erst ihre Registrierung unter einem Namen mit Bindestrich macht sie im Dokument benutzbar.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Custom-Element-Klasse beschreibt das Verhalten. Erst ihre Registrierung unter einem Namen mit Bindestrich macht sie im Dokument benutzbar. extends HTMLElement erweitert ein natives Element. Registrieren erfolgt einmal pro Dokument. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-03",
@@ -95,9 +131,9 @@ window.CURRICULUM.push({
         "js": "/* Attribute als Eingabe: getAttribute liest Konfiguration am Element. connectedCallback sieht bereits gesetzte Attribute. */\nclass StadtKarte extends HTMLElement {\n  connectedCallback() { this.textContent = this.getAttribute(\"name\") ?? \"Unbekannt\"; }\n}\ncustomElements.define(\"stadt-karte\", StadtKarte);"
       },
       "hints": [
-        "getAttribute liest Konfiguration am Element. connectedCallback sieht bereits gesetzte Attribute.",
-        "Orientiere dich an diesem Baustein:\nclass StadtKarte extends HTMLElement {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ncustomElements.define(\"stadt-karte\", StadtKarte);"
+        "Funktioniert deine Komponente auch ohne das Attribut?",
+        "Attribute sind Eingaben von außen. Ein Fallback ermöglicht eine sinnvolle Darstellung, wenn ein Attribut fehlt.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -108,7 +144,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-02"
       ],
-      "solutionNotes": "getAttribute liest Konfiguration am Element. connectedCallback sieht bereits gesetzte Attribute. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const wert = element.getAttribute(\"titel\") ?? \"Ohne Titel\";",
+        "explanation": "Attribute sind Eingaben von außen. Ein Fallback ermöglicht eine sinnvolle Darstellung, wenn ein Attribut fehlt.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Attribute sind Eingaben von außen. Ein Fallback ermöglicht eine sinnvolle Darstellung, wenn ein Attribut fehlt. getAttribute liest Konfiguration am Element. connectedCallback sieht bereits gesetzte Attribute. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-04",
@@ -129,9 +181,9 @@ window.CURRICULUM.push({
         "js": "/* Ein eigener kleiner DOM: shadowRoot ist bei mode:open zugänglich. Eltern-CSS greift nicht direkt in den Shadow-Teilbaum. */\nclass WebBadge extends HTMLElement {\n  connectedCallback() {\n    if (this.shadowRoot) return;\n    const root = this.attachShadow({ mode: \"open\" });\n    const span = document.createElement(\"span\"); span.textContent = \"WEB\"; root.append(span);\n  }\n}\ncustomElements.define(\"web-badge\", WebBadge);\ndocument.querySelector(\"#output\").append(document.createElement(\"web-badge\"));"
       },
       "hints": [
-        "shadowRoot ist bei mode:open zugänglich. Eltern-CSS greift nicht direkt in den Shadow-Teilbaum.",
-        "Orientiere dich an diesem Baustein:\nclass WebBadge extends HTMLElement {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").append(document.createElement(\"web-badge\"));"
+        "Vermeidest du ein erneutes Anlegen beim wiederholten Einfügen?",
+        "Ein Shadow Root besitzt einen eigenen Elementbaum. Bei offenem Modus kann die Anwendung ihn über shadowRoot lesen. Mehrfaches Anlegen am selben Element ist nicht erlaubt.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -142,7 +194,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-03"
       ],
-      "solutionNotes": "shadowRoot ist bei mode:open zugänglich. Eltern-CSS greift nicht direkt in den Shadow-Teilbaum. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const root = element.attachShadow({ mode: \"open\" });",
+        "explanation": "Ein Shadow Root besitzt einen eigenen Elementbaum. Bei offenem Modus kann die Anwendung ihn über shadowRoot lesen. Mehrfaches Anlegen am selben Element ist nicht erlaubt.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Shadow Root besitzt einen eigenen Elementbaum. Bei offenem Modus kann die Anwendung ihn über shadowRoot lesen. Mehrfaches Anlegen am selben Element ist nicht erlaubt. shadowRoot ist bei mode:open zugänglich. Eltern-CSS greift nicht direkt in den Shadow-Teilbaum. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-05",
@@ -163,9 +231,9 @@ window.CURRICULUM.push({
         "js": "/* Eigene Ereignisse: CustomEvent transportiert Daten in detail. dispatchEvent sendet es am Element ab. */\nfunction melden(element, punkte) { element.dispatchEvent(new CustomEvent(\"belohnung\", { detail: { punkte } })); }"
       },
       "hints": [
-        "CustomEvent transportiert Daten in detail. dispatchEvent sendet es am Element ab.",
-        "Orientiere dich an diesem Baustein:\nfunction melden(element, punkte) { element.dispatchEvent(new CustomEvent(\"belohnung\", { detail: { punkte } })); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction melden(element, punkte) { element.dispatchEvent(new CustomEvent(\"belohnung\", { detail: { punkte } })); }"
+        "Stimmen Ereignisname und Form der übermittelten Daten?",
+        "Ein eigenes Ereignis transportiert Daten über detail. Empfangende Listener müssen denselben Ereignisnamen verwenden.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -176,7 +244,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-04"
       ],
-      "solutionNotes": "CustomEvent transportiert Daten in detail. dispatchEvent sendet es am Element ab. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "element.dispatchEvent(new CustomEvent(\"auswahl\", { detail: { id: 4 } }));",
+        "explanation": "Ein eigenes Ereignis transportiert Daten über detail. Empfangende Listener müssen denselben Ereignisnamen verwenden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "melden. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein eigenes Ereignis transportiert Daten über detail. Empfangende Listener müssen denselben Ereignisnamen verwenden. CustomEvent transportiert Daten in detail. dispatchEvent sendet es am Element ab. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-06",
@@ -197,9 +285,9 @@ window.CURRICULUM.push({
         "js": "/* Preise richtig formatieren: Intl.NumberFormat berücksichtigt Dezimaltrennzeichen und Währungsdarstellung. */\nfunction euro(wert) { return new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"EUR\" }).format(wert); }\ndocument.querySelector(\"#output\").textContent = euro(12.5);"
       },
       "hints": [
-        "Intl.NumberFormat berücksichtigt Dezimaltrennzeichen und Währungsdarstellung.",
-        "Orientiere dich an diesem Baustein:\nfunction euro(wert) { return new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"EUR\" }).format(wert); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").textContent = euro(12.5);"
+        "Sind Sprache und Währung explizit eingestellt?",
+        "Eine Formatierungsinstanz beschreibt Sprache und Darstellungsart. Die Zahl bleibt davor ein numerischer Wert.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -210,7 +298,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-05"
       ],
-      "solutionNotes": "Intl.NumberFormat berücksichtigt Dezimaltrennzeichen und Währungsdarstellung. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"CHF\" }).format(8);",
+        "explanation": "Eine Formatierungsinstanz beschreibt Sprache und Darstellungsart. Die Zahl bleibt davor ein numerischer Wert.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "euro. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Formatierungsinstanz beschreibt Sprache und Darstellungsart. Die Zahl bleibt davor ein numerischer Wert. Intl.NumberFormat berücksichtigt Dezimaltrennzeichen und Währungsdarstellung. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-07",
@@ -231,9 +339,9 @@ window.CURRICULUM.push({
         "js": "/* Adressen zerlegen: new URL verarbeitet eine vollständige URL. searchParams.get liest einen Querywert. */\nfunction thema(url) { return new URL(url).searchParams.get(\"thema\") ?? \"start\"; }"
       },
       "hints": [
-        "new URL verarbeitet eine vollständige URL. searchParams.get liest einen Querywert.",
-        "Orientiere dich an diesem Baustein:\nfunction thema(url) { return new URL(url).searchParams.get(\"thema\") ?? \"start\"; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction thema(url) { return new URL(url).searchParams.get(\"thema\") ?? \"start\"; }"
+        "Behandelst du einen fehlenden Queryparameter mit dem vereinbarten Ersatzwert?",
+        "URL zerlegt eine Adresse nach festen Regeln. searchParams liest bereits dekodierte Parameterwerte. Ein fehlender Schlüssel liefert null.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -248,7 +356,38 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-06"
       ],
-      "solutionNotes": "new URL verarbeitet eine vollständige URL. searchParams.get liest einen Querywert. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const u = new URL(\"https://example.org/?farbe=rot\");",
+        "explanation": "URL zerlegt eine Adresse nach festen Regeln. searchParams liest bereits dekodierte Parameterwerte. Ein fehlender Schlüssel liefert null.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "thema. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "thema('https://example.org/?thema=css')",
+          "expected": "'css'",
+          "context": "Parameter"
+        },
+        {
+          "input": "thema('https://example.org/')",
+          "expected": "'start'",
+          "context": "Standard"
+        }
+      ],
+      "solutionNotes": "URL zerlegt eine Adresse nach festen Regeln. searchParams liest bereits dekodierte Parameterwerte. Ein fehlender Schlüssel liefert null. new URL verarbeitet eine vollständige URL. searchParams.get liest einen Querywert. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-08",
@@ -269,9 +408,9 @@ window.CURRICULUM.push({
         "js": "/* Querywerte sicher erzeugen: URLSearchParams kodiert Sonderzeichen automatisch; manuelles Zusammenkleben ist fehleranfällig. */\nfunction query(name) { return new URLSearchParams({ name }).toString(); }"
       },
       "hints": [
-        "URLSearchParams kodiert Sonderzeichen automatisch; manuelles Zusammenkleben ist fehleranfällig.",
-        "Orientiere dich an diesem Baustein:\nfunction query(name) { return new URLSearchParams({ name }).toString(); }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nfunction query(name) { return new URLSearchParams({ name }).toString(); }"
+        "Bleiben Sonderzeichen beim anschließenden Lesen als Teil des Werts erhalten?",
+        "Querywerte können reservierte Sonderzeichen enthalten. URLSearchParams übernimmt deren Kodierung und verhindert falsche zusätzliche Parameter.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -282,7 +421,27 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-07"
       ],
-      "solutionNotes": "URLSearchParams kodiert Sonderzeichen automatisch; manuelles Zusammenkleben ist fehleranfällig. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "new URLSearchParams({ suche: \"Brot & Tee\" }).toString();",
+        "explanation": "Querywerte können reservierte Sonderzeichen enthalten. URLSearchParams übernimmt deren Kodierung und verhindert falsche zusätzliche Parameter.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "query. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Querywerte können reservierte Sonderzeichen enthalten. URLSearchParams übernimmt deren Kodierung und verhindert falsche zusätzliche Parameter. URLSearchParams kodiert Sonderzeichen automatisch; manuelles Zusammenkleben ist fehleranfällig. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-09",
@@ -303,9 +462,9 @@ window.CURRICULUM.push({
         "js": "/* Eine Ressource wieder freigeben: Listener lassen sich mit AbortSignal registrieren und gemeinsam entfernen. */\nfunction verbinde(button, handler) {\n  const controller = new AbortController();\n  button.addEventListener(\"click\", handler, { signal: controller.signal });\n  return () => controller.abort();\n}"
       },
       "hints": [
-        "Listener lassen sich mit AbortSignal registrieren und gemeinsam entfernen.",
-        "Orientiere dich an diesem Baustein:\nfunction verbinde(button, handler) {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n}"
+        "Wird der Listener nach dem Aufruf der Stoppfunktion tatsächlich nicht mehr ausgeführt?",
+        "Ein Signal kann Listener gemeinsam entfernen. Die Stoppfunktion muss den Controller des registrierten Listeners weiter erreichen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
@@ -316,13 +475,33 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m16-08"
       ],
-      "solutionNotes": "Listener lassen sich mit AbortSignal registrieren und gemeinsam entfernen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const c = new AbortController(); ziel.addEventListener(\"click\", handler, { signal: c.signal });",
+        "explanation": "Ein Signal kann Listener gemeinsam entfernen. Die Stoppfunktion muss den Controller des registrierten Listeners weiter erreichen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Verbindliche Namen",
+          "text": "verbinde. Die Prüfung greift auf diese Namen zu; andere Hilfsvariablen darfst du frei wählen."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein Signal kann Listener gemeinsam entfernen. Die Stoppfunktion muss den Controller des registrierten Listeners weiter erreichen. Listener lassen sich mit AbortSignal registrieren und gemeinsam entfernen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m16-10",
       "title": "Projekt: Eine Profilkomponente",
       "explanation": "Kombiniere Attribute, Lifecycle und sicheren DOM-Aufbau.",
-      "task": "Registriere lern-profil: article mit h2 aus Attribut name (Default Gast) und p mit Bereit zum Lernen.",
+      "task": "Registriere das Custom Element lern-profil. Beim Einfügen enthält es genau einen article mit h2 und p. h2 liest das Attribut name, fehlt es, lautet der Titel „Gast“. Der Absatz lautet „Bereit zum Lernen“. Verwende für Texte textContent. Füge ein Exemplar zum Ausprobieren ein.",
       "minutes": 20,
       "xp": 95,
       "focus": "js",
@@ -337,20 +516,36 @@ window.CURRICULUM.push({
         "js": "/* Projekt: Eine Profilkomponente: Kombiniere Attribute, Lifecycle und sicheren DOM-Aufbau. */\nclass LernProfil extends HTMLElement {\n  connectedCallback() {\n    const article = document.createElement(\"article\");\n    const title = document.createElement(\"h2\"); title.textContent = this.getAttribute(\"name\") ?? \"Gast\";\n    const text = document.createElement(\"p\"); text.textContent = \"Bereit zum Lernen\";\n    article.append(title, text); this.replaceChildren(article);\n  }\n}\ncustomElements.define(\"lern-profil\", LernProfil);\ndocument.querySelector(\"#output\").append(document.createElement(\"lern-profil\"));"
       },
       "hints": [
-        "Kombiniere Attribute, Lifecycle und sicheren DOM-Aufbau.",
-        "Orientiere dich an diesem Baustein:\nclass LernProfil extends HTMLElement {",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\ndocument.querySelector(\"#output\").append(document.createElement(\"lern-profil\"));"
+        "Stimmen Standardwert, verschachtelte Elemente und sichtbarer Text deiner Komponente?",
+        "Eine Komponente kombiniert Lebenszyklus, Konfiguration und DOM-Aufbau. Erneutes Einfügen soll nicht versehentlich doppelte Inhalte erzeugen.",
+        "Rufe deinen Baustein mit einem anderen Wert oder einem Grenzfall auf. Bei einer Funktion kannst du ihren Rückgabewert mit console.log untersuchen; bei Interaktionen löse das Ereignis mehrfach aus. So trennst du Rechen-, Zustands- und Darstellungsfehler."
       ],
       "tests": [
         {
-          "label": "Registriere lern-profil: article mit h2 aus Attribut name (Default Gast) und p mit Bereit zum Lernen.",
+          "label": "Registriere das Custom Element lern-profil. Beim Einfügen enthält es genau einen article mit h2 und p. h2 liest das Attribut name, fehlt es, lautet der Titel „Gast“. Der Absatz lautet „Bereit zum Lernen“. Verwende für Texte textContent. Füge ein Exemplar zum Ausprobieren ein.",
           "code": "!!customElements.get('lern-profil') && (()=>{const x=document.createElement('lern-profil');x.setAttribute('name','Ada');document.body.append(x);return x.querySelector('article h2')?.textContent==='Ada' && x.querySelector('p')?.textContent==='Bereit zum Lernen'})()"
         }
       ],
       "prerequisites": [
         "m16-09"
       ],
-      "solutionNotes": "Kombiniere Attribute, Lifecycle und sicheren DOM-Aufbau. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "const titel = document.createElement(\"h2\"); titel.textContent = \"Gartenprofil\";",
+        "explanation": "Eine Komponente kombiniert Lebenszyklus, Konfiguration und DOM-Aufbau. Erneutes Einfügen soll nicht versehentlich doppelte Inhalte erzeugen.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Schreibe deinen Code im JavaScript-Editor. Die vorgegebene HTML-Struktur dient als Eingabe und Ausgabe."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Komponente kombiniert Lebenszyklus, Konfiguration und DOM-Aufbau. Erneutes Einfügen soll nicht versehentlich doppelte Inhalte erzeugen. Kombiniere Attribute, Lifecycle und sicheren DOM-Aufbau. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

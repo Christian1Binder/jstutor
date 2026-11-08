@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Flexbox aktiviert man am Elternteil. Seine direkten Kinder werden Flex-Items.",
-        "Orientiere dich an diesem Baustein:\nnav { display: flex; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nnav { display: flex; }"
+        "Liegt die Layoutregel am gemeinsamen Elternteil der Elemente?",
+        "Das Layout wird auf dem Elternteil aktiviert. Die direkten Kinder werden dadurch nebeneinander angeordnet. Den Kindern selbst display:flex zu geben erzeugt stattdessen jeweils ein eigenes inneres Layout.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -40,7 +40,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m03-10"
       ],
-      "solutionNotes": "Flexbox aktiviert man am Elternteil. Seine direkten Kinder werden Flex-Items. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".row { display: flex; }",
+        "explanation": "Das Layout wird auf dem Elternteil aktiviert. Die direkten Kinder werden dadurch nebeneinander angeordnet. Den Kindern selbst display:flex zu geben erzeugt stattdessen jeweils ein eigenes inneres Layout.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Das Layout wird auf dem Elternteil aktiviert. Die direkten Kinder werden dadurch nebeneinander angeordnet. Den Kindern selbst display:flex zu geben erzeugt stattdessen jeweils ein eigenes inneres Layout. Flexbox aktiviert man am Elternteil. Seine direkten Kinder werden Flex-Items. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-02",
@@ -61,9 +77,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "gap verteilt einen gleichmäßigen Abstand zwischen Flex-Items.",
-        "Orientiere dich an diesem Baustein:\nnav { display: flex; gap: 16px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nnav { display: flex; gap: 16px; }"
+        "Hat der Container das passende Layout und dort einen Zwischenraum?",
+        "gap schafft Platz zwischen den Kindern, nicht am äußeren Rand des Containers. Es ersetzt bei diesem Zweck viele einzelne Margins und bleibt auch beim Umordnen konsistent.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -74,7 +90,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-01"
       ],
-      "solutionNotes": "gap verteilt einen gleichmäßigen Abstand zwischen Flex-Items. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".row { display: flex; gap: 24px; }",
+        "explanation": "gap schafft Platz zwischen den Kindern, nicht am äußeren Rand des Containers. Es ersetzt bei diesem Zweck viele einzelne Margins und bleibt auch beim Umordnen konsistent.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "gap schafft Platz zwischen den Kindern, nicht am äußeren Rand des Containers. Es ersetzt bei diesem Zweck viele einzelne Margins und bleibt auch beim Umordnen konsistent. gap verteilt einen gleichmäßigen Abstand zwischen Flex-Items. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-03",
@@ -95,9 +127,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "justify-content: space-between verteilt freien Platz zwischen den Items.",
-        "Orientiere dich an diesem Baustein:\nnav { display: flex; justify-content: space-between; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nnav { display: flex; justify-content: space-between; }"
+        "Soll der freie Platz vor, hinter oder zwischen den Kindern liegen?",
+        "justify-content verteilt freien Platz auf der Hauptachse. Bei einer normalen Flexzeile ist diese horizontal. Die Wirkung wird erst sichtbar, wenn der Container mehr Platz als seine Kinder besitzt.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -108,7 +140,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-02"
       ],
-      "solutionNotes": "justify-content: space-between verteilt freien Platz zwischen den Items. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".row { display: flex; justify-content: center; }",
+        "explanation": "justify-content verteilt freien Platz auf der Hauptachse. Bei einer normalen Flexzeile ist diese horizontal. Die Wirkung wird erst sichtbar, wenn der Container mehr Platz als seine Kinder besitzt.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "justify-content verteilt freien Platz auf der Hauptachse. Bei einer normalen Flexzeile ist diese horizontal. Die Wirkung wird erst sichtbar, wenn der Container mehr Platz als seine Kinder besitzt. justify-content: space-between verteilt freien Platz zwischen den Items. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-04",
@@ -129,9 +177,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "align-items:center richtet die Kinder quer zur Hauptachse mittig aus.",
-        "Orientiere dich an diesem Baustein:\nnav { display: flex; align-items: center; min-height: 80px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nnav { display: flex; align-items: center; min-height: 80px; }"
+        "Geht es um die Hauptachse oder die Querachse?",
+        "align-items arbeitet quer zur Hauptachse. In einer Zeile betrifft das die vertikale Ausrichtung. Verwechsle diese Eigenschaft nicht mit der Verteilung entlang der Zeile.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -142,7 +190,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-03"
       ],
-      "solutionNotes": "align-items:center richtet die Kinder quer zur Hauptachse mittig aus. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".row { display: flex; align-items: flex-start; }",
+        "explanation": "align-items arbeitet quer zur Hauptachse. In einer Zeile betrifft das die vertikale Ausrichtung. Verwechsle diese Eigenschaft nicht mit der Verteilung entlang der Zeile.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "align-items arbeitet quer zur Hauptachse. In einer Zeile betrifft das die vertikale Ausrichtung. Verwechsle diese Eigenschaft nicht mit der Verteilung entlang der Zeile. align-items:center richtet die Kinder quer zur Hauptachse mittig aus. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-05",
@@ -163,9 +227,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "flex-wrap:wrap erlaubt neue Zeilen statt immer engerer Items.",
-        "Orientiere dich an diesem Baustein:\nnav { display: flex; flex-wrap: wrap; gap: 16px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\nnav { display: flex; flex-wrap: wrap; gap: 16px; }"
+        "Darf die Zeile bei wenig Platz tatsächlich umbrechen?",
+        "Ohne erlaubten Umbruch versucht Flexbox die Kinder in einer Zeile unterzubringen. wrap gestattet zusätzliche Zeilen. Deren Höhe hängt vom Inhalt ab.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -176,7 +240,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-04"
       ],
-      "solutionNotes": "flex-wrap:wrap erlaubt neue Zeilen statt immer engerer Items. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".row { display: flex; flex-wrap: wrap; }",
+        "explanation": "Ohne erlaubten Umbruch versucht Flexbox die Kinder in einer Zeile unterzubringen. wrap gestattet zusätzliche Zeilen. Deren Höhe hängt vom Inhalt ab.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ohne erlaubten Umbruch versucht Flexbox die Kinder in einer Zeile unterzubringen. wrap gestattet zusätzliche Zeilen. Deren Höhe hängt vom Inhalt ab. flex-wrap:wrap erlaubt neue Zeilen statt immer engerer Items. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-06",
@@ -197,9 +277,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "1fr 1fr verteilt den verfügbaren Platz auf zwei gleiche Spalten.",
-        "Orientiere dich an diesem Baustein:\n.grid { display: grid; grid-template-columns: 1fr 1fr; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.grid { display: grid; grid-template-columns: 1fr 1fr; }"
+        "Wie viele Spalten verlangt die Aufgabe und sollen ihre Anteile gleich groß sein?",
+        "Grid legt Spalten explizit fest. fr teilt den freien Raum nach Anteilen auf; gleiche Anteile ergeben gleich breite Spalten. Die Kinder fließen in dieses Raster.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -210,7 +290,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-05"
       ],
-      "solutionNotes": "1fr 1fr verteilt den verfügbaren Platz auf zwei gleiche Spalten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".board { display: grid; grid-template-columns: 2fr 1fr; }",
+        "explanation": "Grid legt Spalten explizit fest. fr teilt den freien Raum nach Anteilen auf; gleiche Anteile ergeben gleich breite Spalten. Die Kinder fließen in dieses Raster.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Grid legt Spalten explizit fest. fr teilt den freien Raum nach Anteilen auf; gleiche Anteile ergeben gleich breite Spalten. Die Kinder fließen in dieses Raster. 1fr 1fr verteilt den verfügbaren Platz auf zwei gleiche Spalten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-07",
@@ -231,9 +327,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "repeat(3,1fr) ist eine lesbare Kurzschreibweise für drei gleiche Spalten.",
-        "Orientiere dich an diesem Baustein:\n.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }"
+        "Passen Wiederholungszahl und Abstand unabhängig voneinander?",
+        "repeat wiederholt eine Spaltendefinition. Der erste Parameter ist die Anzahl, der zweite das zu wiederholende Muster. Zwischenräume werden getrennt mit gap angegeben.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -244,7 +340,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-06"
       ],
-      "solutionNotes": "repeat(3,1fr) ist eine lesbare Kurzschreibweise für drei gleiche Spalten. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".board { display: grid; grid-template-columns: repeat(4, 1fr); }",
+        "explanation": "repeat wiederholt eine Spaltendefinition. Der erste Parameter ist die Anzahl, der zweite das zu wiederholende Muster. Zwischenräume werden getrennt mit gap angegeben.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "repeat wiederholt eine Spaltendefinition. Der erste Parameter ist die Anzahl, der zweite das zu wiederholende Muster. Zwischenräume werden getrennt mit gap angegeben. repeat(3,1fr) ist eine lesbare Kurzschreibweise für drei gleiche Spalten. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-08",
@@ -265,9 +377,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "grid-column:span 2 überspannt zwei Rasterspalten. :first-child wählt das erste Geschwisterelement.",
-        "Orientiere dich an diesem Baustein:\n.grid { display: grid; grid-template-columns: 1fr 1fr; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\narticle:first-child { grid-column: span 2; }"
+        "Welche Regel gehört zum Raster und welche zum ersten Artikel?",
+        "Das Raster wird am Container festgelegt, das Überspannen dagegen am Kind. span beschreibt, wie viele Spalten dieses Kind belegt; es ändert nicht die allgemeine Spaltenzahl.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -278,7 +390,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-07"
       ],
-      "solutionNotes": "grid-column:span 2 überspannt zwei Rasterspalten. :first-child wählt das erste Geschwisterelement. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".board { display: grid; grid-template-columns: 1fr 1fr 1fr; } .feature { grid-column: span 3; }",
+        "explanation": "Das Raster wird am Container festgelegt, das Überspannen dagegen am Kind. span beschreibt, wie viele Spalten dieses Kind belegt; es ändert nicht die allgemeine Spaltenzahl.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Das Raster wird am Container festgelegt, das Überspannen dagegen am Kind. span beschreibt, wie viele Spalten dieses Kind belegt; es ändert nicht die allgemeine Spaltenzahl. grid-column:span 2 überspannt zwei Rasterspalten. :first-child wählt das erste Geschwisterelement. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-09",
@@ -299,9 +427,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "auto-fit erzeugt so viele Spalten wie passen. minmax(140px,1fr) lässt Karten mitwachsen.",
-        "Orientiere dich an diesem Baustein:\n.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }"
+        "Ist die Spaltenzahl automatisch und die Kartenbreite nach unten begrenzt?",
+        "auto-fit bestimmt die Anzahl passender Spalten aus dem verfügbaren Platz. minmax setzt eine Untergrenze und erlaubt Wachstum. Anders als bei einer festen Spaltenzahl reagiert das Raster damit auf seine Umgebung.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -312,7 +440,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-08"
       ],
-      "solutionNotes": "auto-fit erzeugt so viele Spalten wie passen. minmax(140px,1fr) lässt Karten mitwachsen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": ".board { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }",
+        "explanation": "auto-fit bestimmt die Anzahl passender Spalten aus dem verfügbaren Platz. minmax setzt eine Untergrenze und erlaubt Wachstum. Anders als bei einer festen Spaltenzahl reagiert das Raster damit auf seine Umgebung.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "auto-fit bestimmt die Anzahl passender Spalten aus dem verfügbaren Platz. minmax setzt eine Untergrenze und erlaubt Wachstum. Anders als bei einer festen Spaltenzahl reagiert das Raster damit auf seine Umgebung. auto-fit erzeugt so viele Spalten wie passen. minmax(140px,1fr) lässt Karten mitwachsen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m04-10",
@@ -333,9 +477,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Kombiniere eine Flexnavigation mit einem Kartenraster. background und padding kennst du bereits.",
-        "Orientiere dich an diesem Baustein:\nnav { display: flex; justify-content: space-between; margin-bottom: 24px; }",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\narticle { background: white; padding: 24px; border-radius: 12px; }"
+        "Hast du Navigation und Kartenraster als zwei getrennte Layoutaufgaben behandelt?",
+        "Eine Oberfläche kann mehrere Layoutsysteme kombinieren. Navigation und Karten sind verschiedene Container und brauchen eigene Regeln. Arbeite die beiden Bereiche nacheinander ab.",
+        "Prüfe den Selektor, dann Eigenschaft und Einheit einzeln. Beachte spätere Regeln für dasselbe Element: Sie können einen früheren Wert überschreiben. Verändere zum Gegencheck kurz eine einzelne Eigenschaft und führe erneut aus."
       ],
       "tests": [
         {
@@ -346,7 +490,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m04-09"
       ],
-      "solutionNotes": "Kombiniere eine Flexnavigation mit einem Kartenraster. background und padding kennst du bereits. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "header { display: flex; } main { display: grid; }",
+        "explanation": "Eine Oberfläche kann mehrere Layoutsysteme kombinieren. Navigation und Karten sind verschiedene Container und brauchen eigene Regeln. Arbeite die beiden Bereiche nacheinander ab.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze die Regeln im CSS-Editor. Die vorhandene HTML-Struktur bleibt erhalten."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Oberfläche kann mehrere Layoutsysteme kombinieren. Navigation und Karten sind verschiedene Container und brauchen eigene Regeln. Arbeite die beiden Bereiche nacheinander ab. Kombiniere eine Flexnavigation mit einem Kartenraster. background und padding kennst du bereits. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });

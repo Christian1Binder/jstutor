@@ -27,9 +27,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "main soll den zentralen Inhalt genau einmal enthalten. header und footer bilden den Rahmen.",
-        "Orientiere dich an diesem Baustein:\n<header>Web-Reise</header><main><h1>Willkommen</h1></main><footer>Mit Neugier gebaut</footer>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<header>Web-Reise</header><main><h1>Willkommen</h1></main><footer>Mit Neugier gebaut</footer>"
+        "Liegen die drei Seitenbereiche auf derselben Verschachtelungsebene?",
+        "Geschwister haben denselben Elternknoten. Der Hauptinhalt gehört deshalb nicht in den footer. Semantik beschreibt die Rolle eines Bereichs, noch nicht dessen Position oder Farbe.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
@@ -40,7 +40,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m01-10"
       ],
-      "solutionNotes": "main soll den zentralen Inhalt genau einmal enthalten. header und footer bilden den Rahmen. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<header>Gartenjournal</header><main>Ein Beitrag</main><footer>Kontakt</footer>",
+        "explanation": "Geschwister haben denselben Elternknoten. Der Hauptinhalt gehört deshalb nicht in den footer. Semantik beschreibt die Rolle eines Bereichs, noch nicht dessen Position oder Farbe.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Geschwister haben denselben Elternknoten. Der Hauptinhalt gehört deshalb nicht in den footer. Semantik beschreibt die Rolle eines Bereichs, noch nicht dessen Position oder Farbe. main soll den zentralen Inhalt genau einmal enthalten. header und footer bilden den Rahmen. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-02",
@@ -61,9 +77,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "nav enthält zusammengehörige Navigationslinks. Ein verständlicher Linktext nennt das Ziel.",
-        "Orientiere dich an diesem Baustein:\n<nav aria-label=\"Hauptnavigation\"><a href=\"#start\">Start</a> <a href=\"#kontakt\">Kontakt</a></nav><main id=\"start\">Start</main><footer id=\"kontakt\">Kontakt</footer>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<nav aria-label=\"Hauptnavigation\"><a href=\"#start\">Start</a> <a href=\"#kontakt\">Kontakt</a></nav><main id=\"start\">Start</main><footer id=\"kontakt\">Kontakt</footer>"
+        "Sind es zwei Links innerhalb der Navigation, und besitzen beide ein lokales Sprungziel?",
+        "Eine Navigation sammelt Links. Bei internen Links beginnt das href mit einer Raute; ein sinnvoller eigener Zielbereich sorgt dafür, dass der Sprung auch wirklich ein Ziel hat.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
@@ -74,7 +90,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m02-01"
       ],
-      "solutionNotes": "nav enthält zusammengehörige Navigationslinks. Ein verständlicher Linktext nennt das Ziel. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<nav><a href=\"#beete\">Beete</a></nav><section id=\"beete\">Beete</section>",
+        "explanation": "Eine Navigation sammelt Links. Bei internen Links beginnt das href mit einer Raute; ein sinnvoller eigener Zielbereich sorgt dafür, dass der Sprung auch wirklich ein Ziel hat.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Eine Navigation sammelt Links. Bei internen Links beginnt das href mit einer Raute; ein sinnvoller eigener Zielbereich sorgt dafür, dass der Sprung auch wirklich ein Ziel hat. nav enthält zusammengehörige Navigationslinks. Ein verständlicher Linktext nennt das Ziel. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-03",
@@ -95,9 +127,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "article ist ein eigenständig verständlicher Beitrag. Eine Überschrift benennt ihn.",
-        "Orientiere dich an diesem Baustein:\n<article><h2>Mein Reisetagebuch</h2><p>Heute lerne ich Semantik.</p></article>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<article><h2>Mein Reisetagebuch</h2><p>Heute lerne ich Semantik.</p></article>"
+        "Sind sowohl Überschrift als auch Absatz im article verschachtelt?",
+        "Ein eigenständiger Beitrag bekommt einen gemeinsamen article-Behälter. Überschrift und Absatz sind Kinder dieses Beitrags, nicht bloß Nachbarelemente außerhalb.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
@@ -108,13 +140,29 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m02-02"
       ],
-      "solutionNotes": "article ist ein eigenständig verständlicher Beitrag. Eine Überschrift benennt ihn. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<article><h2>Neues aus dem Garten</h2><p>Die ersten Pflanzen wachsen.</p></article>",
+        "explanation": "Ein eigenständiger Beitrag bekommt einen gemeinsamen article-Behälter. Überschrift und Absatz sind Kinder dieses Beitrags, nicht bloß Nachbarelemente außerhalb.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Ein eigenständiger Beitrag bekommt einen gemeinsamen article-Behälter. Überschrift und Absatz sind Kinder dieses Beitrags, nicht bloß Nachbarelemente außerhalb. article ist ein eigenständig verständlicher Beitrag. Eine Überschrift benennt ihn. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-04",
       "title": "Ein Name fürs Eingabefeld",
       "explanation": "Ein label bleibt sichtbar und beschreibt ein Feld auch für Hilfstechnologien. for und id müssen identisch sein.",
-      "task": "Verbinde das label Name mit dem input id=\"name\".",
+      "task": "Erstelle einen input mit id=\"name\" und ein label mit dem sichtbaren Text „Name“. Verbinde beide über for=\"name\" am label. Weitere Attribute und die optische Gestaltung sind frei.",
       "minutes": 8,
       "xp": 25,
       "focus": "html",
@@ -129,26 +177,48 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Ein label bleibt sichtbar und beschreibt ein Feld auch für Hilfstechnologien. for und id müssen identisch sein.",
-        "Orientiere dich an diesem Baustein:\n<label for=\"name\">Name</label><input id=\"name\" name=\"name\" type=\"text\">",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<label for=\"name\">Name</label><input id=\"name\" name=\"name\" type=\"text\">"
+        "Passen for und id zusammen, und entspricht der Feldname der Aufgabe?",
+        "for stellt über den gleichen Namen eine Verbindung zur id her. Dadurch kann ein Klick auf die Beschriftung das Feld fokussieren. Eine Beschriftung in einem gewöhnlichen Absatz stellt diese Verbindung nicht her.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
-          "label": "Verbinde das label Name mit dem input id=\"name\".",
-          "code": "document.querySelector('label[for=name]')?.textContent==='Name' && !!document.querySelector('input#name')"
+          "label": "Erstelle einen input mit id=\"name\" und ein label mit dem sichtbaren Text „Name“. Verbinde beide über for=\"name\" am label. Weitere Attribute und die optische Gestaltung sind frei.",
+          "code": "__text('label[for=name]')==='Name' && !!document.querySelector('input#name')"
         }
       ],
       "prerequisites": [
         "m02-03"
       ],
-      "solutionNotes": "Ein label bleibt sichtbar und beschreibt ein Feld auch für Hilfstechnologien. for und id müssen identisch sein. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<label for=\"pflanze\">Pflanze</label><input id=\"pflanze\">",
+        "explanation": "for stellt über den gleichen Namen eine Verbindung zur id her. Dadurch kann ein Klick auf die Beschriftung das Feld fokussieren. Eine Beschriftung in einem gewöhnlichen Absatz stellt diese Verbindung nicht her.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in 'label[for=name]'",
+          "expected": "'Name'",
+          "context": "Erstelle einen input mit id=\"name\" und ein label mit dem sichtbaren Text „Name“. Verbinde beide über for=\"name\" am label. Weitere Attribute und die optische Gestaltung sind frei."
+        }
+      ],
+      "solutionNotes": "for stellt über den gleichen Namen eine Verbindung zur id her. Dadurch kann ein Klick auf die Beschriftung das Feld fokussieren. Eine Beschriftung in einem gewöhnlichen Absatz stellt diese Verbindung nicht her. Ein label bleibt sichtbar und beschreibt ein Feld auch für Hilfstechnologien. for und id müssen identisch sein. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-05",
       "title": "Ein Formular abschicken",
       "explanation": "form gruppiert Eingaben. Ein button mit type=\"submit\" löst das Absenden aus. In dieser Vorschau bleibt Navigation gesperrt.",
-      "task": "Erstelle ein form mit beschriftetem input und Submit-Button.",
+      "task": "Erstelle ein form mit einem input, dessen id und name jeweils „nickname“ lauten. Ergänze ein über for=\"nickname\" verbundenes label und einen button mit type=\"submit“. Beschriftungen sind frei.",
       "minutes": 8,
       "xp": 25,
       "focus": "html",
@@ -163,26 +233,42 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "form gruppiert Eingaben. Ein button mit type=\"submit\" löst das Absenden aus. In dieser Vorschau bleibt Navigation gesperrt.",
-        "Orientiere dich an diesem Baustein:\n<form><label for=\"nickname\">Nickname</label><input id=\"nickname\" name=\"nickname\"><button type=\"submit\">Speichern</button></form>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<form><label for=\"nickname\">Nickname</label><input id=\"nickname\" name=\"nickname\"><button type=\"submit\">Speichern</button></form>"
+        "Hast du sowohl die Beschriftungsverknüpfung als auch den technischen Feldnamen beachtet?",
+        "id verbindet das Feld mit seiner Beschriftung. name benennt den Wert beim Absenden. Ein Submit-Button gehört in das Formular. Erst später verhindern wir das normale Absenden mit JavaScript.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
-          "label": "Erstelle ein form mit beschriftetem input und Submit-Button.",
+          "label": "Erstelle ein form mit einem input, dessen id und name jeweils „nickname“ lauten. Ergänze ein über for=\"nickname\" verbundenes label und einen button mit type=\"submit“. Beschriftungen sind frei.",
           "code": "!!document.querySelector('form input[name=nickname]') && !!document.querySelector('form button[type=submit]') && !!document.querySelector('label[for=nickname]')"
         }
       ],
       "prerequisites": [
         "m02-04"
       ],
-      "solutionNotes": "form gruppiert Eingaben. Ein button mit type=\"submit\" löst das Absenden aus. In dieser Vorschau bleibt Navigation gesperrt. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<form><label for=\"ort\">Ort</label><input id=\"ort\" name=\"ort\"><button type=\"submit\">Suchen</button></form>",
+        "explanation": "id verbindet das Feld mit seiner Beschriftung. name benennt den Wert beim Absenden. Ein Submit-Button gehört in das Formular. Erst später verhindern wir das normale Absenden mit JavaScript.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "id verbindet das Feld mit seiner Beschriftung. name benennt den Wert beim Absenden. Ein Submit-Button gehört in das Formular. Erst später verhindern wir das normale Absenden mit JavaScript. form gruppiert Eingaben. Ein button mit type=\"submit\" löst das Absenden aus. In dieser Vorschau bleibt Navigation gesperrt. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-06",
       "title": "Eine E-Mail prüfen",
       "explanation": "type=\"email\" prüft das Format, required verlangt einen Wert. autocomplete unterstützt passende Browser-Vorschläge.",
-      "task": "Erstelle ein beschriftetes Pflichtfeld mit type=\"email\".",
+      "task": "Erstelle ein input mit id=\"email\", type=\"email\" und required. Ergänze ein über for=\"email\" verbundenes label mit frei gewählter Beschriftung. autocomplete ist eine freiwillige Ergänzung.",
       "minutes": 8,
       "xp": 25,
       "focus": "html",
@@ -197,26 +283,42 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "type=\"email\" prüft das Format, required verlangt einen Wert. autocomplete unterstützt passende Browser-Vorschläge.",
-        "Orientiere dich an diesem Baustein:\n<label for=\"email\">E-Mail</label><input id=\"email\" name=\"email\" type=\"email\" required autocomplete=\"email\">",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<label for=\"email\">E-Mail</label><input id=\"email\" name=\"email\" type=\"email\" required autocomplete=\"email\">"
+        "Ist das Feld beschriftet, als E-Mail typisiert und als Pflichtfeld markiert?",
+        "Typ und Pflichtangabe sind unabhängige Regeln: email prüft einen eingegebenen Text, required verbietet das Leerlassen. Die sichtbare Beschriftung bleibt auch bei ausgefülltem Feld erhalten.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
-          "label": "Erstelle ein beschriftetes Pflichtfeld mit type=\"email\".",
+          "label": "Erstelle ein input mit id=\"email\", type=\"email\" und required. Ergänze ein über for=\"email\" verbundenes label mit frei gewählter Beschriftung. autocomplete ist eine freiwillige Ergänzung.",
           "code": "!!document.querySelector('input#email[type=email][required]') && !!document.querySelector('label[for=email]')"
         }
       ],
       "prerequisites": [
         "m02-05"
       ],
-      "solutionNotes": "type=\"email\" prüft das Format, required verlangt einen Wert. autocomplete unterstützt passende Browser-Vorschläge. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<label for=\"kontakt\">Kontakt</label><input id=\"kontakt\" type=\"email\" required>",
+        "explanation": "Typ und Pflichtangabe sind unabhängige Regeln: email prüft einen eingegebenen Text, required verbietet das Leerlassen. Die sichtbare Beschriftung bleibt auch bei ausgefülltem Feld erhalten.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Typ und Pflichtangabe sind unabhängige Regeln: email prüft einen eingegebenen Text, required verbietet das Leerlassen. Die sichtbare Beschriftung bleibt auch bei ausgefülltem Feld erhalten. type=\"email\" prüft das Format, required verlangt einen Wert. autocomplete unterstützt passende Browser-Vorschläge. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-07",
       "title": "Eine bewusste Auswahl",
       "explanation": "select enthält option-Elemente. value ist der maschinenlesbare Wert.",
-      "task": "Baue ein beschriftetes select id=\"level\" mit den Werten start und pro.",
+      "task": "Erstelle ein select mit id=\"level\" und einem verbundenen label. Es enthält genau zwei option-Elemente, zuerst value=\"start\", danach value=\"pro\". Ihre sichtbaren Beschriftungen sind frei.",
       "minutes": 8,
       "xp": 25,
       "focus": "html",
@@ -231,20 +333,36 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "select enthält option-Elemente. value ist der maschinenlesbare Wert.",
-        "Orientiere dich an diesem Baustein:\n<label for=\"level\">Level</label><select id=\"level\"><option value=\"start\">Start</option><option value=\"pro\">Profi</option></select>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<label for=\"level\">Level</label><select id=\"level\"><option value=\"start\">Start</option><option value=\"pro\">Profi</option></select>"
+        "Welche Werte erwartet der Code und welche Texte sieht der Mensch?",
+        "Die Anzeige einer Option und ihr value können verschieden sein. Die Anwendung verarbeitet den value. Die Reihenfolge der option-Elemente entspricht zunächst der Reihenfolge im Menü.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
-          "label": "Baue ein beschriftetes select id=\"level\" mit den Werten start und pro.",
+          "label": "Erstelle ein select mit id=\"level\" und einem verbundenen label. Es enthält genau zwei option-Elemente, zuerst value=\"start\", danach value=\"pro\". Ihre sichtbaren Beschriftungen sind frei.",
           "code": "!!document.querySelector('label[for=level]') && [...document.querySelectorAll('#level option')].map(x=>x.value).join(',')==='start,pro'"
         }
       ],
       "prerequisites": [
         "m02-06"
       ],
-      "solutionNotes": "select enthält option-Elemente. value ist der maschinenlesbare Wert. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<label for=\"farbe\">Farbe</label><select id=\"farbe\"><option value=\"rot\">Rot</option></select>",
+        "explanation": "Die Anzeige einer Option und ihr value können verschieden sein. Die Anwendung verarbeitet den value. Die Reihenfolge der option-Elemente entspricht zunächst der Reihenfolge im Menü.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Die Anzeige einer Option und ihr value können verschieden sein. Die Anwendung verarbeitet den value. Die Reihenfolge der option-Elemente entspricht zunächst der Reihenfolge im Menü. select enthält option-Elemente. value ist der maschinenlesbare Wert. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-08",
@@ -265,9 +383,9 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "fieldset gruppiert Felder; legend benennt die Gruppe. Radio-Inputs mit gleichem name erlauben eine Auswahl.",
-        "Orientiere dich an diesem Baustein:\n<fieldset><legend>Lerntempo</legend><label><input type=\"radio\" name=\"tempo\" value=\"ruhig\">Ruhig</label><label><input type=\"radio\" name=\"tempo\" value=\"schnell\">Schnell</label></fieldset>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<fieldset><legend>Lerntempo</legend><label><input type=\"radio\" name=\"tempo\" value=\"ruhig\">Ruhig</label><label><input type=\"radio\" name=\"tempo\" value=\"schnell\">Schnell</label></fieldset>"
+        "Tragen beide Radios denselben Gruppennamen und verschiedene Werte?",
+        "Radios bilden über ein gemeinsames name eine Auswahlgruppe. Unterschiedliche values identifizieren die Optionen. Die legend erklärt, welche gemeinsame Frage diese Optionen beantworten.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
@@ -278,7 +396,23 @@ window.CURRICULUM.push({
       "prerequisites": [
         "m02-07"
       ],
-      "solutionNotes": "fieldset gruppiert Felder; legend benennt die Gruppe. Radio-Inputs mit gleichem name erlauben eine Auswahl. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<fieldset><legend>Standort</legend><label><input type=\"radio\" name=\"licht\" value=\"sonne\">Sonne</label></fieldset>",
+        "explanation": "Radios bilden über ein gemeinsames name eine Auswahlgruppe. Unterschiedliche values identifizieren die Optionen. Die legend erklärt, welche gemeinsame Frage diese Optionen beantworten.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Radios bilden über ein gemeinsames name eine Auswahlgruppe. Unterschiedliche values identifizieren die Optionen. Die legend erklärt, welche gemeinsame Frage diese Optionen beantworten. fieldset gruppiert Felder; legend benennt die Gruppe. Radio-Inputs mit gleichem name erlauben eine Auswahl. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-09",
@@ -299,26 +433,48 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "details und summary bilden ohne JavaScript einen aufklappbaren Hinweis.",
-        "Orientiere dich an diesem Baustein:\n<details><summary>Tipp</summary><p>Kleine Schritte führen ans Ziel.</p></details>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<details><summary>Tipp</summary><p>Kleine Schritte führen ans Ziel.</p></details>"
+        "Ist die kurze Überschrift im summary und die ausführliche Erklärung innerhalb von details?",
+        "summary ist der sichtbare Schalter des details-Elements. Alles weitere darin gehört zum ausklappbaren Inhalt. Der Browser übernimmt Öffnen, Schließen und Tastaturbedienung.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
           "label": "Erstelle details mit summary Tipp und einem erklärenden Absatz.",
-          "code": "document.querySelector('details summary')?.textContent==='Tipp' && !!document.querySelector('details p')"
+          "code": "__text('details summary')==='Tipp' && !!document.querySelector('details p')"
         }
       ],
       "prerequisites": [
         "m02-08"
       ],
-      "solutionNotes": "details und summary bilden ohne JavaScript einen aufklappbaren Hinweis. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<details><summary>Hintergrund</summary><p>Weitere Informationen.</p></details>",
+        "explanation": "summary ist der sichtbare Schalter des details-Elements. Alles weitere darin gehört zum ausklappbaren Inhalt. Der Browser übernimmt Öffnen, Schließen und Tastaturbedienung.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [
+        {
+          "input": "Text in 'details summary'",
+          "expected": "'Tipp'",
+          "context": "Erstelle details mit summary Tipp und einem erklärenden Absatz."
+        }
+      ],
+      "solutionNotes": "summary ist der sichtbare Schalter des details-Elements. Alles weitere darin gehört zum ausklappbaren Inhalt. Der Browser übernimmt Öffnen, Schließen und Tastaturbedienung. details und summary bilden ohne JavaScript einen aufklappbaren Hinweis. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     },
     {
       "id": "m02-10",
       "title": "Projekt: Dein Lernprofil",
       "explanation": "Nutze Semantik und native Validierung. minlength legt eine Mindestlänge für Texte fest.",
-      "task": "Baue ein main mit form: beschrifteter Nickname (required, minlength=3), Level-Auswahl und Submit-Button.",
+      "task": "Erstelle ein main mit einem form. Darin: ein input mit id=\"nick\", name=\"nick\", required und minlength=\"3\" samt verbundenem label; ein select mit id=\"level\" samt verbundenem label und mindestens einer option; ein button mit type=\"submit\". Texte und Styling sind frei.",
       "minutes": 15,
       "xp": 25,
       "focus": "html",
@@ -333,20 +489,36 @@ window.CURRICULUM.push({
         "js": ""
       },
       "hints": [
-        "Nutze Semantik und native Validierung. minlength legt eine Mindestlänge für Texte fest.",
-        "Orientiere dich an diesem Baustein:\n<main><h1>Lernprofil</h1><form><label for=\"nick\">Nickname</label><input id=\"nick\" name=\"nick\" required minlength=\"3\"><label for=\"level\">Level</label><select id=\"level\"><option>Start</option><option>Fortgeschritten</option></select><button type=\"submit\">Profil anlegen</button></form></main>",
-        "Arbeite in kleinen Schritten: erst den Kern umsetzen, dann Ausführen und Prüfen. Bei Funktionen teste zusätzlich andere Eingaben in console.log.\n<main><h1>Lernprofil</h1><form><label for=\"nick\">Nickname</label><input id=\"nick\" name=\"nick\" required minlength=\"3\"><label for=\"level\">Level</label><select id=\"level\"><option>Start</option><option>Fortgeschritten</option></select><button type=\"submit\">Profil anlegen</button></form></main>"
+        "Hat jedes Feld eine passende Beschriftung, und sind Mindestlänge sowie Pflichtangabe am richtigen Feld?",
+        "Baue das Formular zuerst aus vollständig beschrifteten Feldern. Danach ergänze Regeln und Auswahlmöglichkeiten. So lassen sich Strukturprobleme von Validierungsproblemen unterscheiden.",
+        "Kontrolliere die Verschachtelung im HTML: Welches Element ist der Behälter, welche sind seine Kinder? Vergleiche danach die ausdrücklich geforderten Texte und Attribute mit dem Ziel. Einrückung und Zeilenumbrüche sind frei."
       ],
       "tests": [
         {
-          "label": "Baue ein main mit form: beschrifteter Nickname (required, minlength=3), Level-Auswahl und Submit-Button.",
+          "label": "Erstelle ein main mit einem form. Darin: ein input mit id=\"nick\", name=\"nick\", required und minlength=\"3\" samt verbundenem label; ein select mit id=\"level\" samt verbundenem label und mindestens einer option; ein button mit type=\"submit\". Texte und Styling sind frei.",
           "code": "!!document.querySelector('main form input[required][minlength=\"3\"]') && !!document.querySelector('label[for=nick]') && !!document.querySelector('label[for=level]') && !!document.querySelector('form select') && !!document.querySelector('button[type=submit]')"
         }
       ],
       "prerequisites": [
         "m02-09"
       ],
-      "solutionNotes": "Nutze Semantik und native Validierung. minlength legt eine Mindestlänge für Texte fest. Die Musterlösung setzt den beschriebenen Vertrag direkt um. Prüfe danach einen abweichenden Wert oder ergänze eine eigene Gestaltung. Die sichtbaren Prüfungen decken konkrete Anforderungen ab; sie sind kein vollständiger Beweis für alle möglichen Eingaben."
+      "concept": {
+        "example": "<form><label for=\"titel\">Titel</label><input id=\"titel\" name=\"titel\" minlength=\"4\" required></form>",
+        "explanation": "Baue das Formular zuerst aus vollständig beschrifteten Feldern. Danach ergänze Regeln und Auswahlmöglichkeiten. So lassen sich Strukturprobleme von Validierungsproblemen unterscheiden.",
+        "note": "Dieses Beispiel zeigt die Technik mit anderen Inhalten. Übertrage das Prinzip auf die Aufgabe; kopiere nicht einfach die Beispielwerte."
+      },
+      "requirements": [
+        {
+          "label": "Arbeitsbereich",
+          "text": "Ergänze den HTML-Editor. CSS und JavaScript können für diese Aufgabe unverändert bleiben."
+        },
+        {
+          "label": "Frei gestaltbar",
+          "text": "Einrückung, Leerzeilen und Hilfsvariablen sind frei. Zusätzliche Gestaltung ist erlaubt, solange sie die verlangte Funktion und DOM-Struktur erhält."
+        }
+      ],
+      "examples": [],
+      "solutionNotes": "Baue das Formular zuerst aus vollständig beschrifteten Feldern. Danach ergänze Regeln und Auswahlmöglichkeiten. So lassen sich Strukturprobleme von Validierungsproblemen unterscheiden. Nutze Semantik und native Validierung. minlength legt eine Mindestlänge für Texte fest. Vergleiche den Aufbau der Musterlösung mit deinem eigenen Ansatz. Entscheidend sind die vereinbarten Eingaben, Rückgaben und sichtbaren Wirkungen, nicht identischer Quelltext."
     }
   ]
 });
