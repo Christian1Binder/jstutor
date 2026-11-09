@@ -1,11 +1,12 @@
 {
   "name": "jstutor",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "test": "node tests/validate.mjs && node tests/powershell.cjs",
     "build": "node scripts/build.mjs",
-    "build:editor": "node scripts/build-editor.mjs"
+    "build:editor": "node scripts/build-editor.mjs",
+    "package:strato": "node scripts/package-strato.mjs"
   },
   "engines": {
     "node": ">=20"

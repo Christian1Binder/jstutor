@@ -1,3 +1,2 @@
-/* Enable only after HTTPS, database schema and server/api.php are installed.
-   Example: apiUrl: './api.php'. No credentials belong in this public file. */
-window.PLATFORM_CONFIG={apiUrl:null};
+/* The account endpoint is detected on PHP hosting. Static hosting remains usable without an account. */
+window.PLATFORM_CONFIG={apiUrl:'./api.php',autoDetect:true};

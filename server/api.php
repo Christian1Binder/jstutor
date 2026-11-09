@@ -6,9 +6,11 @@ header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
 function reply(array $data, int $status = 200): never { http_response_code($status); echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR); exit; }
 function fail(string $message, int $status): never { reply(['error'=>$message], $status); }
-$configPath = getenv('BINDER_TUTOR_CONFIG');
-if (!$configPath || !is_readable($configPath)) fail('Konten sind noch nicht eingerichtet.', 503);
+require __DIR__ . '/deployment.php';
+$configPath = tutor_config_path();
+if (!$configPath || !is_readable($configPath)) reply(['error'=>'Konten sind noch nicht eingerichtet.','code'=>'not_configured'], 503);
 $config = require $configPath;
+if (!tutor_https()) fail('Anmeldung benötigt HTTPS.', 400);
 ini_set('session.use_strict_mode', '1');
 session_name('binder_tutor');
 session_set_cookie_params(['lifetime'=>0,'path'=>'/','secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
@@ -28,7 +30,7 @@ if ($write) {
 } elseif ($method !== 'GET') fail('Methode nicht unterstützt.', 405);
 try {
     $db = new PDO($config['dsn'], $config['user'], $config['password'], [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES=>false]);
-    if ($action === 'session') reply(['user'=>$_SESSION['user'] ?? null,'csrf'=>$_SESSION['csrf']]);
+    if ($action === 'session') reply(['user'=>$_SESSION['user'] ?? null,'csrf'=>$_SESSION['csrf'],'registrationEnabled'=>!empty($config['registration_enabled'])]);
     if ($action === 'login' || $action === 'register') {
         $email = strtolower(trim((string)($data['email'] ?? '')));
         $password = (string)($data['password'] ?? '');

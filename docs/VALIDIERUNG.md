@@ -53,3 +53,11 @@ Zusätzlich bei 1920px Außenbreite gemessen: 1905px Inhalt ohne horizontales Ü
 - `tests/ps-browser.html`: 200 von 200 Lösungen in echten Web Workern bestanden, keine Fehler.
 - Anmeldung bleibt in der statischen Version deaktiviert. PHP und MySQL waren lokal nicht verfügbar; die Servervorlage benötigt die in server/README.md beschriebene Zielserverprüfung.
 - Der Previewhost verwendet HTTP; Installation/Update des Offline-Service-Workers muss auf dem HTTPS-Zielhost geprüft werden. Cache-Liste und lokale Dateireferenzen werden beim Build geprüft.
+
+## Version 2.1 – STRATO-Setup
+
+- PHP 8.3: Syntax von Setup, API und Deployment-Helfer erfolgreich geprüft.
+- Lokale MariaDB 10.11: erfolgreicher kompletter Setupdurchlauf mit separatem Testkonto. Falscher Setupcode/CSRF-Token werden abgewiesen, private Konfiguration liegt außerhalb des Webroots, erneutes Setup ist gesperrt.
+- Anmeldung mit gehashter Passwortablage, Abmeldung, deaktivierte Selbstregistrierung, gespeicherte Zustände und Revisionskonflikt (HTTP 409) erfolgreich geprüft. Nicht angemeldete Zustandsabfragen werden abgewiesen.
+- Alle bestehenden 400 Kursübungen und Speicher-/Importtests weiterhin erfolgreich.
+- Die tatsächlichen STRATO-Zugangsdaten werden erst vom Benutzer im HTTPS-Setup verwendet; keine Verbindung zur Nutzerdatenbank wurde aus der Entwicklungsumgebung hergestellt.

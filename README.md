@@ -75,3 +75,9 @@ JS-Lernstände bleiben unter `jstutor.v1`, PS-Stände unter `pstutor.v1`. Beide 
 **Upload:** `npm run build` ausführen und den vollständigen Inhalt von `dist/` ins Root der Subdomain übertragen. Einmal das angebotene Website-Update übernehmen. Der statische Build veröffentlicht keine privaten Serverkonfigurationen. Die PHP-Vorlage erst nach Einrichtung gemäß Serverdokumentation installieren.
 
 Erweiterungsprompt und fachliche Referenzen: `docs/POWERSHELL-AUTHORING.md`. `npm test` prüft beide 200er-Kurse sowie PS-Interpreter, Speicher und Backups. Nach Änderungen am Editor: `npm ci && npm run build:editor`.
+
+## Version 2.1 – STRATO-Setup
+
+`npm run package:strato` erzeugt ein privates Installationspaket mit einmaligem Setupcode. Ein Browser-Assistent richtet die vorhandene MySQL/MariaDB-Datenbank und das erste Lernkonto ein. Konfiguration liegt außerhalb des Webroots, vorhandene Konten werden nicht überschrieben, weitere Setupläufe sind gesperrt. Die Startseite erkennt den PHP-Endpunkt automatisch. Alle Schritte und die manuelle SQL-Alternative stehen in `server/README.md`.
+
+Für statische Veröffentlichungen bleibt `npm run build` richtig: Es veröffentlicht keine PHP-, SQL- oder Konfigurationsdateien. Ein persönliches STRATO-Paket enthält zusätzlich die Serverdateien. Installationscodes und vorberelegte Datenbanknamen gehören nicht ins öffentliche Repository.
