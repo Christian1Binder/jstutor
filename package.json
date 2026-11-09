@@ -1,9 +1,9 @@
 {
   "name": "jstutor",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
-    "test": "node tests/validate.mjs",
+    "test": "node tests/validate.mjs && node tests/powershell.cjs",
     "build": "node scripts/build.mjs",
     "build:editor": "node scripts/build-editor.mjs"
   },

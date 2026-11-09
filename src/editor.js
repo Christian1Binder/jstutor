@@ -3,7 +3,7 @@ import {basicSetup} from 'codemirror';
 import {EditorState, Prec} from '@codemirror/state';
 import {EditorView, keymap} from '@codemirror/view';
 import {indentWithTab} from '@codemirror/commands';
-import {HighlightStyle, syntaxHighlighting, indentUnit} from '@codemirror/language';
+import {HighlightStyle, syntaxHighlighting, indentUnit, StreamLanguage} from '@codemirror/language';
 import {html} from '@codemirror/lang-html';
 import {css} from '@codemirror/lang-css';
 import {javascript} from '@codemirror/lang-javascript';
@@ -36,8 +36,19 @@ const skin=EditorView.theme({
  '&.cm-focused':{outline:'none'}
 },{dark:true});
 
+const powershell=()=>StreamLanguage.define({token(stream){
+ if(stream.eatSpace())return null;
+ if(stream.match(/#.*/))return 'comment';
+ if(stream.match(/\$[\w?:]+/))return 'variableName';
+ if(stream.match(/"(?:[^"`]|`.)*"|'(?:[^']|'')*'/))return 'string';
+ if(stream.match(/\b(?:if|else|foreach|in|for|while|function|param|return|try|catch|throw)\b/i))return 'keyword';
+ if(stream.match(/-[a-z]+/i))return 'operator';
+ if(stream.match(/\b\d+(?:\.\d+)?/))return 'number';
+ if(stream.match(/\b[A-Za-z]+-[A-Za-z]+/))return 'typeName';
+ stream.next();return null;
+}});
 function create({parent,language,value,label,onChange,onRun}){
- const syntax={html,css,js:javascript}[language];
+ const syntax={html,css,js:javascript,ps:powershell}[language];
  const view=new EditorView({parent,state:EditorState.create({doc:value,extensions:[
   basicSetup,skin,syntaxHighlighting(colors),syntax(),indentUnit.of('  '),
   Prec.highest(keymap.of([

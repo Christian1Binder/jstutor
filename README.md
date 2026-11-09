@@ -63,3 +63,15 @@ Alle Editor-Dateien liegen lokal in `vendor/`; es gibt keine CDN-Abhängigkeit. 
 **Manueller Webspace-Upload:** `index.html`, `app.js`, `storage.js`, `styles.css`, `sw.js` ersetzen und den vollständigen neuen Ordner **`vendor/`** hochladen. Alternativ den gesamten Inhalt von `dist/` nach `npm run build` übertragen. Bestehende Lernstände bleiben erhalten.
 
 ![Flexible Editoren mit Syntax-Highlighting](docs/screenshots/editors-v1.2.jpg)
+
+## Version 2 – Gemeinsame Lernwerkstatt & PS-Tutor
+
+Der Aufruf ohne Hash führt zur Themenwahl auf `start.html`. Direkte JS-Lesezeichen wie `index.html#uebung/m01-01` bleiben gültig. `powershell.html#reise` öffnet den parallelen PowerShell-Lernpfad mit 20 Modulen und 200 Übungen: Terminal, Variablen, Vergleiche, Texte, Arrays, Listenoperationen, Hashtabellen, Objekte, Pipelines, Entscheidungen, Schleifen, Funktionen, Statistik, Suchmuster, JSON, CSV, virtuelle Dateien, Fehlerbehandlung, Verwaltungsdaten und Abschlussprojekte.
+
+Beide Tutoren verwenden dieselbe Oberfläche und lokal gebündelte CodeMirror-Editoren. PS-Tutor ergänzt PowerShell-Syntaxfarben und eine begrenzte Lernruntime, **keine vollständige Microsoft-PowerShell**. Befehle laufen in einem abbrechbaren Web Worker. Dateien und administrative Daten sind virtuell, alle Grenzen sind in `ps/runtime.html` beschrieben. Es werden keine Dienste oder Dateien auf dem echten Gerät verändert. APIs werden anhand lokaler Antwortdaten geübt.
+
+JS-Lernstände bleiben unter `jstutor.v1`, PS-Stände unter `pstutor.v1`. Beide haben Profile, Entwürfe, XP, Tags, Favoriten, Hilfe, Musterlösungen, Tastenkürzel und Export/Import. Backups mit bekanntem anderem Lernpfad werden abgewiesen. Ein zentraler Konto-Client, Login/Registrierungsvorlage, PHP-API, MySQL-Schema und konfliktgeschützte Speicherendpunkte sind vorbereitet. Einrichtung und verbleibende Grenzen: `server/README.md`. Anmeldung und Synchronisierung sind im statischen Betrieb nicht aktiv.
+
+**Upload:** `npm run build` ausführen und den vollständigen Inhalt von `dist/` ins Root der Subdomain übertragen. Einmal das angebotene Website-Update übernehmen. Der statische Build veröffentlicht keine privaten Serverkonfigurationen. Die PHP-Vorlage erst nach Einrichtung gemäß Serverdokumentation installieren.
+
+Erweiterungsprompt und fachliche Referenzen: `docs/POWERSHELL-AUTHORING.md`. `npm test` prüft beide 200er-Kurse sowie PS-Interpreter, Speicher und Backups. Nach Änderungen am Editor: `npm ci && npm run build:editor`.

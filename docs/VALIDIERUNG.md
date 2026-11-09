@@ -44,3 +44,12 @@ Zusätzlich bei 1920px Außenbreite gemessen: 1905px Inhalt ohne horizontales Ü
 - Neuladen bewahrt Code, Anordnung, Navigation und minimierte Editoren. Zurücksetzen stellt Startcode in CodeMirror wieder her.
 - Responsive-Prüfung im 390px- und 768px-Frame: Dokumentbreite entspricht Scrollbreite, kein horizontales Überlaufen der Seite. Schmale Editoren werden gestapelt.
 - Screenshot: `docs/screenshots/editors-v1.2.jpg`.
+
+## Version 2 – PS-Tutor und Themenwahl
+
+- Beide Kurse: jeweils 20 Module und 200 Übungen; Syntax-/Schema-/Prerequisite- und Profilprüfungen erfolgreich.
+- Alle 200 PowerShell-Musterlösungen im eigenen Interpreter mit unabhängig hinterlegten Ausgaben erfolgreich. Zusätzliche Tests decken alternative Eingaben, Pipelines, Fehlerbehandlung, zurückgesetzte virtuelle Dateien, unbekannte Befehle, Schleifenlimit und getrennte Sicherungen ab.
+- Echter Chrome-Browser: Themenwahl → PS-Lernkarte → Editor → Prüfung per Ctrl+Shift+Enter erfolgreich. Arrays eingeben, prüfen und vollständig neu laden erhält Code und XP. Wechsel zu JS-Tutor zeigt einen getrennten Fortschritt.
+- `tests/ps-browser.html`: 200 von 200 Lösungen in echten Web Workern bestanden, keine Fehler.
+- Anmeldung bleibt in der statischen Version deaktiviert. PHP und MySQL waren lokal nicht verfügbar; die Servervorlage benötigt die in server/README.md beschriebene Zielserverprüfung.
+- Der Previewhost verwendet HTTP; Installation/Update des Offline-Service-Workers muss auf dem HTTPS-Zielhost geprüft werden. Cache-Liste und lokale Dateireferenzen werden beim Build geprüft.
